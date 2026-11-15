@@ -1,0 +1,33 @@
+---
+componentName: avyx
+welcomeStyleCalamares: true
+welcomeExpandingLogo: true
+windowExpanding: normal
+windowPlacement: center
+sidebar: left
+
+strings:
+    productName: AVYX OS
+    shortProductName: AVYX
+    version: "0.1"
+    shortVersion: "0.1"
+    versionedName: AVYX OS
+    shortVersionedName: AVYX
+    bootloaderEntryName: AVYX
+    productUrl: https://github.com/Shree-2010/avyx-os
+    supportUrl: https://github.com/Shree-2010/avyx-os/issues
+    knownIssuesUrl: https://github.com/Shree-2010/avyx-os/issues
+    releaseNotesUrl: https://github.com/Shree-2010/avyx-os/releases
+
+images:
+    productLogo: "logo.png"
+    productIcon: "logo.png"
+
+slideshow: "show.qml"
+slideshowAPI: 2
+
+style:
+    sidebarBackground: "#0b0e1a"
+    sidebarText: "#e8ebfa"
+    sidebarTextSelect: "#ffffff"
+    sidebarTextHighlight: "#4a58d6"

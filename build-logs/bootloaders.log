@@ -1,0 +1,162 @@
+== bootloader template files ==
+config/bootloaders/extlinux/extlinux.conf
+config/bootloaders/grub-legacy/menu.lst
+config/bootloaders/grub-legacy/splash.xpm.gz
+config/bootloaders/grub-pc/config.cfg
+config/bootloaders/grub-pc/grub.cfg
+config/bootloaders/grub-pc/install_gui.cfg
+config/bootloaders/grub-pc/install_start_gui.cfg
+config/bootloaders/grub-pc/install_start_text.cfg
+config/bootloaders/grub-pc/install_text.cfg
+config/bootloaders/grub-pc/live-theme/theme.txt
+config/bootloaders/grub-pc/memtest.cfg
+config/bootloaders/grub-pc/theme.cfg
+config/bootloaders/isolinux/isolinux.cfg
+config/bootloaders/pxelinux/pxelinux.cfg/default
+config/bootloaders/splash.svg
+config/bootloaders/syslinux/syslinux.cfg
+config/bootloaders/syslinux_common/install_gui.cfg
+config/bootloaders/syslinux_common/install_text.cfg
+config/bootloaders/syslinux_common/live.cfg.in
+config/bootloaders/syslinux_common/memtest.cfg
+config/bootloaders/syslinux_common/menu.cfg
+config/bootloaders/syslinux_common/stdmenu.cfg
+config/bootloaders/syslinux_common/utilities.cfg
+== result: grub-pc/config.cfg ==
+set default=0
+
+if [ x$feature_default_font_path = xy ] ; then
+    font=unicode
+else
+    font=$prefix/unicode.pf2
+fi
+
+# Copied from the netinst image
+if loadfont $font ; then
+    set gfxmode=800x600
+    set gfxpayload=keep
+    insmod efi_gop
+    insmod efi_uga
+    insmod video_bochs
+    insmod video_cirrus
+else
+    set gfxmode=auto
+    insmod all_video
+fi
+
+insmod gfxterm
+insmod png
+
+source /boot/grub/theme.cfg
+
+terminal_output gfxterm
+
+insmod play
+play 960 440 1 0 4 440 1
+
+set timeout=3
+set timeout_style=hidden
+== result: grub-pc/grub.cfg ==
+source /boot/grub/config.cfg
+
+# Live boot
+@LINUX_LIVE@
+
+# You can add more entries like this
+# menuentry "Alternate live boot" {
+# linux @KERNEL_LIVE@ @APPEND_LIVE@ custom options here
+# initrd @INITRD_LIVE@
+# }
+# menuentry "Alternate graphical installer" {
+# linux @KERNEL_GI@ @APPEND_GI@ custom options here
+# initrd @INITRD_GI@
+# }
+# menuentry "Alternate textual installer" {
+# linux @KERNEL_DI@ @APPEND_DI@ custom options here
+# initrd @INITRD_DI@
+# }
+
+# Installer (if any)
+if @ENABLE_INSTALL_MENU@; then
+
+source	/boot/grub/install_start.cfg
+
+submenu 'Advanced install options ...' --hotkey=a {
+
+	source /boot/grub/theme.cfg
+
+	source	/boot/grub/install.cfg
+
+}
+fi
+
+submenu 'Utilities...' --hotkey=u {
+
+	source /boot/grub/theme.cfg
+
+	# Memtest (if any)
+	if @ENABLE_MEMTEST@; then
+		source /boot/grub/memtest.cfg
+	fi
+
+	# Firmware setup (UEFI)
+	if [ "${grub_platform}" = "efi" ]; then
+		menuentry "UEFI Firmware Settings" --hotkey=f {
+			fwsetup
+		}
+	fi
+
+	# Verify the checksums
+	if @ENABLE_VERIFY_CHECKSUMS@; then
+		menuentry "Verify integrity of the boot medium" --hotkey=v {
+			linux	@KERNEL_LIVE@ @APPEND_VERIFY_CHECKSUMS@
+			initrd	@INITRD_LIVE@
+		}
+	fi
+}
+== result: grub-pc/live-theme/theme.txt (head) ==
+desktop-image: "../splash.png"
+title-color: "#ffffff"
+title-font: "Unifont Regular 16"
+title-text: ""
+message-font: "Unifont Regular 16"
+terminal-font: "Unifont Regular 16"
+
+#help bar at the bottom
+== result: isolinux/isolinux.cfg ==
+include menu.cfg
+default vesamenu.c32
+prompt 0
+timeout 30
+== result: syslinux_common/menu.cfg ==
+menu hshift 0
+menu width 82
+
+menu title Boot menu
+include stdmenu.cfg
+include live.cfg
+@OPTIONAL_INSTALLER_INCLUDE@
+menu begin utilities
+	menu label ^Utilities
+	menu title Utilities
+	include stdmenu.cfg
+	label mainmenu
+		menu label ^Back..
+		menu exit
+	include utilities.cfg
+menu end
+
+menu clear
+== result: syslinux_common/live.cfg.in ==
+label live-@FLAVOUR@
+	menu label ^AVYX OS live (@FLAVOUR@)
+	menu default
+	linux @LINUX@
+	initrd @INITRD@
+	append @APPEND_LIVE@
+
+label live-@FLAVOUR@-failsafe
+	menu label AVYX OS live (@FLAVOUR@ fail-safe mode)
+	linux @LINUX@
+	initrd @INITRD@
+	append @APPEND_LIVE_FAILSAFE@

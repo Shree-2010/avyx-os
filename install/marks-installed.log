@@ -1,0 +1,7 @@
+[2J[01;01H[=3h[2J[01;01H[2J[01;01H[=3h[2J[01;01H[2J[01;01H[=3h[2J[01;01HBdsDxe: loading Boot0008 "AVYX" from HD(1,GPT,FE4A9A70-127D-4155-B9B2-FAC5AF6558CF,0x1000,0x96000)/\EFI\AVYX\grubx64.efi
+BdsDxe: starting Boot0008 "AVYX" from HD(1,GPT,FE4A9A70-127D-4155-B9B2-FAC5AF6558CF,0x1000,0x96000)/\EFI\AVYX\grubx64.efi
+AVYX_MARK multi_user uptime=4.74
+AVYX_MARK rootfs: /dev/vda2 ext4
+AVYX_MARK cmdline: BOOT_IMAGE=/boot/vmlinuz-6.12.117+deb13-amd64 root=UUID=778c8a9b-91b8-40c7-898a-5a1d97f61a61 ro quiet splash
+AVYX_MARK plasmashell_started uptime=6.79
+AVYX_MARK desktop_idle uptime=66.79 mem_used_mb=992 mem_total_mb=3915

@@ -1,0 +1,152 @@
+[2J[01;01H[=3h[2J[01;01H[2J[01;01H[=3h[2J[01;01H[2J[01;01H[=3h[2J[01;01HBdsDxe: loading Boot0001 "UEFI QEMU DVD-ROM QM00005 " from PciRoot(0x0)/Pci(0x1F,0x2)/Sata(0x2,0xFFFF,0x0)
+BdsDxe: starting Boot0001 "UEFI QEMU DVD-ROM QM00005 " from PciRoot(0x0)/Pci(0x1F,0x2)/Sata(0x2,0xFFFF,0x0)
+AVYX_MARK multi_user uptime=7.16
+AVYX_MARK rootfs: overlay overlay
+AVYX_MARK cmdline: BOOT_IMAGE=/live/vmlinuz-6.12.117+deb13-amd64 boot=live components quiet splash username=avyx hostname=avyx locales=en_US.UTF-8 timezone=Asia/Kolkata keyboard-layouts=us plymouth.ignore-serial-consoles console=ttyS0,115200 console=tty0 findiso=
+AVYX_MARK plasmashell_started uptime=10.27
+AVYX_MARK desktop_idle uptime=70.28 mem_used_mb=1037 mem_total_mb=3915
+AVYX_MARK layout_applied uptime=73.29
+AVYX_MARK layout: start 23:38:07 via=autostart bus=unix:path=/run/user/1000/bus wayland=wayland-0 plasmashell reachable=1 after 1s panels now: ('top,bottom',) layout already present (built by the look-and-feel package) result code: 0 
+== layout diagnostics ==
+/etc/xdg/autostart:
+total 33
+drwxr-xr-x 2 root root  459 Nov 15 23:26 .
+drwxr-xr-x 5 root root  224 Nov 15 23:26 ..
+-rw-r--r-- 1 root root  147 Nov 15 23:26 avyx-ci-install.desktop
+-rw-r--r-- 1 root root  134 Nov 15 23:26 avyx-layout.desktop
+-rw-r--r-- 1 root root 2397 Apr 12  2025 baloo_file.desktop
+-rw-r--r-- 1 root root  196 Jul 14  2025 calamares-desktop-icon.desktop
+-rw-r--r-- 1 root root 1833 Jul  8  2025 gmenudbusmenuproxy.desktop
+-rw-r--r-- 1 root root 3048 Jul  8  2025 kaccess.desktop
+-rw-r--r-- 1 root root 1724 Jul 15  2025 kglobalacceld.desktop
+-rw-r--r-- 1 root root 2304 Jul 21  2025 org.kde.plasma-fallback-session-restore.desktop
+-rw-r--r-- 1 root root 3457 Jul 21  2025 org.kde.plasmashell.desktop
+-rw-r--r-- 1 root root 6012 Jul 19  2025 polkit-kde-authentication-agent-1.desktop
+-rw-r--r-- 1 root root 7205 Jul 19  2025 powerdevil.desktop
+-rw-r--r-- 1 root root  212 Dec 21  2024 xdg-user-dirs.desktop
+-rw-r--r-- 1 root root 1749 Jul  8  2025 xembedsniproxy.desktop
+
+/usr/share/plasma/look-and-feel/org.avyx.desktop/contents:
+total 1
+drwxr-xr-x 4 root root  60 Nov 15 23:29 .
+drwxr-xr-x 3 root root  52 Nov 15 23:26 ..
+-rw-r--r-- 1 root root 190 Nov 15 23:26 defaults
+drwxr-xr-x 2 root root  55 Nov 15 23:29 layouts
+drwxr-xr-x 3 root root  47 Nov 15 23:26 splash
+
+/usr/share/plasma/look-and-feel/org.avyx.desktop/contents/layouts:
+total 2
+drwxr-xr-x 2 root root   55 Nov 15 23:29 .
+drwxr-xr-x 4 root root   60 Nov 15 23:29 ..
+-rw-r--r-- 1 root root 1522 Nov 15 23:29 org.kde.plasma.desktop-layout.js
+--- /home/avyx
+/home/avyx/.config/avyx:
+total 0
+drwxrwxr-x 2 avyx avyx  60 Nov 15 23:38 .
+drwxrwxr-x 8 avyx avyx 500 Nov 15 23:38 ..
+-rw-rw-r-- 1 avyx avyx   0 Nov 15 23:38 layout-applied-v1
+total 27152
+drwxrwxr-x  9 avyx avyx      300 Nov 15 23:38 .
+drwx------ 14 avyx avyx      360 Nov 15 23:38 ..
+-rw-rw-r--  1 avyx avyx        0 Nov 15 23:38 avyx-layout.lock
+-rw-rw-r--  1 avyx avyx      216 Nov 15 23:38 avyx-layout.log
+drwxrwxr-x  4 avyx avyx       80 Nov 15 23:38 ksplash
+-rw-------  1 avyx avyx    19919 Nov 15 23:38 ksvg-elements
+-rw-rw-r--  1 avyx avyx   347625 Nov 15 23:38 ksycoca6_en_Dqh5MZmMGc6JtFqey4Pw0xAq_aY=
+drwxrwxr-x  3 avyx avyx       60 Nov 15 23:38 kwin
+drwx------  2 avyx avyx       40 Nov 15 23:38 mesa_shader_cache
+drwx------ 52 avyx avyx     1080 Nov 15 23:38 mesa_shader_cache_db
+drwx------  2 avyx avyx       40 Nov 15 23:38 obexd
+-rw-rw-r--  1 avyx avyx 10547304 Nov 15 23:38 org.kde.dirmodel-qml.kcache
+drwxrwxr-x  5 avyx avyx      100 Nov 15 23:38 plasmashell
+-rw-rw-r--  1 avyx avyx 16875624 Nov 15 23:38 plasma_theme_default.kcache
+drwxrwxr-x  2 avyx avyx      200 Nov 15 23:38 qtshadercache-x86_64-little_endian-lp64
+plasma-localerc
+plasma-org.kde.plasma.desktop-appletsrc
+plasmashellrc
+-- user units
+  dev-cdrom.device                                                                                          loaded    active   plugged   QEMU_DVD-ROM AVYX_OS
+  dev-disk-by\x2ddiskseq-2.device                                                                           loaded    active   plugged   QEMU_DVD-ROM AVYX_OS
+  dev-disk-by\x2did-ata\x2dQEMU_DVD\x2dROM_QM00005.device                                                   loaded    active   plugged   QEMU_DVD-ROM AVYX_OS
+  dev-disk-by\x2dlabel-AVYX_OS.device                                                                       loaded    active   plugged   QEMU_DVD-ROM AVYX_OS
+  dev-disk-by\x2dpath-pci\x2d0000:00:1f.2\x2data\x2d3.0.device                                              loaded    active   plugged   QEMU_DVD-ROM AVYX_OS
+  dev-disk-by\x2dpath-pci\x2d0000:00:1f.2\x2data\x2d3.device                                                loaded    active   plugged   QEMU_DVD-ROM AVYX_OS
+  dev-disk-by\x2duuid-2026\x2d11\x2d15\x2d17\x2d59\x2d24\x2d00.device                                       loaded    active   plugged   QEMU_DVD-ROM AVYX_OS
+  dev-sr0.device                                                                                            loaded    active   plugged   QEMU_DVD-ROM AVYX_OS
+  sys-devices-pci0000:00-0000:00:1f.2-ata3-host2-target2:0:0-2:0:0:0-block-sr0.device                       loaded    active   plugged   QEMU_DVD-ROM AVYX_OS
+  app-avyx\x2dci\x2dinstall@autostart.service                                                               loaded    inactive dead      AVYX CI installer launcher
+  app-avyx\x2dlayout@autostart.service                                                                      loaded    inactive dead      AVYX layout
+● app-calamares\x2ddesktop\x2dicon@autostart.service                                                        loaded    failed   failed    Add Calamares Desktop Icon
+  app-org.kde.plasma\x2dfallback\x2dsession\x2drestore@autostart.service                                    loaded    inactive dead      Plasma Session Restore
+  app-xdg\x2duser\x2ddirs@autostart.service                                                                 loaded    inactive dead      User folders update
+  avyx-layout.service                                                                                       loaded    inactive dead      AVYX desktop layout (first login safety net)
+● plasma-foreground-booster.service                                                                         not-found inactive dead      plasma-foreground-booster.service
+  plasma-gmenudbusmenuproxy.service                                                                         loaded    active   running   Proxies GTK DBus menus to a Plasma readable format
+  plasma-kaccess.service                                                                                    loaded    active   running   KAccess
+  plasma-kactivitymanagerd.service                                                                          loaded    active   running   KActivityManager Activity manager Service
+  plasma-kcminit-phase1.service                                                                             loaded    inactive dead      KDE Configuration Module Initialization (Phase 1)
+  plasma-kcminit.service                                                                                    loaded    inactive dead      KDE Config Module Initialization
+  plasma-kded6.service                                                                                      loaded    active   running   KDE Daemon 6
+  plasma-kglobalaccel.service                                                                               loaded    inactive dead      KDE Global Shortcuts Server
+  plasma-ksmserver.service                                                                                  loaded    active   running   KDE Session Management Server
+  plasma-ksplash-ready.service                                                                              loaded    inactive dead      KSplash "ready" Stage
+● plasma-kwallet-pam.service                                                                                not-found inactive dead      plasma-kwallet-pam.service
+  plasma-kwin_wayland.service                                                                               loaded    active   running   KDE Window Manager
+  plasma-plasmashell.service                                                                                loaded    active   running   KDE Plasma Workspace
+  plasma-polkit-agent.service                                                                               loaded    active   running   KDE PolicyKit Authentication Agent
+  plasma-powerdevil.service                                                                                 loaded    active   running   Powerdevil
+-- user journal (layout)
+Nov 15 23:38:07 avyx systemd[1336]: app-calamares\x2ddesktop\x2dicon@autostart.service: Failed with result 'exit-code'.
+Nov 15 23:38:07 avyx plasma-fallback-session-restore[1712]: libEGL warning: pci id for fd 14: 1234:1111, driver (null)
+Nov 15 23:38:07 avyx plasma-fallback-session-restore[1712]: pci id for fd 15: 1234:1111, driver (null)
+Nov 15 23:38:07 avyx plasma-fallback-session-restore[1712]: kmsro: driver missing
+Nov 15 23:38:07 avyx plasma-fallback-session-restore[1712]: libEGL warning: egl: failed to create dri2 screen
+Nov 15 23:38:07 avyx plasma-fallback-session-restore[1712]: pci id for fd 15: 1234:1111, driver (null)
+Nov 15 23:38:07 avyx plasma-fallback-session-restore[1712]: kmsro: driver missing
+Nov 15 23:38:07 avyx plasma-fallback-session-restore[1712]: libEGL warning: egl: failed to create dri2 screen
+Nov 15 23:38:07 avyx kded6[1483]: kf.modemmanagerqt: Failed enumerating MM objects: "org.freedesktop.DBus.Error.ServiceUnknown"
+Nov 15 23:38:07 avyx kded6[1483]:  "The name org.freedesktop.ModemManager1 was not provided by any .service files"
+Nov 15 23:38:08 avyx dbus-daemon[1355]: [session uid=1000 pid=1355 pidfd=5] Activating via systemd: service name='org.bluez.obex' unit='obex.service' requested by ':1.21' (uid=1000 pid=1483 comm="/usr/bin/kded6")
+Nov 15 23:38:08 avyx systemd[1336]: Starting obex.service - Bluetooth OBEX service...
+Nov 15 23:38:08 avyx kded6[1483]: org.kde.pulseaudio: No object for name "auto_null.monitor"
+Nov 15 23:38:08 avyx obexd[1751]: OBEX daemon 5.82
+Nov 15 23:38:08 avyx dbus-daemon[1355]: [session uid=1000 pid=1355 pidfd=5] Successfully activated service 'org.bluez.obex'
+Nov 15 23:38:08 avyx systemd[1336]: Started obex.service - Bluetooth OBEX service.
+Nov 15 23:38:08 avyx dbus-daemon[1355]: [session uid=1000 pid=1355 pidfd=5] Activating via systemd: service name='org.gnome.evolution.dataserver.Sources5' unit='evolution-source-registry.service' requested by ':1.47' (uid=1000 pid=1751 comm="/usr/libexec/bluetooth/obexd")
+Nov 15 23:38:08 avyx dbus-daemon[1355]: [session uid=1000 pid=1355 pidfd=5] Activation via systemd failed for unit 'evolution-source-registry.service': Unit evolution-source-registry.service not found.
+Nov 15 23:38:08 avyx obexd[1751]: Unable to acquire registry: Error calling StartServiceByName for org.gnome.evolution.dataserver.Sources5: Unit evolution-source-registry.service not found.
+Nov 15 23:38:08 avyx dbus-daemon[1355]: [session uid=1000 pid=1355 pidfd=5] Activating via systemd: service name='org.gnome.evolution.dataserver.Sources5' unit='evolution-source-registry.service' requested by ':1.47' (uid=1000 pid=1751 comm="/usr/libexec/bluetooth/obexd")
+Nov 15 23:38:08 avyx dbus-daemon[1355]: [session uid=1000 pid=1355 pidfd=5] Activation via systemd failed for unit 'evolution-source-registry.service': Unit evolution-source-registry.service not found.
+Nov 15 23:38:08 avyx obexd[1751]: Unable to acquire registry: Error calling StartServiceByName for org.gnome.evolution.dataserver.Sources5: Unit evolution-source-registry.service not found.
+Nov 15 23:38:08 avyx plasmashell[1502]: kde.plasmashell: Activity added twice "6f4c4b41-7ef3-45a0-a3cb-f8bb65f3d262"
+Nov 15 23:38:08 avyx plasmashell[1502]: virtual QStringList Solid::Backends::UPower::UPowerManager::allDevices()  error:  QDBusError("org.freedesktop.DBus.Error.ServiceUnknown", "The name org.freedesktop.UPower was not provided by any .service files")
+Nov 15 23:38:09 avyx systemd[1336]: Finished plasma-ksplash.service - Splash screen shown during boot.
+Nov 15 23:38:09 avyx systemd[1336]: plasma-ksplash.service: Consumed 719ms CPU time, 122.7M memory peak.
+Nov 15 23:38:09 avyx kwin_wayland_wrapper[1396]: kwin_wayland_drm: Failed to create framebuffer: Invalid argument
+Nov 15 23:38:09 avyx plasmashell[1502]: org.kde.pulseaudio: No object for name "auto_null.monitor"
+Nov 15 23:38:32 avyx kded6[1483]: kf.bluezqt: PendingCall Error: "Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken."
+Nov 15 23:39:10 avyx (sd-pam)[1823]: pam_unix(login:session): session closed for user avyx
+AVYX_MARK analyze: Startup finished in 2.310s (kernel) + 4.881s (userspace) = 7.192s 
+AVYX_MARK renderer: 
+== top memory ==
+  RSS COMMAND
+494992 plasmashell
+254196 kwin_wayland
+145568 kded6
+132108 polkit-kde-auth
+131440 xdg-desktop-por
+124216 kaccess
+123536 ksmserver
+82444 Xwayland
+57356 org_kde_powerde
+46552 startplasma-way
+42512 kactivitymanage
+== errors this boot ==
+Nov 15 23:37:59 localhost.localdomain systemd-udevd[456]: /usr/lib/udev/rules.d/90-alsa-restore.rules:18 GOTO="alsa_restore_std" has no matching label, ignoring.
+Nov 15 23:37:59 localhost.localdomain systemd-udevd[456]: /usr/lib/udev/rules.d/90-alsa-restore.rules:22 GOTO="alsa_restore_std" has no matching label, ignoring.
+Nov 15 23:38:01 avyx adduser[1003]: The group `powerdev' does not exist.
+Nov 15 23:38:01 avyx adduser[1008]: The group `scanner' does not exist.
+Nov 15 23:38:01 avyx adduser[1017]: The group `debian-tor' does not exist.
+Nov 15 23:38:08 avyx obexd[1751]: Unable to acquire registry: Error calling StartServiceByName for org.gnome.evolution.dataserver.Sources5: Unit evolution-source-registry.service not found.
+Nov 15 23:38:08 avyx obexd[1751]: Unable to acquire registry: Error calling StartServiceByName for org.gnome.evolution.dataserver.Sources5: Unit evolution-source-registry.service not found.
+AVYX_MARK done

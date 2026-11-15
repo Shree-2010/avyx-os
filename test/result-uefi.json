@@ -1,0 +1,65 @@
+{
+  "mode": "uefi",
+  "accel": "kvm",
+  "cpu_model": "SandyBridge",
+  "vcpus": 2,
+  "ram_mb": 4096,
+  "graphics": "QEMU std VGA, no 3D (software rendering in the guest)",
+  "reason_stopped": "marker done",
+  "reached_multi_user": true,
+  "reached_desktop": true,
+  "marks": {
+    "multi_user": {
+      "wall_s": 15.1,
+      "line": "AVYX_MARK multi_user uptime=7.16"
+    },
+    "rootfs": {
+      "wall_s": 15.1,
+      "line": "AVYX_MARK rootfs: overlay overlay"
+    },
+    "cmdline": {
+      "wall_s": 15.1,
+      "line": "AVYX_MARK cmdline: BOOT_IMAGE=/live/vmlinuz-6.12.117+deb13-amd64 boot=live components quiet splash username=avyx hostname=avyx locales=en_US.UTF-8 timezone=Asia/Kolkata keyboard-layouts=us plymouth.ignore-serial-consoles console=ttyS0,115200 console=tty0 findiso="
+    },
+    "plasmashell_started": {
+      "wall_s": 18.2,
+      "line": "AVYX_MARK plasmashell_started uptime=10.27"
+    },
+    "desktop_idle": {
+      "wall_s": 78.4,
+      "line": "AVYX_MARK desktop_idle uptime=70.28 mem_used_mb=1037 mem_total_mb=3915"
+    },
+    "layout_applied": {
+      "wall_s": 81.5,
+      "line": "AVYX_MARK layout_applied uptime=73.29"
+    },
+    "layout": {
+      "wall_s": 81.5,
+      "line": "AVYX_MARK layout: start 23:38:07 via=autostart bus=unix:path=/run/user/1000/bus wayland=wayland-0 plasmashell reachable=1 after 1s panels now: ('top,bottom',) layout already present (built by the look-and-feel package) result code: 0"
+    },
+    "analyze": {
+      "wall_s": 81.5,
+      "line": "AVYX_MARK analyze: Startup finished in 2.310s (kernel) + 4.881s (userspace) = 7.192s"
+    },
+    "renderer": {
+      "wall_s": 81.5,
+      "line": "AVYX_MARK renderer:"
+    },
+    "done": {
+      "wall_s": 81.5,
+      "line": "AVYX_MARK done"
+    }
+  },
+  "idle_ram_used_mb": 1037,
+  "screenshots": [
+    "uefi-0001s.png",
+    "uefi-0004s.png",
+    "uefi-0010s.png",
+    "uefi-0013s.png",
+    "uefi-0016s.png",
+    "uefi-0019s.png",
+    "uefi-0022s.png",
+    "uefi-0074s.png"
+  ],
+  "wall_seconds_total": 89.8
+}
