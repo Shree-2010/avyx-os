@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Install AVYX OS
+GenericName=System Installer
+Comment=Install AVYX OS onto this computer's disk
+Exec=sudo -E calamares
+Icon=/etc/calamares/branding/avyx/logo.png
+Terminal=false
+Categories=System;
+Keywords=install;installer;setup;

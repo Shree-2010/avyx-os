@@ -74,8 +74,9 @@ def main():
     shots_dir = out / f"shots-{args.mode}"
     shots_dir.mkdir(parents=True, exist_ok=True)
     serial = out / f"serial-{args.mode}.log"
+    marks_log = out / f"marks-{args.mode}.log"
     sock = out / f"qmp-{args.mode}.sock"
-    for p in (serial, sock):
+    for p in (serial, marks_log, sock):
         if p.exists():
             p.unlink()
 
@@ -84,7 +85,8 @@ def main():
     cmd = [
         "qemu-system-x86_64", "-machine", "q35", "-accel", accel, "-cpu", args.cpu,
         "-smp", str(args.smp), "-m", str(args.mem), "-display", "none", "-vga", "std",
-        "-serial", f"file:{serial}", "-qmp", f"unix:{sock},server=on,wait=off",
+        "-serial", f"file:{serial}", "-serial", f"file:{marks_log}",
+        "-smbios", "type=1,serial=AVYX-CI", "-qmp", f"unix:{sock},server=on,wait=off",
         "-no-reboot", "-nic", "user,model=e1000", "-device", "virtio-rng-pci",
         "-cdrom", args.iso, "-boot", "order=d",
     ]
@@ -140,8 +142,8 @@ def main():
                 break
 
             # read newly written serial output
-            if serial.exists():
-                with open(serial, "rb") as f:
+            if marks_log.exists():
+                with open(marks_log, "rb") as f:
                     f.seek(seen_bytes)
                     chunk = f.read()
                     seen_bytes += len(chunk)

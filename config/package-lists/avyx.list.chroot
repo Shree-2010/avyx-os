@@ -25,6 +25,8 @@ htop
 pciutils
 usbutils
 rsync
+procps
+kmod
 
 # --- firmware and microcode ---
 firmware-linux

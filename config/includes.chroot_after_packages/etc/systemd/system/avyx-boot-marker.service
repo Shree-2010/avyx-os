@@ -1,7 +1,6 @@
 [Unit]
-Description=AVYX boot measurement (serial console only, used by CI)
-After=multi-user.target
-ConditionKernelCommandLine=console=ttyS0,115200
+Description=AVYX boot measurement (CI virtual machine only, dedicated serial port)
+After=sddm.service
 
 [Service]
 Type=simple

@@ -30,5 +30,17 @@ if [ -f /etc/default/grub ]; then
   fi
 fi
 
+# Installed-system boot: branded, quiet, straight to the splash (hold Shift / Esc for the menu).
+if [ -f /etc/default/grub ]; then
+  for kv in 'GRUB_TIMEOUT_STYLE=hidden' 'GRUB_TIMEOUT=3' 'GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"'; do
+    key="${kv%%=*}"
+    if grep -q "^${key}=" /etc/default/grub; then
+      sed -i "s|^${key}=.*|${kv}|" /etc/default/grub
+    else
+      echo "${kv}" >> /etc/default/grub
+    fi
+  done
+fi
+
 # Sysctl / zram tuning is shipped in includes; make sure the directory exists for later hooks.
 mkdir -p /etc/sysctl.d

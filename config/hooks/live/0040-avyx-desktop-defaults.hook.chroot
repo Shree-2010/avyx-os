@@ -13,7 +13,22 @@ fi
 if [ -d /etc/calamares ]; then
   if [ -f /etc/calamares/settings.conf ]; then
     sed -i 's/^branding:.*/branding: avyx/' /etc/calamares/settings.conf
+    # run the AVYX shellprocess step right after plymouthcfg
+    if ! grep -q '^instances:' /etc/calamares/settings.conf; then
+      sed -i 's/^sequence:/instances:\n- id: avyx\n  module: shellprocess\n  config: shellprocess_avyx.conf\n\nsequence:/' /etc/calamares/settings.conf
+    fi
+    sed -i 's/^\( *\)- plymouthcfg$/\1- plymouthcfg\n\1- shellprocess@avyx/' /etc/calamares/settings.conf
+    # Debian's sequence expects an offline package repository on the install medium and runs
+    # `apt-get install grub-*` inside the target. This ISO carries no such repo, and the GRUB
+    # binaries (grub-efi-amd64-bin, grub-pc-bin) are already in the image, so Calamares'
+    # own `bootloader` step (grub-install) does the job. Drop the steps that need the repo.
+    for m in sources-media sources-media-unmount sources-final bootloader-config; do
+      sed -i "/^ *- ${m}\$/d" /etc/calamares/settings.conf
+    done
   fi
   rm -f /usr/share/applications/install-debian.desktop
   rm -rf /usr/share/calamares/branding/debian /etc/calamares/branding/debian
 fi
+
+# Print the final installer sequence so the CI log shows what shipped.
+[ -f /etc/calamares/settings.conf ] && grep -vE '^\s*#|^\s*$' /etc/calamares/settings.conf || true

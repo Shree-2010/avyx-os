@@ -1,11 +1,14 @@
 #!/bin/bash
-# Prints measured boot milestones on the serial console. Only runs when the kernel
-# command line asks for a serial console (CI); on real hardware it is a no-op.
-[ -c /dev/ttyS0 ] || exit 0
-exec >/dev/ttyS0 2>&1
+# CI-only: prints measured boot milestones on a dedicated serial port (ttyS1). It only runs in
+# the CI virtual machine, which is tagged with DMI product serial "AVYX-CI"; on real hardware
+# and normal VMs this exits immediately.
+[ "$(cat /sys/class/dmi/id/product_serial 2>/dev/null)" = "AVYX-CI" ] || exit 0
+[ -c /dev/ttyS1 ] || exit 0
+stty -F /dev/ttyS1 115200 raw -echo -crtscts -ixon 2>/dev/null
+exec >/dev/ttyS1 2>&1
 up() { cut -d' ' -f1 /proc/uptime; }
 echo "AVYX_MARK multi_user uptime=$(up)"
-for i in $(seq 1 150); do
+for i in $(seq 1 120); do
   pgrep -x plasmashell >/dev/null && break
   sleep 1
 done
