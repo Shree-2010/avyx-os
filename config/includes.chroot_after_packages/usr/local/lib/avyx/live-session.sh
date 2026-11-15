@@ -22,6 +22,12 @@ if [ -n "$home" ] && [ -d "$home" ]; then
   mkdir -p "$home/Desktop"
   cp /usr/share/applications/avyx-installer.desktop "$home/Desktop/"
   chmod +x "$home/Desktop/avyx-installer.desktop"
+  # Only the AVYX installer icon on the desktop: remove any Debian-branded launcher left by live-config.
+  for f in "$home/Desktop/"*.desktop; do
+    [ -f "$f" ] || continue
+    [ "$(basename "$f")" = "avyx-installer.desktop" ] && continue
+    grep -qi 'debian' "$f" && rm -f "$f"
+  done
   chown -R avyx:avyx "$home/Desktop"
 fi
 echo "avyx-live-session: autologin session=$sess"

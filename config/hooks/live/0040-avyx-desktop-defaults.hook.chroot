@@ -28,6 +28,9 @@ if [ -d /etc/calamares ]; then
     done
   fi
   rm -f /usr/share/applications/install-debian.desktop
+  # Any other Debian-branded installer launcher (menu entry or live-config desktop-icon script).
+  grep -rlis -e 'Install Debian' /usr/share/applications | xargs -r rm -f
+  find /usr/lib/live/config /lib/live/config -maxdepth 1 -iname '*calamares*' -exec rm -f {} + 2>/dev/null || true
   rm -rf /usr/share/calamares/branding/debian /etc/calamares/branding/debian
 fi
 
