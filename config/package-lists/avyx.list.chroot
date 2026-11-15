@@ -5,6 +5,9 @@
 live-boot
 live-config
 live-config-systemd
+# live-config only creates the live user ("avyx") through user-setup, which is a Recommends
+# and therefore not pulled in when building without recommended packages.
+user-setup
 systemd-sysv
 dbus-user-session
 sudo
