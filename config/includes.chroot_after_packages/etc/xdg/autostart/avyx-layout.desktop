@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=AVYX layout
+Exec=/usr/local/lib/avyx/apply-layout.sh
+NoDisplay=true
+X-KDE-autostart-after=panel

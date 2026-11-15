@@ -14,4 +14,4 @@ for t in apt-daily.timer apt-daily-upgrade.timer man-db.timer; do
   systemctl disable "$t" 2>/dev/null || true
 done
 
-chmod +x /usr/local/lib/avyx/boot-marker.sh /usr/local/lib/avyx/live-session.sh /usr/local/lib/avyx/ci-install.sh
+chmod +x /usr/local/lib/avyx/boot-marker.sh /usr/local/lib/avyx/live-session.sh /usr/local/lib/avyx/ci-install.sh /usr/local/lib/avyx/apply-layout.sh

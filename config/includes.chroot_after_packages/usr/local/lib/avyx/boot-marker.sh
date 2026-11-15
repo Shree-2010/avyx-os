@@ -18,6 +18,7 @@ if pgrep -x plasmashell >/dev/null; then
   echo "AVYX_MARK plasmashell_started uptime=$(up)"
   sleep 60
   echo "AVYX_MARK desktop_idle uptime=$(up) $(awk '/MemTotal/{t=$2}/MemAvailable/{a=$2}END{printf "mem_used_mb=%d mem_total_mb=%d", (t-a)/1024, t/1024}' /proc/meminfo)"
+  echo "AVYX_MARK layout: $(cat /home/*/.cache/avyx-layout.log 2>/dev/null | tr '\n' ' ')"
   echo "AVYX_MARK analyze: $(systemd-analyze 2>/dev/null | head -1)"
   echo "AVYX_MARK renderer: $(grep -rl llvmpipe /proc/*/environ 2>/dev/null | head -1)"
   echo "== top memory =="; ps -eo rss,comm --sort=-rss | head -12

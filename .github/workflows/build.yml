@@ -2,7 +2,7 @@ name: build-iso
 
 on:
   push:
-    branches: [main, m1-scaffold]
+    branches: [main, m1-scaffold, m2-layout]
     paths-ignore:
       - "tools/install_test.py"
       - ".github/workflows/install-test.yml"
@@ -111,8 +111,10 @@ jobs:
             build-logs/
           retention-days: 14
 
-      - name: Keep the latest built ISO as a pre-release (used by the quick install-test workflow)
-        if: always() && github.ref_type != 'tag'
+      # Only a build of the default branch that passed the UEFI boot test, the BIOS boot test and the full install test may
+      # replace the downloadable ISO, so a broken build can never overwrite a working one.
+      - name: Keep the latest PASSING ISO as a pre-release (also used by the quick install-test workflow)
+        if: github.ref_type != 'tag' && github.ref_name == github.event.repository.default_branch && steps.uefi.outcome == 'success' && steps.bios.outcome == 'success' && steps.install.outcome == 'success'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -121,8 +123,8 @@ jobs:
           [ -n "$iso" ] || exit 0
           gh release delete ci-latest --cleanup-tag -y --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1
           gh release create ci-latest "$iso" "$iso.sha256" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" \
-            --title "Latest CI build (testing only, may be broken)" --prerelease \
-            --notes "Automatic build of commit $GITHUB_SHA. Not a release: it may not boot or install. See the tagged releases." 
+            --title "Latest passing build (AVYX OS, pre-release)" --prerelease \
+            --notes-file RELEASE_NOTES.md 
           exit 0
 
       - name: Publish GitHub Release (tags only)
