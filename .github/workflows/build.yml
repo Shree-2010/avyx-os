@@ -2,7 +2,7 @@ name: build-iso
 
 on:
   push:
-    branches: [main]
+    branches: [main, m1-scaffold]
     tags: ["m*"]
   workflow_dispatch:
 
@@ -61,6 +61,26 @@ jobs:
           cp -f out/test/result-*.json out/ 2>/dev/null || true
           python3 tools/make_notes.py out "$AVYX_VERSION" > out/RELEASE_NOTES.md || true
           cat out/RELEASE_NOTES.md || true
+
+      - name: Publish test evidence to the ci-results branch
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set +e
+          ev="$(mktemp -d)"
+          cp -r out/test "$ev/test" 2>/dev/null
+          cp out/RELEASE_NOTES.md out/dropped-packages.txt out/packages.txt out/*.sha256 "$ev/" 2>/dev/null
+          cp -r build-logs "$ev/build-logs" 2>/dev/null
+          tail -n 800 build-logs/lb-build.log > "$ev/lb-build-tail.log" 2>/dev/null
+          rm -f "$ev/build-logs/lb-build.log"
+          find "$ev" \( -name '*.fd' -o -name '*.sock' \) -delete
+          echo "run ${{ github.run_number }} commit ${{ github.sha }} at $(date -u +%FT%TZ)" > "$ev/RUN.txt"
+          cd "$ev" && git init -q -b ci-results \
+            && git config user.name "avyx-ci" && git config user.email "ci@avyx.invalid" \
+            && git add -A && git commit -q -m "CI evidence for run ${{ github.run_number }}" \
+            && git push -q --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" ci-results
+          exit 0
 
       - name: Upload test evidence (screenshots, serial logs, notes)
         if: always()
