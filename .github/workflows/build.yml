@@ -1,0 +1,100 @@
+name: build-iso
+
+on:
+  push:
+    branches: [main]
+    tags: ["m*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 330
+    env:
+      AVYX_VERSION: ${{ github.ref_type == 'tag' && github.ref_name || format('0.1.0-dev+{0}', github.run_number) }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Free disk space
+        run: |
+          df -h /
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL /usr/local/share/boost /usr/local/.ghcup || true
+          sudo docker image prune --all --force >/dev/null || true
+          df -h /
+
+      - name: Build ISO (Debian trixie container)
+        run: |
+          mkdir -p out build-logs
+          docker run --rm --privileged \
+            -e AVYX_VERSION="$AVYX_VERSION" -e HOST_UID="$(id -u)" -e HOST_GID="$(id -g)" \
+            -v "$PWD":/work -w /work debian:trixie bash /work/tools/ci-build.sh
+
+      - name: Install QEMU and OVMF
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends qemu-system-x86 ovmf imagemagick
+          ls -l /dev/kvm || true
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules && sudo udevadm trigger --name-match=kvm || true
+          ls -l /dev/kvm || echo "no /dev/kvm: tests will run under slow software emulation"
+
+      - name: Boot test (UEFI)
+        id: uefi
+        continue-on-error: true
+        run: python3 tools/qemu_shots.py --iso out/AVYX-OS-*.iso --out out/test --mode uefi --timeout 1500
+
+      - name: Boot test (legacy BIOS)
+        id: bios
+        continue-on-error: true
+        run: python3 tools/qemu_shots.py --iso out/AVYX-OS-*.iso --out out/test --mode bios --timeout 1500
+
+      - name: Release notes from measured results
+        if: always()
+        run: |
+          cp -f out/test/result-*.json out/ 2>/dev/null || true
+          python3 tools/make_notes.py out "$AVYX_VERSION" > out/RELEASE_NOTES.md || true
+          cat out/RELEASE_NOTES.md || true
+
+      - name: Upload test evidence (screenshots, serial logs, notes)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-evidence
+          path: |
+            out/test/
+            out/RELEASE_NOTES.md
+            out/dropped-packages.txt
+            out/packages.txt
+            out/*.sha256
+            out/lb-build.log.gz
+            build-logs/
+          retention-days: 14
+
+      - name: Publish GitHub Release (tags only)
+        if: github.ref_type == 'tag'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          cd out
+          iso="$(ls AVYX-OS-*.iso)"
+          size=$(stat -c %s "$iso")
+          files=("$iso.sha256" packages.txt)
+          if [ "$size" -gt 2000000000 ]; then
+            split -b 1900M -d -a 2 "$iso" "$iso.part"
+            rm "$iso"
+            files+=("$iso".part*)
+            printf '\n**The ISO is split because GitHub limits release files to 2 GiB.** Join with: `cat %s.part* > %s` and verify with the SHA256.\n' "$iso" "$iso" >> RELEASE_NOTES.md
+          else
+            files+=("$iso")
+          fi
+          gh release create "$GITHUB_REF_NAME" "${files[@]}" \
+            --repo "$GITHUB_REPOSITORY" --title "AVYX OS $GITHUB_REF_NAME" \
+            --notes-file RELEASE_NOTES.md --prerelease

@@ -1,0 +1,11 @@
+[Unit]
+Description=AVYX boot measurement (serial console only, used by CI)
+After=multi-user.target
+ConditionKernelCommandLine=console=ttyS0,115200
+
+[Service]
+Type=simple
+ExecStart=/usr/local/lib/avyx/boot-marker.sh
+
+[Install]
+WantedBy=multi-user.target

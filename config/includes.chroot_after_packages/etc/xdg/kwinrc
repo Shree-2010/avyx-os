@@ -1,0 +1,6 @@
+[Compositing]
+Backend=OpenGL
+LatencyPolicy=Medium
+
+[Plugins]
+blurEnabled=true

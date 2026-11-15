@@ -1,0 +1,12 @@
+[Unit]
+Description=AVYX live session autologin
+ConditionKernelCommandLine=boot=live
+Before=display-manager.service sddm.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/sh -c 'mkdir -p /etc/sddm.conf.d && printf "[Autologin]\nUser=avyx\nSession=plasma.desktop\nRelogin=false\n" > /etc/sddm.conf.d/zz-avyx-live-autologin.conf'
+
+[Install]
+WantedBy=multi-user.target

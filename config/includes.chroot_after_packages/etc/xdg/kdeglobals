@@ -1,0 +1,12 @@
+[General]
+ColorScheme=AVYXDark
+AccentColor=110,125,255
+
+[KDE]
+LookAndFeelPackage=org.avyx.desktop
+widgetStyle=Breeze
+AnimationDurationFactor=0.6
+
+[Sounds]
+Theme=avyx
+Enable=true

@@ -1,0 +1,11 @@
+{
+  "KPackageStructure": "Plasma/LookAndFeel",
+  "KPlugin": {
+    "Authors": [{ "Name": "AVYX" }],
+    "Id": "org.avyx.desktop",
+    "License": "MIT",
+    "Name": "AVYX Glass",
+    "Description": "AVYX Glass global theme",
+    "Version": "0.1"
+  }
+}

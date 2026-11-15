@@ -1,0 +1,12 @@
+{
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "AVYX"
+      }
+    ],
+    "Id": "AVYX-Aurora",
+    "License": "CC0-1.0",
+    "Name": "AVYX Aurora"
+  }
+}

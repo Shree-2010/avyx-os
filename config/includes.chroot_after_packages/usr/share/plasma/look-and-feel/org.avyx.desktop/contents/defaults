@@ -1,0 +1,14 @@
+[kdeglobals][General]
+ColorScheme=AVYXDark
+
+[kdeglobals][KDE]
+widgetStyle=Breeze
+
+[kdeglobals][Sounds]
+Theme=avyx
+
+[ksplashrc][KSplash]
+Theme=org.avyx.desktop
+
+[Wallpaper]
+Image=AVYX-Aurora

@@ -1,0 +1,17 @@
+#!/bin/sh
+# Enable the services AVYX relies on. A missing unit is reported, not fatal.
+set -e
+
+systemctl set-default graphical.target
+
+for u in sddm.service NetworkManager.service bluetooth.service zramswap.service \
+         earlyoom.service avyx-live-session.service avyx-boot-marker.service; do
+  systemctl enable "$u" 2>&1 || echo "WARN: could not enable $u"
+done
+
+# Nothing should wake the disk with package timers on a live system.
+for t in apt-daily.timer apt-daily-upgrade.timer man-db.timer; do
+  systemctl disable "$t" 2>/dev/null || true
+done
+
+chmod +x /usr/local/lib/avyx/boot-marker.sh

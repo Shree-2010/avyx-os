@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=AVYX
+Description=AVYX boot splash
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/avyx
+ScriptFile=/usr/share/plymouth/themes/avyx/avyx.script

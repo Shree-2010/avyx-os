@@ -1,0 +1,7 @@
+[Sound Theme]
+Name=AVYX
+Comment=Original AVYX sound theme (CC0)
+Directories=stereo
+
+[stereo]
+OutputProfile=stereo

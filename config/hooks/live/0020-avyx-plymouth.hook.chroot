@@ -1,0 +1,11 @@
+#!/bin/sh
+# Activate the AVYX Plymouth theme and rebuild the initramfs so it is used at boot.
+set -e
+
+if [ ! -f /usr/share/plymouth/themes/avyx/avyx.plymouth ]; then
+  echo "AVYX plymouth theme files are missing" >&2
+  exit 1
+fi
+
+plymouth-set-default-theme avyx
+update-initramfs -u -k all

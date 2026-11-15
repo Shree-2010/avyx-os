@@ -1,0 +1,99 @@
+# AVYX boot splash: black, centred glowing logo, slogan, thin animated bar.
+Window.SetBackgroundTopColor(0.0, 0.0, 0.0);
+Window.SetBackgroundBottomColor(0.0, 0.0, 0.0);
+
+sw = Window.GetWidth();
+sh = Window.GetHeight();
+
+# ---- logo (wordmark only, centred) ----
+logo_src = Image("logo.png");
+logo_target_w = sw * 0.40;
+if (logo_target_w < 420) logo_target_w = 420;
+k = logo_target_w / logo_src.GetWidth();
+logo_w = Math.Int(logo_src.GetWidth() * k);
+logo_h = Math.Int(logo_src.GetHeight() * k);
+logo_img = logo_src.Scale(logo_w, logo_h);
+logo = Sprite(logo_img);
+logo_x = Math.Int((sw - logo_w) / 2);
+logo_cy = Math.Int(sh * 0.47);
+logo_y = logo_cy - Math.Int(logo_h / 2);
+logo.SetPosition(logo_x, logo_y, 10);
+
+# ---- slogan, directly under the wordmark ----
+slogan_src = Image("slogan.png");
+slogan_target_w = sw * 0.24;
+if (slogan_target_w < 240) slogan_target_w = 240;
+ks = slogan_target_w / slogan_src.GetWidth();
+slogan_w = Math.Int(slogan_src.GetWidth() * ks);
+slogan_h = Math.Int(slogan_src.GetHeight() * ks);
+slogan_img = slogan_src.Scale(slogan_w, slogan_h);
+slogan = Sprite(slogan_img);
+slogan.SetPosition(Math.Int((sw - slogan_w) / 2), logo_cy + Math.Int(logo_h * 0.22) + Math.Int(sh * 0.035), 10);
+
+# ---- progress bar ----
+bar_w = Math.Int(sw * 0.34);
+if (bar_w < 260) bar_w = 260;
+bar_h = Math.Int(sh * 0.004);
+if (bar_h < 3) bar_h = 3;
+bar_x = Math.Int((sw - bar_w) / 2);
+bar_y = Math.Int(sh * 0.91);
+
+track_src = Image("bar_track.png");
+fill_src = Image("bar_fill.png");
+glow_src = Image("bar_glow.png");
+
+track = Sprite(track_src.Scale(bar_w, bar_h));
+track.SetPosition(bar_x, bar_y, 20);
+
+fill = Sprite();
+fill.SetPosition(bar_x, bar_y, 21);
+
+glow_w = Math.Int(bar_w * 0.22);
+glow = Sprite(glow_src.Scale(glow_w, bar_h * 3));
+glow.SetPosition(bar_x, bar_y - bar_h, 22);
+glow.SetOpacity(0.0);
+
+counter = 0;
+target = 0.0;
+shown = 0.0;
+
+fun refresh_cb() {
+    counter++;
+    # ease towards the real boot progress, and creep a little so it never looks frozen
+    shown = shown + (target - shown) * 0.06;
+    if (shown < 0.92) shown = shown + 0.0006;
+    if (shown > 1.0) shown = 1.0;
+
+    fw = Math.Int(bar_w * shown);
+    if (fw < 2) fw = 2;
+    fill.SetImage(fill_src.Scale(fw, bar_h));
+
+    # travelling highlight inside the filled part of the bar
+    if (fw > glow_w) {
+        phase = (counter % 90) / 90.0;
+        gx = bar_x + Math.Int((fw - glow_w) * phase);
+        glow.SetPosition(gx, bar_y - bar_h, 22);
+        glow.SetOpacity(0.85);
+    } else {
+        glow.SetOpacity(0.0);
+    }
+
+    # subtle breathing glow on the logo
+    logo.SetOpacity(0.93 + 0.07 * Math.Sin(counter / 22.0));
+}
+Plymouth.SetRefreshFunction(refresh_cb);
+
+fun progress_cb(duration, progress) {
+    target = progress;
+}
+Plymouth.SetBootProgressFunction(progress_cb);
+
+fun quit_cb() {
+    target = 1.0;
+    shown = 1.0;
+}
+Plymouth.SetQuitFunction(quit_cb);
+
+# No text prompts in the splash; keep these defined so nothing breaks.
+fun message_cb(text) { }
+Plymouth.SetMessageFunction(message_cb);

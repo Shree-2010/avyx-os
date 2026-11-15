@@ -1,0 +1,19 @@
+#!/bin/sh
+# Make the AVYX wallpaper the default no matter which Plasma mechanism picks one, and
+# drop leftover upstream branding that users could see.
+set -e
+
+if [ -d /usr/share/wallpapers/AVYX-Aurora ]; then
+  rm -rf /usr/share/wallpapers/Next
+  cp -a /usr/share/wallpapers/AVYX-Aurora /usr/share/wallpapers/Next
+  sed -i 's/"Id": "AVYX-Aurora"/"Id": "Next"/' /usr/share/wallpapers/Next/metadata.json || true
+fi
+
+# Installer: use AVYX branding and launcher instead of the Debian ones (if Calamares is present).
+if [ -d /etc/calamares ]; then
+  if [ -f /etc/calamares/settings.conf ]; then
+    sed -i 's/^branding:.*/branding: avyx/' /etc/calamares/settings.conf
+  fi
+  rm -f /usr/share/applications/install-debian.desktop
+  rm -rf /usr/share/calamares/branding/debian /etc/calamares/branding/debian
+fi

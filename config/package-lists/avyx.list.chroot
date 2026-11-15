@@ -1,0 +1,113 @@
+# AVYX OS base package set (Debian 13 "trixie"). Names that do not exist are dropped at build
+# time and reported in dropped-packages.txt.
+
+# --- live system ---
+live-boot
+live-config
+live-config-systemd
+systemd-sysv
+dbus-user-session
+sudo
+locales
+tzdata
+console-setup
+keyboard-configuration
+initramfs-tools
+zstd
+xz-utils
+unzip
+curl
+wget
+ca-certificates
+nano
+less
+htop
+pciutils
+usbutils
+rsync
+
+# --- firmware and microcode ---
+firmware-linux
+firmware-linux-nonfree
+firmware-misc-nonfree
+firmware-iwlwifi
+firmware-realtek
+firmware-atheros
+firmware-brcm80211
+firmware-mediatek
+firmware-amd-graphics
+firmware-intel-graphics
+firmware-intel-misc
+firmware-sof-signed
+amd64-microcode
+intel-microcode
+
+# --- boot splash ---
+plymouth
+
+# --- graphics (integrated GPUs, software fallback) ---
+mesa-vulkan-drivers
+libgl1-mesa-dri
+libglx-mesa0
+libegl-mesa0
+mesa-va-drivers
+intel-media-va-driver
+i965-va-driver
+vainfo
+xwayland
+
+# --- desktop (KDE Plasma 6 on Wayland, heavily customised) ---
+plasma-desktop
+plasma-workspace
+kwin-wayland
+sddm
+sddm-theme-breeze
+plasma-nm
+plasma-pa
+bluedevil
+powerdevil
+kscreen
+systemsettings
+kde-cli-tools
+xdg-desktop-portal-kde
+qt6-wayland
+breeze
+breeze-icon-theme
+kio-extras
+dolphin
+konsole
+kate
+gwenview
+spectacle
+kcalc
+xdg-user-dirs
+fonts-inter
+fonts-noto-core
+fonts-noto-color-emoji
+
+# --- audio ---
+pipewire
+pipewire-pulse
+pipewire-alsa
+wireplumber
+libspa-0.2-bluetooth
+alsa-utils
+
+# --- connectivity ---
+network-manager
+wpasupplicant
+wireless-regdb
+iw
+rfkill
+bluez
+
+# --- memory, storage ---
+zram-tools
+earlyoom
+btrfs-progs
+e2fsprogs
+ntfs-3g
+exfatprogs
+dosfstools
+parted
+gdisk

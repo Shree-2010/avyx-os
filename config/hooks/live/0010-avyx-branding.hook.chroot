@@ -1,0 +1,34 @@
+#!/bin/sh
+# Replace distribution identity everywhere a user can see it.
+set -e
+
+VER="$(cat /etc/avyx-version 2>/dev/null || echo dev)"
+
+cat > /usr/lib/os-release <<EOF
+PRETTY_NAME="AVYX OS ${VER}"
+NAME="AVYX OS"
+VERSION_ID="${VER}"
+VERSION="${VER}"
+ID=avyx
+ID_LIKE=debian
+HOME_URL="https://github.com/Shree-2010/avyx-os"
+SUPPORT_URL="https://github.com/Shree-2010/avyx-os/issues"
+BUG_REPORT_URL="https://github.com/Shree-2010/avyx-os/issues"
+LOGO=avyx
+EOF
+ln -sf ../usr/lib/os-release /etc/os-release
+
+printf 'AVYX OS \\n \\l\n\n' > /etc/issue
+printf 'AVYX OS\n' > /etc/issue.net
+: > /etc/motd
+
+if [ -f /etc/default/grub ]; then
+  if grep -q '^GRUB_DISTRIBUTOR=' /etc/default/grub; then
+    sed -i 's/^GRUB_DISTRIBUTOR=.*/GRUB_DISTRIBUTOR="AVYX"/' /etc/default/grub
+  else
+    echo 'GRUB_DISTRIBUTOR="AVYX"' >> /etc/default/grub
+  fi
+fi
+
+# Sysctl / zram tuning is shipped in includes; make sure the directory exists for later hooks.
+mkdir -p /etc/sysctl.d
