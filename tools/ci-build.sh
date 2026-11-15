@@ -43,7 +43,7 @@ lb config \
   --iso-volume "AVYX_OS" \
   --chroot-squashfs-compression-type zstd \
   --chroot-squashfs-compression-level 19 \
-  --bootappend-live "boot=live components quiet splash username=avyx hostname=avyx locales=en_US.UTF-8 timezone=Asia/Kolkata keyboard-layouts=us console=tty0 console=ttyS0,115200"
+  --bootappend-live "boot=live components quiet splash username=avyx hostname=avyx locales=en_US.UTF-8 timezone=Asia/Kolkata keyboard-layouts=us systemd.show_status=true console=tty0 console=ttyS0,115200"
 
 bash tools/brand-bootloaders.sh 2>&1 | tee build-logs/bootloaders.log
 bash tools/filter-packages.sh build-logs/dropped-packages.txt config/package-lists/*.list.chroot

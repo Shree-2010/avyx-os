@@ -364,12 +364,12 @@ def build_wallpapers():
 def build_boot_backgrounds(glow_img):
     # Same layout as the Plymouth splash (avyx.script): logo block centred at 46% of the
     # screen height, slogan tucked under it, thin progress bar at 91%.
-    def compose(w, h, logo_h_frac=0.34, bar=False, bar_fill=0.55):
+    def compose(w, h, logo_h_frac=0.34, bar=False, bar_fill=0.55, center=0.46):
         bg = Image.new("RGB", (w, h), (0, 0, 0))
         lh = int(h * logo_h_frac)
         lw = int(glow_img.width * lh / glow_img.height)
         lg = glow_img.resize((lw, lh), Image.LANCZOS)
-        top = int(h * 0.46 - lh / 2)
+        top = int(h * center - lh / 2)
         bg.paste(lg, ((w - lw) // 2, top), lg)
         with tempfile.TemporaryDirectory() as td:
             sl = Path(td) / "s.png"
@@ -385,8 +385,10 @@ def build_boot_backgrounds(glow_img):
             bg.paste((205, 225, 255), (bx, by, bx + int(bw * bar_fill), by + bh))
         return bg
 
-    compose(1920, 1080).save(BRAND / "grub-background.png")
-    compose(640, 480, 0.30).save(BRAND / "isolinux-splash.png")
+    # Menu screens keep the logo in the top third so the boot menu below stays readable.
+    compose(1920, 1080, 0.20, center=0.20).save(BRAND / "grub-background.png")
+    compose(640, 480, 0.20, center=0.19).save(BRAND / "isolinux-splash.png")
+    # Full ASUS-style layout (what Plymouth shows during boot), for reference.
     compose(1920, 1080, bar=True).save(BRAND / "splash-preview.png")
 
 

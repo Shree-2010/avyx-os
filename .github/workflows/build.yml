@@ -48,12 +48,12 @@ jobs:
       - name: Boot test (UEFI)
         id: uefi
         continue-on-error: true
-        run: python3 tools/qemu_shots.py --iso out/AVYX-OS-*.iso --out out/test --mode uefi --timeout 1500
+        run: python3 tools/qemu_shots.py --iso out/AVYX-OS-*.iso --out out/test --mode uefi --timeout 600
 
       - name: Boot test (legacy BIOS)
         id: bios
         continue-on-error: true
-        run: python3 tools/qemu_shots.py --iso out/AVYX-OS-*.iso --out out/test --mode bios --timeout 1500
+        run: python3 tools/qemu_shots.py --iso out/AVYX-OS-*.iso --out out/test --mode bios --timeout 600
 
       - name: Release notes from measured results
         if: always()
