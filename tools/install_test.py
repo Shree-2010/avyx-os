@@ -135,11 +135,15 @@ class Vm:
                 nxt = time.time() + every
             time.sleep(0.5)
 
-    def wait_mark(self, name, timeout, shot_label=None, every=20):
+    def wait_mark(self, name, timeout, shot_label=None, every=20, keepalive=False):
         end = time.time() + timeout
         nxt = time.time()
+        nxt_key = time.time() + 45
         while time.time() < end:
             self.pump()
+            if keepalive and time.time() >= nxt_key and self.alive():
+                self.key("shift")  # stop the idle display from going to sleep
+                nxt_key = time.time() + 45
             if name in self.marks:
                 return True
             if not self.alive():
@@ -227,7 +231,7 @@ def main():
         a.key("ret")
         a.sleep(5)
 
-        done = a.wait_mark("install_exec_done", args.install_timeout, "installing", every=45)
+        done = a.wait_mark("install_exec_done", args.install_timeout, "installing", every=45, keepalive=True)
         result["phase_a"]["install_finished"] = done
         a.sleep(6)
         a.shot("finished-page")
