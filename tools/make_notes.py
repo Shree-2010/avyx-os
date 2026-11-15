@@ -44,6 +44,22 @@ lines += [
     f"| Accelerator | {(u or {}).get('accel', 'n/a')} | {(b or {}).get('accel', 'n/a')} |",
     "",
 ]
+inst = None
+ip = out / "result-install.json"
+if ip.exists():
+    inst = json.loads(ip.read_text())
+    pa, pb = inst.get("phase_a", {}), inst.get("phase_b", {})
+    yn = lambda v: "PASS" if v else "FAIL"
+    lines += [
+        "## Installation to disk (Calamares, UEFI, 20 GB virtual disk, driven in CI)", "",
+        "| Check | Result |", "|---|---|",
+        f"| Live desktop started before installing | {yn(pa.get('live_desktop'))} |",
+        f"| Installer ran to the end of its install steps | {yn(pa.get('install_finished'))} |",
+        f"| Installed disk boots on its own (no ISO) to the desktop | {yn(pb.get('desktop'))} |",
+        f"| Installed system runs from the disk (not the live image) | {yn(pb.get('boots_from_disk'))} |",
+        f"| RAM used at idle on the installed system (MB) | {pb.get('idle_ram_used_mb', 'n/a')} |",
+        "",
+    ]
 dropped = out / "dropped-packages.txt"
 if dropped.exists() and dropped.read_text().strip():
     lines += ["## Packages that were requested but do not exist in Debian trixie (not shipped)", "", "```", dropped.read_text().strip(), "```", ""]
@@ -51,7 +67,8 @@ lines += [
     "## Not verified in this build",
     "",
     "Everything not listed as PASS above was not tested: Wi-Fi/Bluetooth on real hardware, suspend/resume, hardware video decode,",
-    "installation to disk with Calamares, Windows/Android app support, and behaviour on real old laptops.",
+    "Windows/Android app support, Secure Boot (the ISO and installed system are not signed), BIOS-mode installs, dual-boot,",
+    "and behaviour on real old laptops." + ("" if inst else " Installation to disk was not tested in this build."),
     "",
     "## Licensing",
     "",

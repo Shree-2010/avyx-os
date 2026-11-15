@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=AVYX CI installer launcher
+Exec=/usr/local/lib/avyx/ci-install.sh
+NoDisplay=true
+X-KDE-autostart-after=panel

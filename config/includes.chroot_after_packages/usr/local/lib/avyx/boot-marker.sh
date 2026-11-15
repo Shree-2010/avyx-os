@@ -8,6 +8,8 @@ stty -F /dev/ttyS1 115200 raw -echo -crtscts -ixon 2>/dev/null
 exec >/dev/ttyS1 2>&1
 up() { cut -d' ' -f1 /proc/uptime; }
 echo "AVYX_MARK multi_user uptime=$(up)"
+echo "AVYX_MARK rootfs: $(findmnt -no SOURCE,FSTYPE / 2>/dev/null)"
+echo "AVYX_MARK cmdline: $(cat /proc/cmdline)"
 for i in $(seq 1 120); do
   pgrep -x plasmashell >/dev/null && break
   sleep 1

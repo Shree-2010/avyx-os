@@ -3,6 +3,9 @@ name: build-iso
 on:
   push:
     branches: [main, m1-scaffold]
+    paths-ignore:
+      - "tools/install_test.py"
+      - ".github/workflows/install-test.yml"
     tags: ["m*"]
   workflow_dispatch:
 
@@ -55,10 +58,16 @@ jobs:
         continue-on-error: true
         run: python3 tools/qemu_shots.py --iso out/AVYX-OS-*.iso --out out/test --mode bios --timeout 600
 
+      - name: Install test (Calamares to a blank disk, then boot the installed disk)
+        id: install
+        continue-on-error: true
+        run: python3 tools/install_test.py --iso out/AVYX-OS-*.iso --out out/install
+
       - name: Release notes from measured results
         if: always()
         run: |
           cp -f out/test/result-*.json out/ 2>/dev/null || true
+          cp -f out/install/result-install.json out/ 2>/dev/null || true
           python3 tools/make_notes.py out "$AVYX_VERSION" > out/RELEASE_NOTES.md || true
           cat out/RELEASE_NOTES.md || true
 
@@ -70,6 +79,8 @@ jobs:
           set +e
           ev="$(mktemp -d)"
           cp -r out/test "$ev/test" 2>/dev/null
+          cp -r out/install "$ev/install" 2>/dev/null
+          rm -f "$ev"/install/*.qcow2
           cp out/RELEASE_NOTES.md out/dropped-packages.txt out/packages.txt out/*.sha256 "$ev/" 2>/dev/null
           cp -r build-logs "$ev/build-logs" 2>/dev/null
           tail -n 800 build-logs/lb-build.log > "$ev/lb-build-tail.log" 2>/dev/null
@@ -89,6 +100,9 @@ jobs:
           name: test-evidence
           path: |
             out/test/
+            out/install/*.png
+            out/install/*.json
+            out/install/*.log
             out/RELEASE_NOTES.md
             out/dropped-packages.txt
             out/packages.txt
@@ -96,6 +110,20 @@ jobs:
             out/lb-build.log.gz
             build-logs/
           retention-days: 14
+
+      - name: Keep the latest built ISO as a pre-release (used by the quick install-test workflow)
+        if: always() && github.ref_type != 'tag'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set +e
+          cd out && iso="$(ls AVYX-OS-*.iso 2>/dev/null | head -1)"
+          [ -n "$iso" ] || exit 0
+          gh release delete ci-latest --cleanup-tag -y --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1
+          gh release create ci-latest "$iso" "$iso.sha256" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" \
+            --title "Latest CI build (testing only, may be broken)" --prerelease \
+            --notes "Automatic build of commit $GITHUB_SHA. Not a release: it may not boot or install. See the tagged releases." 
+          exit 0
 
       - name: Publish GitHub Release (tags only)
         if: github.ref_type == 'tag'

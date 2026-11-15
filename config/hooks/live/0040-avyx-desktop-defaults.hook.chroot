@@ -15,8 +15,9 @@ if [ -d /etc/calamares ]; then
     sed -i 's/^branding:.*/branding: avyx/' /etc/calamares/settings.conf
     # run the AVYX shellprocess step right after plymouthcfg
     if ! grep -q '^instances:' /etc/calamares/settings.conf; then
-      sed -i 's/^sequence:/instances:\n- id: avyx\n  module: shellprocess\n  config: shellprocess_avyx.conf\n\nsequence:/' /etc/calamares/settings.conf
+      sed -i 's/^sequence:/instances:\n- id: avyx\n  module: shellprocess\n  config: shellprocess_avyx.conf\n- id: avyxdone\n  module: shellprocess\n  config: shellprocess_avyxdone.conf\n\nsequence:/' /etc/calamares/settings.conf
     fi
+    sed -i 's/^\( *\)- umount$/\1- umount\n\1- shellprocess@avyxdone/' /etc/calamares/settings.conf
     sed -i 's/^\( *\)- plymouthcfg$/\1- plymouthcfg\n\1- shellprocess@avyx/' /etc/calamares/settings.conf
     # Debian's sequence expects an offline package repository on the install medium and runs
     # `apt-get install grub-*` inside the target. This ISO carries no such repo, and the GRUB

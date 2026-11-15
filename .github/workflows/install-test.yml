@@ -1,0 +1,60 @@
+name: install-test
+
+# Quick loop for the installer test: reuses the last built ISO (the "ci-latest" pre-release)
+# instead of rebuilding it, so changes to tools/install_test.py are checked in minutes.
+on:
+  push:
+    branches: [m1-scaffold, main]
+    paths:
+      - "tools/install_test.py"
+      - ".github/workflows/install-test.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: install-test-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  install:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download the latest built ISO
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p out
+          gh release download ci-latest --repo "$GITHUB_REPOSITORY" --pattern 'AVYX-OS-*.iso' --dir out
+          ls -lh out
+
+      - name: Install QEMU and OVMF
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends qemu-system-x86 qemu-utils ovmf imagemagick
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules && sudo udevadm trigger --name-match=kvm || true
+
+      - name: Install test
+        continue-on-error: true
+        run: python3 tools/install_test.py --iso out/AVYX-OS-*.iso --out out/install
+
+      - name: Publish evidence to the ci-install branch
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set +e
+          ev="$(mktemp -d)"
+          cp -r out/install/. "$ev"/ 2>/dev/null
+          rm -f "$ev"/*.qcow2 "$ev"/*.fd "$ev"/*.sock
+          echo "install-test run ${{ github.run_number }} commit ${{ github.sha }} at $(date -u +%FT%TZ)" > "$ev/RUN.txt"
+          cd "$ev" && git init -q -b ci-install \
+            && git config user.name "avyx-ci" && git config user.email "ci@avyx.invalid" \
+            && git add -A && git commit -q -m "install-test evidence run ${{ github.run_number }}" \
+            && git push -q --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" ci-install
+          exit 0
