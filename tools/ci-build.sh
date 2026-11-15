@@ -43,7 +43,7 @@ lb config \
   --iso-volume "AVYX_OS" \
   --chroot-squashfs-compression-type zstd \
   --chroot-squashfs-compression-level 19 \
-  --bootappend-live "boot=live components quiet splash username=avyx hostname=avyx locales=en_US.UTF-8 timezone=Asia/Kolkata keyboard-layouts=us systemd.show_status=true console=tty0 console=ttyS0,115200"
+  --bootappend-live "boot=live components quiet splash username=avyx hostname=avyx locales=en_US.UTF-8 timezone=Asia/Kolkata keyboard-layouts=us systemd.show_status=true console=ttyS0,115200 console=tty0"
 
 bash tools/brand-bootloaders.sh 2>&1 | tee build-logs/bootloaders.log
 bash tools/filter-packages.sh build-logs/dropped-packages.txt config/package-lists/*.list.chroot
@@ -61,6 +61,14 @@ if [ "$rc" -ne 0 ]; then
   tail -n 80 build-logs/lb-build.log || true
   exit "$rc"
 fi
+
+# Evidence for installer tuning: what Calamares actually ships with in this image.
+mkdir -p build-logs/calamares
+cp -r chroot/etc/calamares build-logs/calamares/etc 2>/dev/null || true
+cp -r chroot/usr/share/calamares build-logs/calamares/share 2>/dev/null || true
+grep -A12 '^Package: calamares' chroot/var/lib/dpkg/status > build-logs/calamares/dpkg-status.txt 2>/dev/null || true
+ls chroot/usr/lib/x86_64-linux-gnu/calamares/modules 2>/dev/null > build-logs/calamares/modules-list.txt || true
+du -sh chroot/usr/lib/x86_64-linux-gnu/qt5 chroot/usr/lib/x86_64-linux-gnu/qt6 2>/dev/null > build-logs/calamares/qt-sizes.txt || true
 
 iso="$(ls -1 ./*.iso | head -n1)"
 final="out/AVYX-OS-${VER}-amd64.iso"

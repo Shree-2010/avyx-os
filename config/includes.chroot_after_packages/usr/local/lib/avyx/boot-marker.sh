@@ -5,7 +5,7 @@
 exec >/dev/ttyS0 2>&1
 up() { cut -d' ' -f1 /proc/uptime; }
 echo "AVYX_MARK multi_user uptime=$(up)"
-for i in $(seq 1 1200); do
+for i in $(seq 1 150); do
   pgrep -x plasmashell >/dev/null && break
   sleep 1
 done
@@ -18,8 +18,14 @@ if pgrep -x plasmashell >/dev/null; then
   echo "== top memory =="; ps -eo rss,comm --sort=-rss | head -12
 else
   echo "AVYX_MARK plasmashell_NOT_started uptime=$(up)"
-  echo "== sddm status =="; systemctl status sddm --no-pager 2>&1 | tail -20
-  echo "== sddm journal =="; journalctl -b -u sddm --no-pager 2>&1 | tail -40
+  echo "== wayland/x11 session files =="; ls -la /usr/share/wayland-sessions /usr/share/xsessions 2>&1
+  echo "== sddm config =="; for f in /etc/sddm.conf /etc/sddm.conf.d/*; do [ -f "$f" ] && { echo "--- $f"; cat "$f"; }; done
+  echo "== user and sessions =="; id avyx 2>&1; loginctl list-sessions --no-pager 2>&1
+  echo "== session processes =="; ps -eo pid,user,args --sort=start_time | grep -E "sddm|kwin|plasma|startplasma|Xwayland" | grep -v grep | head -30
+  echo "== /var/log/sddm.log =="; tail -80 /var/log/sddm.log 2>&1
+  echo "== avyx user journal =="; journalctl -b "_UID=$(id -u avyx 2>/dev/null)" --no-pager 2>&1 | tail -80
+echo "== sddm status =="; systemctl status sddm --no-pager 2>&1 | tail -20
+  echo "== sddm journal =="; journalctl -b -u sddm --no-pager 2>&1 | tail -80
 fi
 echo "== errors this boot =="; journalctl -b -p err --no-pager 2>&1 | tail -60
 echo "AVYX_MARK done"
