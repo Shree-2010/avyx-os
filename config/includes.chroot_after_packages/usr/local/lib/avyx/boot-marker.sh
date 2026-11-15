@@ -18,7 +18,21 @@ if pgrep -x plasmashell >/dev/null; then
   echo "AVYX_MARK plasmashell_started uptime=$(up)"
   sleep 60
   echo "AVYX_MARK desktop_idle uptime=$(up) $(awk '/MemTotal/{t=$2}/MemAvailable/{a=$2}END{printf "mem_used_mb=%d mem_total_mb=%d", (t-a)/1024, t/1024}' /proc/meminfo)"
+  # Give the layout safety net time to finish (only when it is running or has logged), then report.
+  for i in $(seq 1 100); do
+    grep -qs "result code" /home/*/.cache/avyx-layout.log && break
+    sleep 1
+  done
+  sleep 3
+  grep -qs "result code" /home/*/.cache/avyx-layout.log && echo "AVYX_MARK layout_applied uptime=$(up)"
   echo "AVYX_MARK layout: $(cat /home/*/.cache/avyx-layout.log 2>/dev/null | tr '\n' ' ')"
+  echo "== layout diagnostics =="
+  ls -la /etc/xdg/autostart /usr/share/plasma/look-and-feel/org.avyx.desktop/contents /usr/share/plasma/look-and-feel/org.avyx.desktop/contents/layouts 2>&1
+  for h in /home/*; do echo "--- $h"; ls -laR "$h/.config/avyx" 2>&1; ls -la "$h/.cache" 2>&1 | head -20; ls "$h/.config" 2>&1 | grep -i plasma; done
+  pgrep -af "apply-layout|evaluateScript" 2>&1
+  u=$(ls /home | head -1)
+  echo "-- user units"; systemctl --user --machine="$u@.host" list-units --all --no-pager 2>&1 | grep -iE "avyx|autostart|plasma|graphical" | head -30
+  echo "-- user journal (layout)"; journalctl -b "_UID=$(id -u "$u" 2>/dev/null)" --no-pager 2>&1 | grep -iE "avyx|layout|autostart" | tail -30
   echo "AVYX_MARK analyze: $(systemd-analyze 2>/dev/null | head -1)"
   echo "AVYX_MARK renderer: $(grep -rl llvmpipe /proc/*/environ 2>/dev/null | head -1)"
   echo "== top memory =="; ps -eo rss,comm --sort=-rss | head -12

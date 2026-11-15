@@ -14,4 +14,7 @@ for t in apt-daily.timer apt-daily-upgrade.timer man-db.timer; do
   systemctl disable "$t" 2>/dev/null || true
 done
 
+# Safety-net layout unit for every user's graphical session (autostart is the other trigger).
+systemctl --global enable avyx-layout.service 2>&1 || echo "WARN: could not enable avyx-layout.service for users"
+
 chmod +x /usr/local/lib/avyx/boot-marker.sh /usr/local/lib/avyx/live-session.sh /usr/local/lib/avyx/ci-install.sh /usr/local/lib/avyx/apply-layout.sh

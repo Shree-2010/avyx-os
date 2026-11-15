@@ -9,6 +9,13 @@ if [ -d /usr/share/wallpapers/AVYX-Aurora ]; then
   sed -i 's/"Id": "AVYX-Aurora"/"Id": "Next"/' /usr/share/wallpapers/Next/metadata.json || true
 fi
 
+# The panel layout (top bar + floating dock) is shipped as the look-and-feel package's own layout
+# script, so Plasma builds it on the first start of every new user, with no race and no autostart.
+if [ -f /usr/share/avyx/layout.js ]; then
+  install -D -m 0644 /usr/share/avyx/layout.js \
+    /usr/share/plasma/look-and-feel/org.avyx.desktop/contents/layouts/org.kde.plasma.desktop-layout.js
+fi
+
 # Installer: use AVYX branding and launcher instead of the Debian ones (if Calamares is present).
 if [ -d /etc/calamares ]; then
   if [ -f /etc/calamares/settings.conf ]; then

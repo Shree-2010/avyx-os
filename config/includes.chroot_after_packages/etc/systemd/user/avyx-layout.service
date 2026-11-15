@@ -1,0 +1,12 @@
+[Unit]
+Description=AVYX desktop layout (first login safety net)
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/lib/avyx/apply-layout.sh systemd
+Restart=no
+
+[Install]
+WantedBy=graphical-session.target
