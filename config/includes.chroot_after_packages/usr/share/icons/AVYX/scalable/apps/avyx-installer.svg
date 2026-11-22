@@ -1,15 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <defs>
     <linearGradient id="bg5" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#5667f0"/><stop offset="1" stop-color="#9a5bff"/>
+      <stop offset="0" stop-color="#5667f0"/><stop offset=".5" stop-color="#7861f8"/><stop offset="1" stop-color="#9a5bff"/>
     </linearGradient>
     <linearGradient id="hl5" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#ffffff" stop-opacity=".42"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".40"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="rim5" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".75"/><stop offset=".35" stop-color="#ffffff" stop-opacity=".10"/>
+      <stop offset=".75" stop-color="#000000" stop-opacity=".05"/><stop offset="1" stop-color="#000000" stop-opacity=".30"/>
     </linearGradient>
   </defs>
-  <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#bg5)"/>
-  <path d="M16 128 A112 112 0 0 1 128 16 H384 A112 112 0 0 1 496 128 V210 Q256 280 16 210 Z" fill="url(#hl5)"/>
-  <rect x="17.5" y="17.5" width="477" height="477" rx="110.5" fill="none" stroke="#ffffff" stroke-opacity=".28" stroke-width="3"/>
+  <rect x="30" y="40" width="452" height="456" rx="104" fill="#000" fill-opacity=".07"/>
+  <rect x="34" y="34" width="444" height="456" rx="104" fill="#000" fill-opacity=".10"/>
+  <rect x="38" y="30" width="436" height="454" rx="102" fill="#000" fill-opacity=".14"/>
+  <rect x="24" y="22" width="464" height="464" rx="104" fill="url(#bg5)"/>
+  <path d="M24 126 A104 104 0 0 1 128 22 H384 A104 104 0 0 1 488 126 V212 Q256 282 24 212 Z" fill="url(#hl5)"/>
+  <rect x="26" y="24" width="460" height="460" rx="102" fill="none" stroke="url(#rim5)" stroke-width="4"/>
+  <g opacity=".22" transform="translate(0 9)">
+  <g fill="none" stroke="#000000" stroke-width="38" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M118 296 L256 112 L394 296" stroke-opacity=".98"/>
+    <path d="M118 196 L256 392 L394 196" stroke-opacity=".72"/>
+  </g></g>
   
   <g fill="none" stroke="#ffffff" stroke-width="38" stroke-linecap="round" stroke-linejoin="round">
     <path d="M118 296 L256 112 L394 296" stroke-opacity=".98"/>

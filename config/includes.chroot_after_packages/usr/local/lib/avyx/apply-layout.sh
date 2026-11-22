@@ -25,6 +25,15 @@ state=$(gdbus call --session --dest org.kde.plasmashell --object-path /PlasmaShe
   --method org.kde.PlasmaShell.evaluateScript \
   'var o=[];for(var i=0;i<panels().length;i++){o.push(panels()[i].location)};print(o.join(","))' 2>&1)
 echo "panels now: $state"
+# Frosted glass: translucent panels. Done here too because it does not depend on how the panels
+# were created; harmless if this Plasma version has no such property.
+glassmark="$HOME/.config/avyx/glass-applied-v1"
+if [ ! -e "$glassmark" ]; then
+  gdbus call --session --dest org.kde.plasmashell --object-path /PlasmaShell \
+    --method org.kde.PlasmaShell.evaluateScript \
+    'var n=0;for(var i=0;i<panels().length;i++){try{panels()[i].opacity="translucent";n++}catch(e){}};print("glass:"+n)' 2>&1
+  touch "$glassmark"
+fi
 case "$state" in
   *top*bottom*|*bottom*top*)
     echo "layout already present (built by the look-and-feel package)"

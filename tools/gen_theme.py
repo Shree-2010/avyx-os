@@ -5,6 +5,7 @@ and Konsole glass profile. Everything here is original work (MIT / CC0).
 Run from anywhere:  python3 tools/gen_theme.py
 """
 import math
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -17,23 +18,41 @@ ICON_DIR = INC / "usr/share/icons/AVYX"
 HICOLOR = INC / "usr/share/icons/hicolor/scalable/apps"
 
 
-def tile(c1, c2, glyph, uid):
-    """512x512 rounded tile: vertical gradient, glass highlight on the upper half, hairline edge."""
+def tile(c1, c2, glyph, uid, shadow_glyph=True):
+    """512x512 rounded tile with depth: soft drop shadow, 3-stop gradient, glass highlight,
+    lit top edge, shaded bottom edge and a soft shadow under the glyph."""
+    mid = _mix(c1, c2, 0.5)
+    shade = re.sub(r"#[0-9a-fA-F]{6}", "#000000", glyph) if shadow_glyph else ""
+    gshadow = f'<g opacity=".22" transform="translate(0 9)">{shade}</g>' if shadow_glyph else ""
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <defs>
     <linearGradient id="bg{uid}" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="{c1}"/><stop offset="1" stop-color="{c2}"/>
+      <stop offset="0" stop-color="{c1}"/><stop offset=".5" stop-color="{mid}"/><stop offset="1" stop-color="{c2}"/>
     </linearGradient>
     <linearGradient id="hl{uid}" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#ffffff" stop-opacity=".42"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".40"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="rim{uid}" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".75"/><stop offset=".35" stop-color="#ffffff" stop-opacity=".10"/>
+      <stop offset=".75" stop-color="#000000" stop-opacity=".05"/><stop offset="1" stop-color="#000000" stop-opacity=".30"/>
     </linearGradient>
   </defs>
-  <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#bg{uid})"/>
-  <path d="M16 128 A112 112 0 0 1 128 16 H384 A112 112 0 0 1 496 128 V210 Q256 280 16 210 Z" fill="url(#hl{uid})"/>
-  <rect x="17.5" y="17.5" width="477" height="477" rx="110.5" fill="none" stroke="#ffffff" stroke-opacity=".28" stroke-width="3"/>
+  <rect x="30" y="40" width="452" height="456" rx="104" fill="#000" fill-opacity=".07"/>
+  <rect x="34" y="34" width="444" height="456" rx="104" fill="#000" fill-opacity=".10"/>
+  <rect x="38" y="30" width="436" height="454" rx="102" fill="#000" fill-opacity=".14"/>
+  <rect x="24" y="22" width="464" height="464" rx="104" fill="url(#bg{uid})"/>
+  <path d="M24 126 A104 104 0 0 1 128 22 H384 A104 104 0 0 1 488 126 V212 Q256 282 24 212 Z" fill="url(#hl{uid})"/>
+  <rect x="26" y="24" width="460" height="460" rx="102" fill="none" stroke="url(#rim{uid})" stroke-width="4"/>
+  {gshadow}
   {glyph}
 </svg>
 """
+
+
+def _mix(a, b, t):
+    ca = [int(a[i:i + 2], 16) for i in (1, 3, 5)]
+    cb = [int(b[i:i + 2], 16) for i in (1, 3, 5)]
+    return "#" + "".join(f"{round(x + (y - x) * t):02x}" for x, y in zip(ca, cb))
 
 
 def gear(cx, cy, r_out, r_in, r_hole, teeth=8):
@@ -155,7 +174,7 @@ def build_icons():
     write(ICON_DIR / "index.theme", INDEX)
     n = 0
     for uid, (key, (c1, c2, names)) in enumerate(TILES.items()):
-        svg = tile(c1, c2, GLYPH[key], uid)
+        svg = tile(c1, c2, GLYPH[key], uid, shadow_glyph=(key != "terminal"))
         for name in names:
             write(ICON_DIR / "scalable/apps" / f"{name}.svg", svg)
             n += 1

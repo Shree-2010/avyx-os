@@ -42,10 +42,12 @@ if pgrep -x plasmashell >/dev/null; then
   ls /usr/share/aurorae/themes/AVYX 2>&1; find / -xdev -iname '*aurorae*' -not -path '/proc/*' 2>/dev/null | head -10
   ls /usr/share/plasma/desktoptheme 2>&1
   echo "-- panel config"; grep -n -iE "opacity|location|floating|thickness|\[Containments\]\[[0-9]+\]\$" /home/*/.config/plasma-org.kde.plasma.desktop-appletsrc 2>&1 | head -40
-  echo "-- default theme files"; ls -R /usr/share/plasma/desktoptheme/default 2>&1 | head -150
-  for f in widgets/panel-background.svg translucent/widgets/panel-background.svg dialogs/background.svg translucent/dialogs/background.svg; do
-    echo "-- default/$f"; head -c 9000 "/usr/share/plasma/desktoptheme/default/$f" 2>&1; echo
+  echo "-- plasmashellrc"; cat /home/*/.config/plasmashellrc 2>&1 | head -40
+  echo "-- default theme files (panel/dialog backgrounds)"
+  for f in widgets/panel-background translucent/widgets/panel-background opaque/widgets/panel-background; do
+    echo "-- default/$f.svgz element ids"; zcat "/usr/share/plasma/desktoptheme/default/$f.svgz" 2>&1 | grep -o ' id="[^"]*"' | tr '\n' ' ' | head -c 3000; echo
   done
+  echo "-- default/translucent/widgets/panel-background.svg (head)"; zcat /usr/share/plasma/desktoptheme/default/translucent/widgets/panel-background.svgz 2>&1 | head -c 7000; echo
   # CI-only showcase: open a couple of real windows so the screenshot shows window decorations
   # and the glass terminal. Done after the RAM figure above so it cannot skew the measurement.
   if [ "$(cat /sys/class/dmi/id/product_family 2>/dev/null)" = "AVYX-CI" ]; then
@@ -73,3 +75,5 @@ echo "== sddm status =="; systemctl status sddm --no-pager 2>&1 | tail -20
 fi
 echo "== errors this boot =="; journalctl -b -p err --no-pager 2>&1 | tail -60
 echo "AVYX_MARK done"
+# keep the CI showcase windows alive until the screenshot after "done" has been taken
+[ "$(cat /sys/class/dmi/id/product_family 2>/dev/null)" = "AVYX-CI" ] && sleep 40
