@@ -1,0 +1,11 @@
+{
+    "KPackageStructure": "Plasma/Theme",
+    "KPlugin": {
+        "Authors": [{ "Name": "AVYX" }],
+        "Description": "Frosted glass panels and popups",
+        "Id": "avyx-glass",
+        "License": "MIT",
+        "Name": "AVYX Glass",
+        "Version": "0.1"
+    }
+}

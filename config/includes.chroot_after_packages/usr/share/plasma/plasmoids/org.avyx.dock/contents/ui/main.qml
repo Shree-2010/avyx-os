@@ -3,6 +3,7 @@
 // exactly like the stock task manager.
 import QtQuick
 import QtQuick.Layouts
+import QtQuick.Controls as QQC2
 import org.kde.plasma.plasmoid
 import org.kde.kirigami as Kirigami
 import org.kde.taskmanager as TaskManager
@@ -18,6 +19,20 @@ PlasmoidItem {
         sortMode: TaskManager.TasksModel.SortManual
         separateLaunchers: false
         launcherList: Plasmoid.configuration.launchers
+        onLauncherListChanged: {
+            if (launcherList.join(",") !== Plasmoid.configuration.launchers.join(",")) {
+                Plasmoid.configuration.launchers = launcherList;
+            }
+        }
+    }
+
+    function activateRow(row, isWindow) {
+        var idx = tasksModel.makeModelIndex(row);
+        if (isWindow) {
+            tasksModel.requestActivate(idx);
+        } else {
+            tasksModel.requestNewInstance(idx);
+        }
     }
 
     fullRepresentation: Item {
@@ -25,7 +40,7 @@ PlasmoidItem {
 
         readonly property real baseSize: 40
         readonly property real gap: 8
-        readonly property real maxScale: 1.45
+        readonly property real maxScale: 1.35
         readonly property int count: tasksModel.count
         readonly property real restWidth: count * baseSize + Math.max(0, count - 1) * gap
         readonly property real headroom: baseSize * 1.3
@@ -35,8 +50,8 @@ PlasmoidItem {
 
         Layout.minimumWidth: restWidth + headroom
         Layout.preferredWidth: restWidth + headroom
-        Layout.minimumHeight: baseSize * maxScale + 8
-        Layout.preferredHeight: baseSize * maxScale + 8
+        Layout.minimumHeight: baseSize * maxScale + 4
+        Layout.preferredHeight: baseSize * maxScale + 4
 
         Behavior on amount { NumberAnimation { duration: 140; easing.type: Easing.OutCubic } }
 
@@ -60,6 +75,38 @@ PlasmoidItem {
             return x;
         }
 
+        QQC2.Menu {
+            id: ctx
+            property int row: -1
+            property bool isWindow: false
+            property bool pinned: false
+            property url launcherUrl
+            popupType: QQC2.Popup.Window
+            QQC2.MenuItem {
+                text: ctx.isWindow ? "Show" : "Open"
+                onTriggered: root.activateRow(ctx.row, ctx.isWindow)
+            }
+            QQC2.MenuItem {
+                text: "New Window"
+                onTriggered: tasksModel.requestNewInstance(tasksModel.makeModelIndex(ctx.row))
+            }
+            QQC2.MenuItem {
+                text: ctx.pinned ? "Remove from Dock" : "Keep in Dock"
+                onTriggered: {
+                    if (ctx.pinned) {
+                        tasksModel.requestRemoveLauncher(ctx.launcherUrl);
+                    } else {
+                        tasksModel.requestAddLauncher(ctx.launcherUrl);
+                    }
+                }
+            }
+            QQC2.MenuItem {
+                text: "Quit"
+                enabled: ctx.isWindow
+                onTriggered: tasksModel.requestClose(tasksModel.makeModelIndex(ctx.row))
+            }
+        }
+
         MouseArea {
             anchors.fill: parent
             hoverEnabled: true
@@ -77,10 +124,23 @@ PlasmoidItem {
                 required property var model
 
                 readonly property real s: dock.scaleOf(index)
+                readonly property bool running: slot.model.IsWindow === true
+                property real lift: 0
+                property bool launching: false
                 width: dock.baseSize * s
                 height: dock.baseSize * s
                 x: dock.leftOf(index)
-                y: dock.height - height - 6
+                y: dock.height - height - 4 - lift
+                onRunningChanged: if (running) launching = false
+
+                Timer { interval: 8000; running: slot.launching; onTriggered: slot.launching = false }
+                SequentialAnimation {
+                    running: slot.launching
+                    loops: Animation.Infinite
+                    NumberAnimation { target: slot; property: "lift"; to: 16; duration: 280; easing.type: Easing.OutQuad }
+                    NumberAnimation { target: slot; property: "lift"; to: 0; duration: 280; easing.type: Easing.InQuad }
+                    onRunningChanged: if (!running) slot.lift = 0
+                }
 
                 Kirigami.Icon {
                     anchors.fill: parent
@@ -101,14 +161,24 @@ PlasmoidItem {
                     id: click
                     anchors.fill: parent
                     hoverEnabled: true
-                    onClicked: {
-                        var idx = tasksModel.makeModelIndex(slot.index);
-                        if (slot.model.IsWindow === true) {
-                            tasksModel.requestActivate(idx);
-                        } else {
-                            tasksModel.requestNewInstance(idx);
+                    acceptedButtons: Qt.LeftButton | Qt.RightButton
+                    onClicked: mouse => {
+                        if (mouse.button === Qt.RightButton) {
+                            ctx.row = slot.index;
+                            ctx.isWindow = slot.running;
+                            ctx.launcherUrl = slot.model.LauncherUrlWithoutIcon;
+                            ctx.pinned = tasksModel.launcherPosition(slot.model.LauncherUrlWithoutIcon) !== -1;
+                            ctx.popup();
+                            return;
                         }
+                        if (!slot.running) slot.launching = true;
+                        root.activateRow(slot.index, slot.running);
                     }
+                }
+                QQC2.ToolTip {
+                    visible: click.containsMouse && !ctx.visible
+                    delay: 400
+                    text: slot.model.display
                 }
             }
         }

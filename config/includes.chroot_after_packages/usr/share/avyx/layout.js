@@ -1,6 +1,6 @@
 // AVYX desktop layout, applied once per user by /usr/local/lib/avyx/apply-layout.sh.
 // Slim top bar (global menu | flexible gap for the activity pill | tray | clock) and a floating,
-// centred, icon-only dock at the bottom. New panels are created first and the old ones removed
+// centred dock at the bottom (AVYX Dock: pinned apps + running windows, icons swell under the pointer). New panels are created first and the old ones removed
 // last, so an error half-way can never leave the desktop without a panel.
 var oldPanels = panels();
 
@@ -20,12 +20,12 @@ bar.addWidget("org.kde.plasma.digitalclock");
 
 var dock = new Panel();
 dock.location = "bottom";
-dock.height = 64;
+dock.height = 70;
 dock.floating = true;
 dock.lengthMode = "fit";
 dock.alignment = "center";
 dock.hiding = "dodgewindows";
-var tasks = dock.addWidget("org.kde.plasma.icontasks");
+var tasks = dock.addWidget("org.avyx.dock");
 tasks.currentConfigGroup = ["General"];
 tasks.writeConfig("launchers",
     "applications:org.kde.dolphin.desktop," +
@@ -34,8 +34,6 @@ tasks.writeConfig("launchers",
     "applications:org.kde.gwenview.desktop," +
     "applications:systemsettings.desktop," +
     "applications:avyx-installer.desktop");
-tasks.writeConfig("iconSpacing", "2");
-tasks.writeConfig("maxStripes", "1");
 dock.addWidget("org.kde.plasma.marginsseparator");
 dock.addWidget("org.kde.plasma.trash");
 

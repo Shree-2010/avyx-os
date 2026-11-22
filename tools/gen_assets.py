@@ -288,7 +288,7 @@ def build_plymouth(glow_img):
 # --------------------------------------------------------------------------
 # Wallpapers
 # --------------------------------------------------------------------------
-def _wallpaper(w, h, dark, seed):
+def _wallpaper(w, h, dark, seed, grain=True):
     rng = np.random.default_rng(seed)
     y = np.linspace(0, 1, h, dtype=np.float32)[:, None]
     x = np.linspace(0, 1, w, dtype=np.float32)[None, :]
@@ -331,19 +331,24 @@ def _wallpaper(w, h, dark, seed):
     v = 1 - 0.28 * (((x - 0.5) * 1.3) ** 2 + ((y - 0.5) * 1.3) ** 2)
     img *= np.clip(v, 0.55, 1.0)[..., None]
     # fine grain so gradients never band
-    img += rng.normal(0, 1.1, size=(h, w, 1)).astype(np.float32)
+    if grain:
+        img += rng.normal(0, 1.1, size=(h, w, 1)).astype(np.float32)
     return Image.fromarray(np.clip(img, 0, 255).astype(np.uint8), "RGB")
 
 
 def build_wallpapers():
     specs = [("AVYX-Aurora", "AVYX Aurora", True, 11), ("AVYX-Dawn", "AVYX Dawn", False, 23)]
     for ident, name, dark, seed in specs:
-        base = _wallpaper(3840, 2160, dark, seed)
+        base = _wallpaper(3840, 2160, dark, seed, grain=False)
         d = INC / f"usr/share/wallpapers/{ident}"
         (d / "contents/images").mkdir(parents=True, exist_ok=True)
         for (w, h) in ((3840, 2160), (2560, 1440), (1920, 1080), (1366, 768), (1920, 1200)):
             im = base if (w, h) == (3840, 2160) else base.resize((w, h), Image.LANCZOS)
-            im.save(d / f"contents/images/{w}x{h}.jpg", quality=88, optimize=True)
+            # grain is added AFTER resizing and the JPEG is 4:4:4 at high quality, otherwise the
+            # smooth dark gradients band into visible blotches
+            arr = np.asarray(im, np.float32) + np.random.default_rng(seed + w).normal(0, 1.4, size=(h, w, 1))
+            Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8), "RGB").save(
+                d / f"contents/images/{w}x{h}.jpg", quality=95, subsampling=0, optimize=True)
         base.resize((600, 338), Image.LANCZOS).save(d / "contents/screenshot.jpg", quality=85)
         meta = {
             "KPlugin": {

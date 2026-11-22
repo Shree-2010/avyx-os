@@ -92,6 +92,12 @@ GLYPH = {
     <path d="M118 296 L256 112 L394 296" stroke-opacity=".98"/>
     <path d="M118 196 L256 392 L394 196" stroke-opacity=".72"/>
   </g>""",
+    "launchpad": """
+  <g>
+    <rect x="108" y="108" width="82" height="82" rx="22" fill="#ff7a8a"/><rect x="215" y="108" width="82" height="82" rx="22" fill="#ffc66b"/><rect x="322" y="108" width="82" height="82" rx="22" fill="#7be0a0"/>
+    <rect x="108" y="215" width="82" height="82" rx="22" fill="#6cc8ff"/><rect x="215" y="215" width="82" height="82" rx="22" fill="#b58cff"/><rect x="322" y="215" width="82" height="82" rx="22" fill="#ff8fd0"/>
+    <rect x="108" y="322" width="82" height="82" rx="22" fill="#7df3ff"/><rect x="215" y="322" width="82" height="82" rx="22" fill="#a9e86a"/><rect x="322" y="322" width="82" height="82" rx="22" fill="#ffffff" fill-opacity=".92"/>
+  </g>""",
     "calc": """
   <rect x="108" y="96" width="296" height="88" rx="24" fill="#7df3ff" fill-opacity=".9"/>
   <g fill="#ffffff" fill-opacity=".92">
@@ -115,6 +121,7 @@ TILES = {
     "images": ("#7af2c8", "#1f8fd0", ["org.kde.gwenview", "gwenview", "viewimage"]),
     "settings": ("#a7b0d2", "#565e84", ["preferences-system", "systemsettings", "org.kde.systemsettings"]),
     "installer": ("#5667f0", "#9a5bff", ["avyx-installer"]),
+    "launchpad": ("#59618a", "#232842", ["avyx-launchpad", "org.kde.plasma.kickerdash", "view-app-grid"]),
     "calc": ("#343a5e", "#14172c", ["accessories-calculator", "org.kde.kcalc", "kcalc"]),
     "shot": ("#ff82bd", "#ff4f6d", ["org.kde.spectacle", "spectacle"]),
 }
@@ -409,7 +416,106 @@ def build_konsole():
     print("konsole: AVYX glass profile")
 
 
+# ---------------------------------------------------------------------------
+# Plasma theme "AVYX Glass": frosted, rounded panels and popups. Only the backgrounds are
+# replaced; everything else falls back to Plasma's default theme.
+# ---------------------------------------------------------------------------
+PTHEME = INC / "usr/share/plasma/desktoptheme/avyx-glass"
+
+
+def frame_svg(R, m_tb, m_lr, fill="#dfe6ff", op=0.17, edge=0.42, edge_soft=0.14):
+    """FrameSvg 9-slice (names and hint conventions follow Plasma's own themes)."""
+    C = 32  # stretchable middle size
+    W = 2 * R + C
+
+    def slices(ox, oy, pre, body):
+        e = []
+        t = lambda n, x, y, inner: f'<g id="{pre}{n}" transform="translate({ox + x},{oy + y})">{inner}</g>'
+        e.append(t("topleft", 0, 0, body("tl")))
+        e.append(t("top", R, 0, body("t")))
+        e.append(t("topright", R + C, 0, body("tr")))
+        e.append(t("left", 0, R, body("l")))
+        e.append(t("center", R, R, body("c")))
+        e.append(t("right", R + C, R, body("r")))
+        e.append(t("bottomleft", 0, R + C, body("bl")))
+        e.append(t("bottom", R, R + C, body("b")))
+        e.append(t("bottomright", R + C, R + C, body("br")))
+        return "\n  ".join(e)
+
+    def glass(k):
+        f = f'fill="{fill}" fill-opacity="{op}"'
+        hi = f'fill="none" stroke="#ffffff" stroke-opacity="{edge}" stroke-width="1"'
+        lo = f'fill="none" stroke="#ffffff" stroke-opacity="{edge_soft}" stroke-width="1"'
+        r = R - 0.5
+        return {
+            "tl": f'<path d="M0 {R} A{R} {R} 0 0 1 {R} 0 V{R} Z" {f}/><path d="M0.5 {R} A{r} {r} 0 0 1 {R} 0.5" {hi}/>',
+            "t": f'<rect width="{C}" height="{R}" {f}/><rect width="{C}" height="1" fill="#fff" fill-opacity="{edge}"/>',
+            "tr": f'<path d="M0 0 A{R} {R} 0 0 1 {R} {R} H0 Z" {f}/><path d="M0 0.5 A{r} {r} 0 0 1 {R - 0.5} {R}" {hi}/>',
+            "l": f'<rect width="{R}" height="{C}" {f}/><rect width="1" height="{C}" fill="#fff" fill-opacity="{edge}"/>',
+            "c": f'<rect width="{C}" height="{C}" {f}/>',
+            "r": f'<rect width="{R}" height="{C}" {f}/><rect x="{R - 1}" width="1" height="{C}" fill="#fff" fill-opacity="{edge}"/>',
+            "bl": f'<path d="M0 0 H{R} V{R} A{R} {R} 0 0 1 0 0 Z" {f}/><path d="M0.5 0 A{r} {r} 0 0 0 {R} {R - 0.5}" {lo}/>',
+            "b": f'<rect width="{C}" height="{R}" {f}/><rect y="{R - 1}" width="{C}" height="1" fill="#fff" fill-opacity="{edge_soft}"/>',
+            "br": f'<path d="M{R} 0 A{R} {R} 0 0 1 0 {R} V0 Z" {f}/><path d="M{R} 0 A{r} {r} 0 0 1 0 {R - 0.5}" fill="none" stroke="#fff" stroke-opacity="{edge_soft}" stroke-width="1"/>',
+        }[k]
+
+    def mask(k):
+        f = 'fill="#000"'
+        return {
+            "tl": f'<path d="M0 {R} A{R} {R} 0 0 1 {R} 0 V{R} Z" {f}/>',
+            "t": f'<rect width="{C}" height="{R}" {f}/>',
+            "tr": f'<path d="M0 0 A{R} {R} 0 0 1 {R} {R} H0 Z" {f}/>',
+            "l": f'<rect width="{R}" height="{C}" {f}/>',
+            "c": f'<rect width="{C}" height="{C}" {f}/>',
+            "r": f'<rect width="{R}" height="{C}" {f}/>',
+            "bl": f'<path d="M0 0 H{R} V{R} A{R} {R} 0 0 1 0 0 Z" {f}/>',
+            "b": f'<rect width="{C}" height="{R}" {f}/>',
+            "br": f'<path d="M{R} 0 A{R} {R} 0 0 1 0 {R} V0 Z" {f}/>',
+        }[k]
+
+    tiny = "0.00000001"
+    hints = f"""
+  <rect id="hint-tile-center" width="5" height="5" x="0" y="{W + 4}" fill="#ff6600"/>
+  <rect id="hint-top-margin" width="4" height="{m_tb}" x="20" y="{W + 4}" fill="#ff00ff"/>
+  <rect id="hint-bottom-margin" width="4" height="{m_tb}" x="30" y="{W + 4}" fill="#ff00ff"/>
+  <rect id="hint-left-margin" width="{m_lr}" height="4" x="40" y="{W + 4}" fill="#ff00ff"/>
+  <rect id="hint-right-margin" width="{m_lr}" height="4" x="60" y="{W + 4}" fill="#ff00ff"/>
+  <rect id="hint-top-inset" width="4" height="{tiny}" x="80" y="{W + 4}" fill="#00ff00"/>
+  <rect id="hint-bottom-inset" width="4" height="{tiny}" x="90" y="{W + 4}" fill="#00ff00"/>
+  <rect id="hint-left-inset" width="{tiny}" height="4" x="100" y="{W + 4}" fill="#00ff00"/>
+  <rect id="hint-right-inset" width="{tiny}" height="4" x="110" y="{W + 4}" fill="#00ff00"/>"""
+    g, m = glass, mask
+    body = slices(0, 0, "", lambda k: g(k))
+    masks = slices(W + 20, 0, "mask-", lambda k: m(k)).replace('id="mask-center"', 'id="mask-center"')
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{2 * W + 40}" height="{W + 12}" viewBox="0 0 {2 * W + 40} {W + 12}">\n  '
+            + body + "\n  " + masks + hints + "\n</svg>\n")
+
+
+def build_plasma_theme():
+    write(PTHEME / "metadata.json", """{
+    "KPackageStructure": "Plasma/Theme",
+    "KPlugin": {
+        "Authors": [{ "Name": "AVYX" }],
+        "Description": "Frosted glass panels and popups",
+        "Id": "avyx-glass",
+        "License": "MIT",
+        "Name": "AVYX Glass",
+        "Version": "0.1"
+    }
+}
+""")
+    panel = frame_svg(R=20, m_tb=6, m_lr=12)
+    dlg = frame_svg(R=16, m_tb=10, m_lr=10, op=0.30, edge=0.35)
+    for sub in ("widgets", "translucent/widgets"):
+        write(PTHEME / sub / "panel-background.svg", panel)
+    for sub in ("dialogs", "translucent/dialogs"):
+        write(PTHEME / sub / "background.svg", dlg)
+    write(INC / "etc/xdg/plasmarc", "[Theme]\nname=avyx-glass\n")
+    print("plasma theme: avyx-glass")
+
+
 if __name__ == "__main__":
     build_icons()
     build_decoration()
     build_konsole()
+    build_plasma_theme()
