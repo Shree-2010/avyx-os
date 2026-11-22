@@ -86,7 +86,7 @@ def main():
         "qemu-system-x86_64", "-machine", "q35", "-accel", accel, "-cpu", args.cpu,
         "-smp", str(args.smp), "-m", str(args.mem), "-display", "none", "-vga", "std",
         "-serial", f"file:{serial}", "-serial", f"file:{marks_log}",
-        "-smbios", "type=1,serial=AVYX-CI", "-qmp", f"unix:{sock},server=on,wait=off",
+        "-smbios", "type=1,serial=AVYX-CI,family=AVYX-CI", "-qmp", f"unix:{sock},server=on,wait=off",
         "-no-reboot", "-nic", "user,model=e1000", "-device", "virtio-rng-pci",
         "-cdrom", args.iso, "-boot", "order=d",
     ]

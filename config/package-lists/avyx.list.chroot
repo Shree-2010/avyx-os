@@ -116,3 +116,5 @@ exfatprogs
 dosfstools
 parted
 gdisk
+# gdbus: used by the first-login layout safety net; listed so the installer's autoremove keeps it
+libglib2.0-bin

@@ -27,10 +27,9 @@ def tile(c1, c2, glyph, uid):
     <linearGradient id="hl{uid}" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#ffffff" stop-opacity=".42"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
     </linearGradient>
-    <clipPath id="cp{uid}"><rect x="16" y="16" width="480" height="480" rx="112"/></clipPath>
   </defs>
   <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#bg{uid})"/>
-  <g clip-path="url(#cp{uid})"><ellipse cx="256" cy="-40" rx="400" ry="300" fill="url(#hl{uid})"/></g>
+  <path d="M16 128 A112 112 0 0 1 128 16 H384 A112 112 0 0 1 496 128 V210 Q256 280 16 210 Z" fill="url(#hl{uid})"/>
   <rect x="17.5" y="17.5" width="477" height="477" rx="110.5" fill="none" stroke="#ffffff" stroke-opacity=".28" stroke-width="3"/>
   {glyph}
 </svg>
