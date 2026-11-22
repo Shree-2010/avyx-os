@@ -1,0 +1,2 @@
+3.5M	chroot/usr/lib/x86_64-linux-gnu/qt5
+82M	chroot/usr/lib/x86_64-linux-gnu/qt6

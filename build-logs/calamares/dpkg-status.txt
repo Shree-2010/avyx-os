@@ -1,0 +1,27 @@
+Package: calamares
+Status: install ok installed
+Priority: optional
+Section: utils
+Installed-Size: 11072
+Maintainer: Jonathan Carter <jcc@debian.org>
+Architecture: amd64
+Version: 3.3.14-1
+Replaces: calamares-extensions (<< 3.3.12-1)
+Depends: os-prober, libc6 (>= 2.34), libcrypt1 (>= 1:4.1.0), libgcc-s1 (>= 3.0), libkf6coreaddons6 (>= 6.0.0), libkf6crash6 (>= 6.0.0), libkf6parts6 (>= 6.0.0), libkpmcore12 (>= 24.05.2), libparted2t64 (>= 3.1), libpwquality1 (>= 1.1.0), libpython3.13 (>= 3.13.0~rc3), libqt6core6t64 (>= 6.8.2), libqt6dbus6 (>= 6.4.0), libqt6gui6 (>= 6.8.2), libqt6network6 (>= 6.1.2), libqt6qml6 (>= 6.6.0), libqt6quick6 (>= 6.6.0), libqt6quickwidgets6 (>= 6.6.0), libqt6svg6 (>= 6.6.0), libqt6widgets6 (>= 6.7.2), libqt6xml6 (>= 6.6.0), libstdc++6 (>= 14), libyaml-cpp0.8 (>= 0.8.0+dfsg-7)
+Recommends: btrfs-progs, squashfs-tools
+Breaks: calamares-extensions (<< 3.3.12-1)
+Description: distribution-independent installer framework
+--
+Package: calamares-settings-debian
+Status: install ok installed
+Priority: optional
+Section: utils
+Installed-Size: 225
+Maintainer: Jonathan Carter <jcc@debian.org>
+Architecture: all
+Version: 13.0.13-1
+Provides: calamares-settings
+Depends: calamares, rsync, cryptsetup, libglib2.0-bin, keyutils, pkexec, qml-module-qtquick-window2, qml-module-qtquick2, dconf-gsettings-backend | gsettings-backend
+Conffiles:
+ /etc/calamares/branding/debian/branding.desc 5c03731e8efdad47468f7a9ae2f72eb3
+ /etc/calamares/branding/debian/debian-logo.png 0c5dda7ef598ffc38fe7c032a0890bae

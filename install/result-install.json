@@ -1,0 +1,68 @@
+{
+  "disk_gb": 20,
+  "phase_a": {
+    "live_desktop": true,
+    "installer_launched": true,
+    "install_finished": true,
+    "marks": {
+      "multi_user": 14.5,
+      "rootfs": 14.5,
+      "cmdline": 14.5,
+      "plasmashell_started": 17.5,
+      "calamares_launch": 24.5,
+      "desktop_idle": 77.9,
+      "layout_applied": 80.9,
+      "layout": 80.9,
+      "calamares_launch\"#012": 80.9,
+      "analyze": 80.9,
+      "renderer": 80.9,
+      "done": 92.6,
+      "install_exec_done": 162.6,
+      "calamares_exit": 170.9,
+      "install_log_done": 170.9
+    },
+    "screenshots": [
+      "install-001-live-boot.png",
+      "install-002-installer-starting.png",
+      "install-003-installer-starting.png",
+      "install-004-installer-starting.png",
+      "install-005-welcome.png",
+      "install-006-location.png",
+      "install-007-keyboard.png",
+      "install-008-partitions.png",
+      "install-009-users-empty.png",
+      "install-010-users-filled.png",
+      "install-011-summary.png",
+      "install-012-confirm.png",
+      "install-013-installing.png",
+      "install-014-installing.png",
+      "install-015-finished-page.png"
+    ]
+  },
+  "phase_b": {
+    "desktop": true,
+    "marks": {
+      "multi_user": 11.5,
+      "rootfs": 11.5,
+      "cmdline": 11.5,
+      "plasmashell_started": 13.5,
+      "desktop_idle": 73.6,
+      "layout_applied": 76.6,
+      "layout": 76.6,
+      "analyze": 77.1,
+      "renderer": 77.1,
+      "showcase_ready": 121.1,
+      "done": 121.1
+    },
+    "screenshots": [
+      "installed-001-installed-boot.png",
+      "installed-002-installed-desktop.png",
+      "installed-003-final.png"
+    ],
+    "rootfs": "AVYX_MARK rootfs: /dev/vda2 ext4",
+    "boots_from_disk": true,
+    "idle_ram_used_mb": 999
+  },
+  "installed_ok": true,
+  "accel": "kvm"
+}

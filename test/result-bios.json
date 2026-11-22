@@ -1,0 +1,74 @@
+{
+  "mode": "bios",
+  "accel": "kvm",
+  "cpu_model": "SandyBridge",
+  "vcpus": 2,
+  "ram_mb": 4096,
+  "graphics": "QEMU std VGA, no 3D (software rendering in the guest)",
+  "reason_stopped": "marker done",
+  "reached_multi_user": true,
+  "reached_desktop": true,
+  "marks": {
+    "multi_user": {
+      "wall_s": 13.1,
+      "line": "AVYX_MARK multi_user uptime=7.33"
+    },
+    "rootfs": {
+      "wall_s": 13.1,
+      "line": "AVYX_MARK rootfs: overlay overlay"
+    },
+    "cmdline": {
+      "wall_s": 13.1,
+      "line": "AVYX_MARK cmdline: BOOT_IMAGE=/live/vmlinuz boot=live components quiet splash username=avyx hostname=avyx locales=en_US.UTF-8 timezone=Asia/Kolkata keyboard-layouts=us plymouth.ignore-serial-consoles console=ttyS0,115200 console=tty0 initrd=/live/initrd.img"
+    },
+    "plasmashell_started": {
+      "wall_s": 16.1,
+      "line": "AVYX_MARK plasmashell_started uptime=10.42"
+    },
+    "desktop_idle": {
+      "wall_s": 76.0,
+      "line": "AVYX_MARK desktop_idle uptime=70.42 mem_used_mb=1045 mem_total_mb=3921"
+    },
+    "layout_applied": {
+      "wall_s": 79.2,
+      "line": "AVYX_MARK layout_applied uptime=73.43"
+    },
+    "layout": {
+      "wall_s": 79.2,
+      "line": "AVYX_MARK layout: start 22:39:54 via=autostart bus=unix:path=/run/user/1000/bus wayland=wayland-0 plasmashell reachable=1 after 1s panels now: ('top,bottom',) ('glass:2',) layout already present (built by the look-and-feel package) result code: 0"
+    },
+    "analyze": {
+      "wall_s": 79.7,
+      "line": "AVYX_MARK analyze: Startup finished in 2.437s (kernel) + 4.914s (userspace) = 7.352s"
+    },
+    "renderer": {
+      "wall_s": 79.7,
+      "line": "AVYX_MARK renderer:"
+    },
+    "showcase_ready": {
+      "wall_s": 123.3,
+      "line": "AVYX_MARK showcase_ready uptime=117.56 windows: konsole dolphin"
+    },
+    "done": {
+      "wall_s": 123.3,
+      "line": "AVYX_MARK done"
+    }
+  },
+  "idle_ram_used_mb": 1045,
+  "screenshots": [
+    "bios-0001s.png",
+    "bios-0004s.png",
+    "bios-0007s.png",
+    "bios-0010s.png",
+    "bios-0013s.png",
+    "bios-0016s.png",
+    "bios-0019s.png",
+    "bios-0022s.png",
+    "bios-0025s.png",
+    "bios-0083s.png",
+    "bios-0086s.png",
+    "bios-0089s.png",
+    "bios-0104s.png"
+  ],
+  "wall_seconds_total": 131.4
+}

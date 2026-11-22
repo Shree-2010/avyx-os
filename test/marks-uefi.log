@@ -1,0 +1,250 @@
+[2J[01;01H[=3h[2J[01;01H[2J[01;01H[=3h[2J[01;01H[2J[01;01H[=3h[2J[01;01HBdsDxe: loading Boot0001 "UEFI QEMU DVD-ROM QM00005 " from PciRoot(0x0)/Pci(0x1F,0x2)/Sata(0x2,0xFFFF,0x0)
+BdsDxe: starting Boot0001 "UEFI QEMU DVD-ROM QM00005 " from PciRoot(0x0)/Pci(0x1F,0x2)/Sata(0x2,0xFFFF,0x0)
+AVYX_MARK multi_user uptime=7.39
+AVYX_MARK rootfs: overlay overlay
+AVYX_MARK cmdline: BOOT_IMAGE=/live/vmlinuz-6.12.117+deb13-amd64 boot=live components quiet splash username=avyx hostname=avyx locales=en_US.UTF-8 timezone=Asia/Kolkata keyboard-layouts=us plymouth.ignore-serial-consoles console=ttyS0,115200 console=tty0 findiso=
+AVYX_MARK plasmashell_started uptime=10.48
+AVYX_MARK desktop_idle uptime=70.48 mem_used_mb=1057 mem_total_mb=3915
+AVYX_MARK layout_applied uptime=73.49
+AVYX_MARK layout: start 22:37:41 via=systemd bus=unix:path=/run/user/1000/bus wayland=wayland-0 plasmashell reachable=1 after 1s panels now: ('top,bottom',) ('glass:2',) layout already present (built by the look-and-feel package) result code: 0 
+== layout diagnostics ==
+/etc/xdg/autostart:
+total 33
+drwxr-xr-x 2 root root  459 Nov 22 22:26 .
+drwxr-xr-x 5 root root  274 Nov 22 22:26 ..
+-rw-r--r-- 1 root root  147 Nov 22 22:26 avyx-ci-install.desktop
+-rw-r--r-- 1 root root  134 Nov 22 22:26 avyx-layout.desktop
+-rw-r--r-- 1 root root 2397 Apr 12  2025 baloo_file.desktop
+-rw-r--r-- 1 root root  196 Jul 14  2025 calamares-desktop-icon.desktop
+-rw-r--r-- 1 root root 1833 Jul  8  2025 gmenudbusmenuproxy.desktop
+-rw-r--r-- 1 root root 3048 Jul  8  2025 kaccess.desktop
+-rw-r--r-- 1 root root 1724 Jul 15  2025 kglobalacceld.desktop
+-rw-r--r-- 1 root root 2304 Jul 21  2025 org.kde.plasma-fallback-session-restore.desktop
+-rw-r--r-- 1 root root 3457 Jul 21  2025 org.kde.plasmashell.desktop
+-rw-r--r-- 1 root root 6012 Jul 19  2025 polkit-kde-authentication-agent-1.desktop
+-rw-r--r-- 1 root root 7205 Jul 19  2025 powerdevil.desktop
+-rw-r--r-- 1 root root  212 Dec 21  2024 xdg-user-dirs.desktop
+-rw-r--r-- 1 root root 1749 Jul  8  2025 xembedsniproxy.desktop
+
+/usr/share/plasma/look-and-feel/org.avyx.desktop/contents:
+total 1
+drwxr-xr-x 4 root root  60 Nov 22 22:28 .
+drwxr-xr-x 3 root root  52 Nov 22 22:26 ..
+-rw-r--r-- 1 root root 190 Nov 22 22:26 defaults
+drwxr-xr-x 2 root root  55 Nov 22 22:28 layouts
+drwxr-xr-x 3 root root  47 Nov 22 22:26 splash
+
+/usr/share/plasma/look-and-feel/org.avyx.desktop/contents/layouts:
+total 2
+drwxr-xr-x 2 root root   55 Nov 22 22:28 .
+drwxr-xr-x 4 root root   60 Nov 22 22:28 ..
+-rw-r--r-- 1 root root 1873 Nov 22 22:28 org.kde.plasma.desktop-layout.js
+--- /home/avyx
+/home/avyx/.config/avyx:
+total 0
+drwxrwxr-x 2 avyx avyx  80 Nov 22 22:37 .
+drwxrwxr-x 8 avyx avyx 520 Nov 22 22:37 ..
+-rw-rw-r-- 1 avyx avyx   0 Nov 22 22:37 glass-applied-v1
+-rw-rw-r-- 1 avyx avyx   0 Nov 22 22:37 layout-applied-v1
+total 27152
+drwxrwxr-x  9 avyx avyx      300 Nov 22 22:37 .
+drwx------ 14 avyx avyx      360 Nov 22 22:37 ..
+-rw-rw-r--  1 avyx avyx        0 Nov 22 22:37 avyx-layout.lock
+-rw-rw-r--  1 avyx avyx      227 Nov 22 22:37 avyx-layout.log
+drwxrwxr-x  4 avyx avyx       80 Nov 22 22:37 ksplash
+-rw-------  1 avyx avyx    18181 Nov 22 22:37 ksvg-elements
+-rw-rw-r--  1 avyx avyx   347579 Nov 22 22:37 ksycoca6_en_Dqh5MZmMGc6JtFqey4Pw0xAq_aY=
+drwxrwxr-x  3 avyx avyx       60 Nov 22 22:37 kwin
+drwx------  2 avyx avyx       40 Nov 22 22:37 mesa_shader_cache
+drwx------ 52 avyx avyx     1080 Nov 22 22:37 mesa_shader_cache_db
+drwx------  2 avyx avyx       40 Nov 22 22:37 obexd
+-rw-rw-r--  1 avyx avyx 10547304 Nov 22 22:37 org.kde.dirmodel-qml.kcache
+drwxrwxr-x  5 avyx avyx      100 Nov 22 22:37 plasmashell
+-rw-rw-r--  1 avyx avyx 16875624 Nov 22 22:37 plasma_theme_avyx-glass.kcache
+drwxrwxr-x  2 avyx avyx      200 Nov 22 22:37 qtshadercache-x86_64-little_endian-lp64
+plasma-localerc
+plasma-org.kde.plasma.desktop-appletsrc
+plasmashellrc
+-- user units
+  dev-cdrom.device                                                                                          loaded    active   plugged   QEMU_DVD-ROM AVYX_OS
+  dev-disk-by\x2ddiskseq-2.device                                                                           loaded    active   plugged   QEMU_DVD-ROM AVYX_OS
+  dev-disk-by\x2did-ata\x2dQEMU_DVD\x2dROM_QM00005.device                                                   loaded    active   plugged   QEMU_DVD-ROM AVYX_OS
+  dev-disk-by\x2dlabel-AVYX_OS.device                                                                       loaded    active   plugged   QEMU_DVD-ROM AVYX_OS
+  dev-disk-by\x2dpath-pci\x2d0000:00:1f.2\x2data\x2d3.0.device                                              loaded    active   plugged   QEMU_DVD-ROM AVYX_OS
+  dev-disk-by\x2dpath-pci\x2d0000:00:1f.2\x2data\x2d3.device                                                loaded    active   plugged   QEMU_DVD-ROM AVYX_OS
+  dev-disk-by\x2duuid-2026\x2d11\x2d22\x2d16\x2d58\x2d52\x2d00.device                                       loaded    active   plugged   QEMU_DVD-ROM AVYX_OS
+  dev-sr0.device                                                                                            loaded    active   plugged   QEMU_DVD-ROM AVYX_OS
+  sys-devices-pci0000:00-0000:00:1f.2-ata3-host2-target2:0:0-2:0:0:0-block-sr0.device                       loaded    active   plugged   QEMU_DVD-ROM AVYX_OS
+  app-avyx\x2dci\x2dinstall@autostart.service                                                               loaded    inactive dead      AVYX CI installer launcher
+  app-avyx\x2dlayout@autostart.service                                                                      loaded    inactive dead      AVYX layout
+● app-calamares\x2ddesktop\x2dicon@autostart.service                                                        loaded    failed   failed    Add Calamares Desktop Icon
+  app-org.kde.plasma\x2dfallback\x2dsession\x2drestore@autostart.service                                    loaded    inactive dead      Plasma Session Restore
+  app-xdg\x2duser\x2ddirs@autostart.service                                                                 loaded    inactive dead      User folders update
+  avyx-layout.service                                                                                       loaded    inactive dead      AVYX desktop layout (first login safety net)
+● plasma-foreground-booster.service                                                                         not-found inactive dead      plasma-foreground-booster.service
+  plasma-gmenudbusmenuproxy.service                                                                         loaded    active   running   Proxies GTK DBus menus to a Plasma readable format
+  plasma-kaccess.service                                                                                    loaded    active   running   KAccess
+  plasma-kactivitymanagerd.service                                                                          loaded    active   running   KActivityManager Activity manager Service
+  plasma-kcminit-phase1.service                                                                             loaded    inactive dead      KDE Configuration Module Initialization (Phase 1)
+  plasma-kcminit.service                                                                                    loaded    inactive dead      KDE Config Module Initialization
+  plasma-kded6.service                                                                                      loaded    active   running   KDE Daemon 6
+  plasma-kglobalaccel.service                                                                               loaded    inactive dead      KDE Global Shortcuts Server
+  plasma-ksmserver.service                                                                                  loaded    active   running   KDE Session Management Server
+  plasma-ksplash-ready.service                                                                              loaded    inactive dead      KSplash "ready" Stage
+● plasma-kwallet-pam.service                                                                                not-found inactive dead      plasma-kwallet-pam.service
+  plasma-kwin_wayland.service                                                                               loaded    active   running   KDE Window Manager
+  plasma-plasmashell.service                                                                                loaded    active   running   KDE Plasma Workspace
+  plasma-polkit-agent.service                                                                               loaded    active   running   KDE PolicyKit Authentication Agent
+  plasma-powerdevil.service                                                                                 loaded    active   running   Powerdevil
+-- user journal (layout)
+Nov 22 22:37:42 avyx plasma-fallback-session-restore[1718]: kmsro: driver missing
+Nov 22 22:37:42 avyx plasma-fallback-session-restore[1718]: libEGL warning: egl: failed to create dri2 screen
+Nov 22 22:37:42 avyx kded6[1480]: kf.modemmanagerqt: Failed enumerating MM objects: "org.freedesktop.DBus.Error.ServiceUnknown"
+Nov 22 22:37:42 avyx kded6[1480]:  "The name org.freedesktop.ModemManager1 was not provided by any .service files"
+Nov 22 22:37:42 avyx dbus-daemon[1354]: [session uid=1000 pid=1354 pidfd=5] Activating via systemd: service name='org.bluez.obex' unit='obex.service' requested by ':1.21' (uid=1000 pid=1480 comm="/usr/bin/kded6")
+Nov 22 22:37:42 avyx systemd[1336]: Starting obex.service - Bluetooth OBEX service...
+Nov 22 22:37:42 avyx kded6[1480]: org.kde.pulseaudio: No object for name "auto_null.monitor"
+Nov 22 22:37:42 avyx obexd[1756]: OBEX daemon 5.82
+Nov 22 22:37:42 avyx dbus-daemon[1354]: [session uid=1000 pid=1354 pidfd=5] Successfully activated service 'org.bluez.obex'
+Nov 22 22:37:42 avyx systemd[1336]: Started obex.service - Bluetooth OBEX service.
+Nov 22 22:37:42 avyx dbus-daemon[1354]: [session uid=1000 pid=1354 pidfd=5] Activating via systemd: service name='org.gnome.evolution.dataserver.Sources5' unit='evolution-source-registry.service' requested by ':1.47' (uid=1000 pid=1756 comm="/usr/libexec/bluetooth/obexd")
+Nov 22 22:37:42 avyx dbus-daemon[1354]: [session uid=1000 pid=1354 pidfd=5] Activation via systemd failed for unit 'evolution-source-registry.service': Unit evolution-source-registry.service not found.
+Nov 22 22:37:42 avyx obexd[1756]: Unable to acquire registry: Error calling StartServiceByName for org.gnome.evolution.dataserver.Sources5: Unit evolution-source-registry.service not found.
+Nov 22 22:37:42 avyx dbus-daemon[1354]: [session uid=1000 pid=1354 pidfd=5] Activating via systemd: service name='org.gnome.evolution.dataserver.Sources5' unit='evolution-source-registry.service' requested by ':1.47' (uid=1000 pid=1756 comm="/usr/libexec/bluetooth/obexd")
+Nov 22 22:37:42 avyx dbus-daemon[1354]: [session uid=1000 pid=1354 pidfd=5] Activation via systemd failed for unit 'evolution-source-registry.service': Unit evolution-source-registry.service not found.
+Nov 22 22:37:42 avyx obexd[1756]: Unable to acquire registry: Error calling StartServiceByName for org.gnome.evolution.dataserver.Sources5: Unit evolution-source-registry.service not found.
+Nov 22 22:37:42 avyx plasmashell[1501]: This plugin does not support setting window opacity
+Nov 22 22:37:42 avyx plasmashell[1501]: This plugin does not support setting window opacity
+Nov 22 22:37:42 avyx plasmashell[1501]: kde.plasmashell: Activity added twice "ad15e516-7546-40d8-9cb2-cff8cb396412"
+Nov 22 22:37:43 avyx plasmashell[1501]: virtual QStringList Solid::Backends::UPower::UPowerManager::allDevices()  error:  QDBusError("org.freedesktop.DBus.Error.ServiceUnknown", "The name org.freedesktop.UPower was not provided by any .service files")
+Nov 22 22:37:43 avyx plasmashell[1501]: org.kde.plasma.kicker: Entry is not valid "org.kde.kontact.desktop" 0x55adb8782290
+Nov 22 22:37:43 avyx plasmashell[1501]: org.kde.plasma.kicker: Entry is not valid "org.kde.discover.desktop" 0x55adb8782290
+Nov 22 22:37:43 avyx plasmashell[1501]: org.kde.plasma.kicker: Entry is not valid "org.kde.kontact.desktop" 0x55adb8782290
+Nov 22 22:37:43 avyx plasmashell[1501]: org.kde.plasma.kicker: Entry is not valid "org.kde.discover.desktop" 0x55adb8782290
+Nov 22 22:37:43 avyx systemd[1336]: Finished plasma-ksplash.service - Splash screen shown during boot.
+Nov 22 22:37:43 avyx systemd[1336]: plasma-ksplash.service: Consumed 765ms CPU time, 124.1M memory peak.
+Nov 22 22:37:43 avyx kwin_wayland_wrapper[1394]: kwin_wayland_drm: Failed to create framebuffer: Invalid argument
+Nov 22 22:37:43 avyx plasmashell[1501]: org.kde.pulseaudio: No object for name "auto_null.monitor"
+Nov 22 22:38:07 avyx kded6[1480]: kf.bluezqt: PendingCall Error: "Failed to activate service 'org.bluez': timed out (service_start_timeout=25000ms)"
+Nov 22 22:38:44 avyx (sd-pam)[1836]: pam_unix(login:session): session closed for user avyx
+AVYX_MARK analyze: Startup finished in 2.332s (kernel) + 5.078s (userspace) = 7.410s 
+AVYX_MARK renderer: 
+== top memory ==
+  RSS COMMAND
+495896 plasmashell
+258124 kwin_wayland
+144812 kded6
+132360 polkit-kde-auth
+131640 xdg-desktop-por
+124028 kaccess
+123512 ksmserver
+80792 Xwayland
+57536 org_kde_powerde
+46688 startplasma-way
+42460 kactivitymanage
+== look diagnostics ==
+icons theme: AVYX
+decoration: __aurorae__svg__AVYX
+AVYXrc	   decoration.svg  metadata.desktop  restore.svg
+close.svg  maximize.svg    minimize.svg
+/usr/lib/x86_64-linux-gnu/qt6/plugins/kf6/packagestructure/kwin_aurorae.so
+/usr/lib/x86_64-linux-gnu/qt6/plugins/org.kde.kdecoration3/org.kde.kwin.aurorae.so
+/usr/lib/x86_64-linux-gnu/qt6/plugins/org.kde.kdecoration3.kcm/kcm_auroraedecoration.so
+/usr/share/aurorae
+/usr/share/knsrcfiles/aurorae.knsrc
+/usr/share/kwin/aurorae
+/usr/share/kwin/aurorae/AuroraeButton.qml
+/usr/share/kwin/aurorae/AuroraeButtonGroup.qml
+/usr/share/kwin/aurorae/AuroraeMaximizeButton.qml
+/usr/share/kwin/aurorae/aurorae.qml
+avyx-glass  breeze-dark  breeze-light  default
+-- panel config
+7:[Containments][1]
+13:location=0
+20:[Containments][18]
+25:location=4
+47:[Containments][2]
+52:location=3
+101:[Containments][8]
+106:location=3
+-- plasmashellrc
+[PlasmaViews][Panel 18]
+floating=1
+panelLengthMode=1
+panelVisibility=2
+
+[PlasmaViews][Panel 18][Defaults]
+thickness=70
+
+[PlasmaViews][Panel 2]
+floating=0
+
+[PlasmaViews][Panel 2][Defaults]
+thickness=40
+
+[Updates]
+performed=/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/containmentactions_middlebutton.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/digitalclock_migrate_font_settings.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/digitalclock_migrate_showseconds_setting.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/digitalclock_rename_timezonedisplay_key.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/folderview_fix_recursive_screenmapping.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/keyboardlayout_migrateiconsetting.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/keyboardlayout_remove_shortcut.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/klipper_clear_config.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/maintain_existing_desktop_icon_sizes.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/mediaframe_migrate_useBackground_setting.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/migrate_font_weights.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/move_desktop_layout_config.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/no_middle_click_paste_on_panels.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/systemloadviewer_systemmonitor.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/unlock_widgets.js
+-- default theme files (panel/dialog backgrounds)
+-- default/widgets/panel-background.svgz element ids
+ id="svg2"  id="namedview108"  id="grid988"  id="defs15"  id="current-color-scheme"  id="shadow-side"  id="stop1762"  id="stop1760"  id="stop1758"  id="stop1756"  id="stop1754"  id="shadow-corner"  id="stop11958"  id="stop11960"  id="stop11962"  id="stop11966"  id="stop11968"  id="stop11970"  id="radialGradient3268-6-6"  id="linearGradient4945"  id="linearGradient1734"  id="linearGradient1984"  id="linearGradient8667"  id="radialGradient3268"  id="radialGradient3268-4"  id="radialGradient3268-6"  id="shadow-bottomright-9"  id="thick-center"  id="thick-hint-right-margin"  id="thick-hint-left-margin"  id="thick-hint-top-margin"  id="thick-hint-bottom-margin"  id="hint-tile-center"  id="top"  id="rect4152"  id="path1337"  id="bottom"  id="rect4148"  id="path1671"  id="left"  id="rect4144"  id="path1785"  id="right"  id="rect4140"  id="path1902"  id="center"  id="rect4138"  id="topleft"  id="path3115"  id="topright"  id="path3118"  id="bottomleft"  id="path3124"  id="bottomright"  id="path3121"  id="hint-top-margin"  id="hint-bottom-margin"  id="hint-right-margin"  id="hint-left-margin"  id="hint-top-inset"  id="hint-bottom-inset"  id="hint-left-inset"  id="hint-right-inset"  id="mask-top"  id="mask-center"  id="mask-bottom"  id="mask-left"  id="mask-right"  id="mask-topleft"  id="shadow-center"  id="rect4908"  id="path838"  id="shadow-topleft"  id="path95-4-2"  id="path2368-7-5"  id="shadow-top"  id="st"  id="rect1546"  id="shadow-bottom"  id="rect1546-6"  id="sb"  id="shadow-left"  id="sl"  id="rect1546-3-7"  id="shadow-right"  id="rect1546-3"  id="sr"  id="shadow-hint-top-margin"  id="shadow-hint-bottom-margin"  id="shadow-hint-right-margin"  id="shadow-hint-left-margin"  id="shadow-hint-top-inset"  id="shadow-hint-bottom-inset"  id="shadow-hint-right-inset"  id="shadow-hint-left-inset"  id="shadow-bottomright"  id="path95"  id="path2368"  id="shadow-bottomleft"  id="path95-1"  id="path2368-0"  id="shadow-topright"  id="path95-4"  id="path2368-7"  id="mask-topright"  id="mask-bottomright"  id="mask-bottomleft"  id="text1204"  id="tspan1202"  id="tspan1358"  id="tspan1360"  id="tspan1362"  id="tspan1364" 
+-- default/translucent/widgets/panel-background.svgz element ids
+ id="svg2"  id="namedview108"  id="grid988"  id="defs15"  id="current-color-scheme"  id="shadow-side"  id="stop1762"  id="stop1760"  id="stop1758"  id="stop1756"  id="stop1754"  id="shadow-corner"  id="stop11958"  id="stop11960"  id="stop11962"  id="stop11966"  id="stop11968"  id="stop11970"  id="linearGradient1734"  id="linearGradient1984"  id="linearGradient4945"  id="linearGradient8667"  id="radialGradient3268"  id="radialGradient3268-4"  id="radialGradient3268-6"  id="radialGradient3268-6-6"  id="hint-tile-center"  id="top"  id="rect4152"  id="path1337"  id="bottom"  id="rect4148"  id="path1671"  id="left"  id="rect4144"  id="path1785"  id="right"  id="rect4140"  id="path1902"  id="center"  id="rect4138"  id="topleft"  id="path3115"  id="topright"  id="path3118"  id="bottomleft"  id="path3124"  id="bottomright"  id="path3121"  id="hint-top-margin"  id="hint-bottom-margin"  id="hint-right-margin"  id="hint-left-margin"  id="hint-top-inset"  id="hint-bottom-inset"  id="hint-left-inset"  id="hint-right-inset"  id="mask-top"  id="mask-center"  id="mask-bottom"  id="mask-left"  id="mask-right"  id="mask-topleft"  id="shadow-center"  id="rect4908"  id="shadow-topleft"  id="path95-4-2"  id="path2368-7-5"  id="shadow-top"  id="st"  id="rect1546"  id="shadow-bottom"  id="rect1546-6"  id="sb"  id="path838"  id="shadow-left"  id="sl"  id="rect1546-3-7"  id="shadow-right"  id="rect1546-3"  id="sr"  id="shadow-hint-top-margin"  id="shadow-hint-bottom-margin"  id="shadow-hint-right-margin"  id="shadow-hint-left-margin"  id="shadow-hint-top-inset"  id="shadow-hint-bottom-inset"  id="shadow-hint-right-inset"  id="shadow-hint-left-inset"  id="shadow-bottomright"  id="path95"  id="path2368"  id="shadow-bottomright-9"  id="shadow-bottomleft"  id="path95-1"  id="path2368-0"  id="shadow-topright"  id="path95-4"  id="path2368-7"  id="thick-center"  id="thick-hint-right-margin"  id="thick-hint-left-margin"  id="thick-hint-top-margin"  id="thick-hint-bottom-margin"  id="mask-topright"  id="mask-bottomright"  id="mask-bottomleft"  id="text1204"  id="tspan1202"  id="tspan1358"  id="tspan1360"  id="tspan1362"  id="tspan1364" 
+-- default/opaque/widgets/panel-background.svgz element ids
+ id="svg2"  id="defs4"  id="current-color-scheme"  id="base"  id="grid3336"  id="metadata7"  id="layer1"  id="hint-tile-center"  id="center"  id="rect4401"  id="rect4138"  id="topright"  id="rect4177"  id="path4842"  id="mask-top"  id="rect4265"  id="mask-topleft"  id="path4277"  id="mask-topright"  id="path4287"  id="mask-bottom"  id="rect4291"  id="mask-bottomleft"  id="path4303"  id="mask-bottomright"  id="path4313"  id="mask-left"  id="rect4317"  id="mask-right"  id="rect4323"  id="mask-center"  id="rect4329"  id="rect4331"  id="right"  id="rect4140"  id="rect4902-0"  id="top"  id="rect3146"  id="rect3148"  id="bottom"  id="rect3152"  id="rect3154"  id="left"  id="rect3164"  id="rect3166"  id="bottomright"  id="path3176"  id="path3178"  id="bottomleft"  id="path3182"  id="path3184"  id="topleft"  id="path3188"  id="path3190"  id="thick-hint-top-margin"  id="thick-hint-bottom-margin"  id="thick-hint-right-margin"  id="thick-hint-left-margin"  id="hint-bottom-margin"  id="hint-right-margin"  id="hint-left-margin"  id="hint-top-margin"  id="thick-center" 
+-- default/translucent/widgets/panel-background.svg (head)
+<?xml version="1.0" encoding="UTF-8" standalone="no"?> <!-- Created with Inkscape (http://www.inkscape.org/) --> <svg id="svg2" height="64" viewBox="0 0 157 64" width="157" version="1.1" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"> id="namedview108" pagecolor="#ffffff" bordercolor="#111111" borderopacity="1" showgrid="true" type="xygrid" id="grid988" originx="0" originy="4" /> <defs id="defs15"> <style type="text/css" id="current-color-scheme"> .ColorScheme-Text { color:#232629; stop-color:#232629; } .ColorScheme-Background { color:#eff0f1; stop-color:#eff0f1; } </style> <linearGradient id="shadow-side" gradientUnits="userSpaceOnUse"> <stop id="stop1762" offset="0" style="stop-color:#000;stop-opacity:.2" /> <stop id="stop1760" offset=".3333333333" style="stop-color:#000;stop-opacity:.1" /> <stop id="stop1758" offset=".5" style="stop-color:#000;stop-opacity:.05" /> <stop id="stop1756" offset=".5833333333" style="stop-color:#000;stop-opacity:.025" /> <stop id="stop1754" offset="1" style="stop-color:#000;stop-opacity:0" /> </linearGradient> <linearGradient id="shadow-corner" gradientUnits="userSpaceOnUse"> <stop id="stop11958" offset="0" style="stop-color:#000;stop-opacity:1" /> <stop id="stop11960" offset=".2857142857" style="stop-color:#000;stop-opacity:.2" /> <stop id="stop11962" offset=".5238095238" style="stop-color:#000;stop-opacity:.1" /> <stop id="stop11966" offset=".6428571429" style="stop-color:#000;stop-opacity:.05" /> <stop id="stop11968" offset=".7023809524" style="stop-color:#000;stop-opacity:.025" /> <stop id="stop11970" offset="1" style="stop-color:#000;stop-opacity:0" /> </linearGradient> <linearGradient xlink:href="#shadow-side" id="linearGradient1734" gradientUnits="userSpaceOnUse" x1="16" y1="6" x2="16" y2="16" /> <linearGradient xlink:href="#shadow-side" id="linearGradient1984" gradientUnits="userSpaceOnUse" x1="12" y1="16" x2="2" y2="16" /> <linearGradient xlink:href="#shadow-side" id="linearGradient4945" gradientUnits="userSpaceOnUse" x1="15.9999990463" y1="13.9999980927" x2="15.9999990463" y2="4" /> <linearGradient xlink:href="#shadow-side" id="linearGradient8667" gradientUnits="userSpaceOnUse" x1="4" y1="16" x2="14" y2="16" /> <radialGradient xlink:href="#shadow-corner" id="radialGradient3268" cx="95" cy="50" fx="95" fy="50" r="6.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0,2.15384615385,-2.15384615385,0,107.692307692,-202.615384615)" /> <radialGradient xlink:href="#shadow-corner" id="radialGradient3268-4" cx="95" cy="50" fx="95" fy="50" r="6.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0,2.15384615385,-2.15384615385,0,107.692307692,-202.615384615)" /> <radialGradient xlink:href="#shadow-corner" id="radialGradient3268-6" cx="93.1428604126" cy="50" fx="93.1428604126" fy="50" r="6.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0,2.15384615385,-2.15384615385,0,107.692307692,-202.615384615)" /> <radialGradient xlink:href="#shadow-corner" id="radialGradient3268-6-6" cx="93.1428604126" cy="50" fx="93.1428604126" fy="50" r="6.5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0,2.15384615385,-2.15384615385,0,107.692307692,-202.615384615)" /> </defs> <rect id="hint-tile-center" height="5" style="fill:#ff6600" width="5" x="0" y="0" /> <g id="top" transform="translate(6,10)"> <rect id="rect4152" height="6" style="opacity:0.85;fill:currentColor" class="ColorScheme-Background" width="32" x="0" y="0" /> <path style="opacity:0.5" d="M 0,0 V 1 H 32 V 0 Z" id="path1337" class="ColorScheme-Background" fill="currentColor" /> </g> <g id="bottom" transform="translate(6,48)"> <rect id="rect4148" height="6" style="opacity:0.85;fill:currentColor" class="ColorScheme-Background" width="32" x="0" y="0" /> <path style="opacity:0.5" d="M 0,5 V 6 H 32 V 5 Z" id="path1671" class="ColorScheme-Background" fill="currentColor" /> </g> <g id="left" transform="translate(0,16)"> <rect id="rect4144" height="32" style="opacity:0.85;fill:currentColor" class="ColorScheme-Background" width="6" x="0" y="0" /> <path style="opacity:0.5" d="M 0,32 H 1 V 0 H 0 Z" id="path1785" class="ColorScheme-Background" fill="currentColor" /> </g> <g id="right" transform="translate(38,16)"> <rect id="rect4140" height="32" style="opacity:0.85;fill:currentColor" class="ColorScheme-Background" width="6" x="0" y="0" /> <path style="opacity:0.5" d="M 5,32 H 6 V 0 H 5 Z" id="path1902" class="ColorScheme-Background" fill="currentColor" /> </g> <g id="center" transform="translate(6,16)"> <rect id="rect4138" height="32" style="opacity:0.85;fill:currentColor" class="ColorScheme-Background" width="32" x="0" y="0" /> </g> <g id="topleft" transform="translate(0,10)"> <path d="M 0,6 H 6 V 0 C 2,0 0,2 0,6 Z" style="opacity:0.85;fill:currentColor" class="ColorScheme-Background" id="path3115" </g> <g id="topright" transform="translate(38,10)"> <path d="M 0,0 V 6 H 6 C 6,2 4,0 0,0 Z" style="opacity:0.85;fill:currentColor" class="ColorScheme-Background" id="path3118" </g> <g id="bottomleft" transform="translate(0,48)"> <path d="M 6,6 V 0 H 0 c 0,4 2,6 6,6 z" style="opacity:0.85;fill:currentColor" class="ColorScheme-Background" id="path3124" </g> <g id="bottomright" transform="translate(38,48)"> <path d="M 0,6 V 0 H 6 C 6,4 4,6 0,6 Z" style="opacity:0.85;fill:currentColor" class="ColorScheme-Background" id="path3121" </g> <rect id="hint-top-margin" height="4" style="fill:#ff00ff;stroke-width:0.999996" width="4" x="20" y="10" /> <rect id="hint-bottom-margin" height="4" style="fill:#ff00ff;stroke-width:0.999996" width="4" x="20" y="50" /> <rect id="hint-right-margin" height="4" style="fill:#ff00ff;stroke-width:0.999996" width="4" x="40" y="30" /> <rect id="hint-left-margin" height="4" style="fill:#ff00ff;stroke-width:0.999996" width="4" x="0" y="30" /> <rect id="hint-top-inset" height="9.99999993923e-09" style="fill:#00ff00" width="4" x="20" y="10" /> <rect id="hint-bottom-inset" height="9.99999993923e-09" style="fill:#00ff00" width="4" x="20" y="54" /> <rect id="hint-left-inset" height="4" style="fill:#00ff00" width="9.99999993923e-09" x="0" y="30" /> <rect id="hint-right-inset" height="4" style="fill:#00ff00" width="9.99999993923e-09" x="44" y="30" /> <rect id="mask-top" height="6.00002098083" width="31.9999904633" x="119" y="10" /> <rect id="mask-center" height="32" width="32" x="119" y="16" /> <rect id="mask-bottom" height="6.00002145767" transform="scale(1,-1)" width="32.0000076294" x="119" y="-54" /> <rect id="mask-left" height="32" width="6" x="113" y="16" /> <rect id="mask-right" height="32" width="6" x="151" y="16" /> <path id="mask-topleft" d="m 114,16 h -1 6 v -6 1 c -3.45746,-0.0052 -4.96328,1.572529 -5,5 z" <g id="shadow-center" transform="translate(63,16)"> <rect id="rect4908" height="32" style="opacity:0.00100002;fill-opacity:0.00100002" width="32" x="0" y="0" /> </g> <g id="shadow-topleft" transform="rotate(180,31.5,8)"> <path d="M 0,6 V 0 H 6 C 6,4 4,6 0,6 Z" style="opacity:0.00100002;fill:#000000;fill-opacity:0.00392157" id="path95-4-2" <path id="path2368-7-5" style="fill:url(#radialGradient3268-6-6);fill-opacity:1;fill-rule:evenodd;stroke-width:0.999997" d="M 6,0 C 6,4 4,6 0,6 V 16 H 3 C 10.179702,16 16,10.179702 16,3 V 0 Z" </g> <g id="shadow-top" transform="translate(63)"> <rect id="st" height="10" width="32" style="fill:url(#linearGradient4945);fill-opacity:1" x="0" y="0" /> <rect id="rect1546" height="6" style="opacity:0.00100002;fill:#000000;fill-opacity:0.0039215689;fill-rule:evenodd" width="32" y="10" x="0" /> </g> <g id="shadow-bottom" transform="translate(63,48)"> <rect id="rect1546-6" height="6" style="opacity:0.00100002;fill:#000000;fill-opacity:0.0039215689;fill-rule:evenodd" width="32" x="0" y="0" /> <rect id="sb" height="10" width="32" y="6" style="fill:url(#linearGradient1734);fill-opacity:1" x="0" /> </g> <path style="opacity:1;fill:#ffff00;stroke-width:2;stroke-linecap:round" d="m 63,10 h 32 c 4,0 6,2 6,6 v 32 c 0,4 -2,6 -6,6 H 63 c -4,0 -6,-2 -6,-6 V 16 c 0,-4 2,-6 6,-6 z" id="path838" <g id="shadow-left" transform="translate(47,16)"> <rect id="sl" height="32" width="10" style="fill:url(#linearGradient1984);fill-opacity:1" x="0" y="0" /> <rect id="rect1546-3-7" height="32" style="opacity:0.00100002;fill:#000000;fill-opacity:0.0039215689;fill-rule:evenodd" width="6" x="10" y="0" /> </g> <g id="shadow-right" transform="translate(95,16)"> <rect id="rect1546-3" height="32" style="opacity:0.00100002;fill:#000000;fill-opacity:0.0039215689;fill-rule:evenodd" width="6" x="0" y="0" /> <rect id="sr" height="32" width="10" x="6" style="fill:url(#linearGradient8667);fill-opacity:1" y="0" /> </g> <rect id="shadow-hint-top-margin" height="10" style="fill:#ff00ff" width="2" x="76" y="0" /> <rect id="shadow-hint-bottom-margin" height="10" style="fill:#ff00ff" width="2" x="76" y="54" /> <rect id="shadow-hint-right-margin" height="2" style="fill:#ff00ff" width="10" x="101" y="33" /> <rect id="shadow-hint-left-margin" height="2" style="fill:#ff00ff" width="10" x="47" y="29" /> <rect id="shadow-hint-top-inset" height="10" style="fill:#00ff00" width="2" x="80" y="0" /> <rect id="shadow-hint-bottom-inset" height="10" style="fill:#00ff00" width="2" x="80" y="54" /> <rect id="shadow-hint-right-inset" height="2" style="fill:#00ff00" width="10" x="101" y="29" /> <rect id="shadow-hint-left-inset" height="2" style="fill:#00ff00" width="10" x="47" y="33" /> <g id="shadow-bottomright" transform="translate(95,48)"> <path d="M 0,6 V 0 H 6 C 6,3.9985637 3.9804714,6 0,6 Z" style="opacity:0.00100002;fill:#000000;fill-opacity:0.00392157" id="path95" <path id="path2368" style="fill:url(#radialGradient3268);fill-opacity:1;fill-rule:evenodd;stroke-width:0.999997" d="M 6,0 C 6,4 4,6 0,6 V 16 H 3 C 10.179702,16 16,10.179702 16,3 V 0 Z" </g> <g id="shadow-bottomright-9" transform="translate(95,48)" /> <g id="shadow-bottomleft" transform="matrix(-1,0,0,1,63,48)"> <path d="M 3,6 H 0 V 0 H 6 V 3 C 6,4.6568542489 4.6568542489,6 3,6 Z" style="opacity:0.00100002;fill:#000000;fill-opacity:0.0039215689" id="path95-1" /> <path id="path2368-0" style="fill:url(#radialGradient3268-4);fill-opacity:1;fill-rule:evenodd;stroke-width:0.999997" d="M 6,0 C 6,3.9985637 3.9951555,6 0,6 V 16 H 3 C 10.179702,16 16,10.179702 16,3 V 0 Z" </g> <g id="shadow-topright" transform="matrix(1,0,0,-1,95,16)"> <path d="M 3,6 H 0 V 0 H 6 V 3 C 6,4.6568542489 4.6568542489,6 3,6 Z" style="opacity:0.00100002;fill:#000000;fill-opacity:0.0039215689" id="path95-4" <path id="path2368-7" style="fill:url(#radialGradient3268-6);fill-opacity:1;fill-rule:evenodd;stroke-width:0.999997" d="M 6,0 C 6,3.9881462 3.9744051,6 0,6 V 16 H 3 C 10.179702,16 16,10.179702 16,3 V 0 Z" </g> <rect style="color:#eff0f1;fill:currentColor;fill-opacity:1;stroke:none;stop-color:#eff0f1" id="thick-center" width="32" height="32" x="19" y="75" class="ColorScheme-Background" /> <rect transform="rotate(90)" style="fill:#800080;fill-opacity:1;stroke:none;stroke-width:1.1547" id="thick-hint-right-margin" width="4" height="8" x="95" y="-56" /> <rect transform="rotate(90)" y="-20" x="95" height="8" width="4" id="thick-hint-left-margin" style="fill:#800080;fill-opacity:1;stroke:none;stroke-width:1.1547" /> <rect y="69" x="38" height="8" width="4" id="thick-hint-top-margin" style="fill:#800080;fill-opacity:1;stroke:none;stroke-width:1.1547" /> <rect style="fill:#800080;fill-opacity:1;stroke:none;stroke-width:1.1547" id="thick-hint-bottom-margin" width="4" height="8" x="39" y="105" /> <path id="mask-topright" d="m 156,16 h 1 -6 v -6 1 c 3.23259,0.0063 5.02079,1.824404 5,5 z" <path id="mask-bottomright" d="m 156,48 h 1 -6 v 6 -1 c 3.53089,-0.03156 5,-1.55417 5,-5 z" <path id="mask-bottomleft" d="m 114,48 h -1 6 v 6 -1 c -3.45746,0.0052 -4.98407,-1.580156 -5,-5 z" <text xml:space="preserve" style="font-stretch:condensed;font-size:1.25217px;font-family:Impact;-inkscape-font-specification:'Impact Condensed';text-align:start;text-anchor:start;fill:#ff0000;stroke:#000000;stroke-width:5.72866;stroke-linecap:round" x="118" y="1.9579079" id="text1204"><tspan id="tspan1202" x="118" y="1.9579079" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.25217px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:5.72866">The corners of the mask are 1px smaller because they</tspan><tspan x="118" y="3.6373272" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.25217px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:5.72866" id="tspan1358">are not antialiased, whereas the svg corners are; if the</tspan><tspan x="118" y="5.3167462" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.25217px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:5.72866" id="tspan1360">mask is the same size of the svg, then, some of the corner</tspan><tspan x="118" y="6.9961658" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.25217px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:5.72866" id="tspan1362">pixels of the mask will be visible even though they should</tspan><tspan x="118" y="8.6755848" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.25217px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:5.72866" id="tspan1364">be covered by the svg.</tspan></text> </svg> 
+AVYX_MARK showcase_ready uptime=117.73 windows: konsole dolphin
+-- showcase app logs
+==> /tmp/avyx-showcase-konsole.log <==
+libEGL warning: pci id for fd 7: 1234:1111, driver (null)
+
+pci id for fd 15: 1234:1111, driver (null)
+kmsro: driver missing
+libEGL warning: egl: failed to create dri2 screen
+pci id for fd 15: 1234:1111, driver (null)
+kmsro: driver missing
+libEGL warning: egl: failed to create dri2 screen
+QLayout: Cannot add a null widget to QHBoxLayout/
+Program to run not set.
+
+==> /tmp/avyx-showcase-dolphin.log <==
+libEGL warning: pci id for fd 7: 1234:1111, driver (null)
+
+pci id for fd 15: 1234:1111, driver (null)
+kmsro: driver missing
+libEGL warning: egl: failed to create dri2 screen
+pci id for fd 15: 1234:1111, driver (null)
+kmsro: driver missing
+libEGL warning: egl: failed to create dri2 screen
+org.kde.dolphin: Could not load default global viewproperties
+org.kde.dolphin: Could not load default global viewproperties
+org.kde.dolphin: Unknown class  ""  in session saved data!
+kf.kio.gui: Cannot read information about filesystem under path "/home/avyx/.cache/thumbnails/"
+Warning: fallback to QtQuick software backend.
+
+==> /tmp/avyx-showcase-plasmawindowed.log <==
+libEGL warning: pci id for fd 11: 1234:1111, driver (null)
+
+pci id for fd 15: 1234:1111, driver (null)
+kmsro: driver missing
+libEGL warning: egl: failed to create dri2 screen
+pci id for fd 15: 1234:1111, driver (null)
+kmsro: driver missing
+libEGL warning: egl: failed to create dri2 screen
+Loading default layout
+kf.plasma.core: Applet invalid: Cannot find a package for "empty"
+kf.plasma.core: Unknown containment type requested: "" "" check Plasma::Containment::Type for supported values
+kf.plasma.quick: Applet preload policy set to 1
+qml: 0
+-- kwin windows
+([('0_{a1c4cb9f-36e8-4e6a-b6ed-9be42542d120}', '/ : bash — Konsole', 'utilities-terminal', 100, 0.80000000000000004, {'subtext': <'Activate running window on Desktop 1'>}), ('0_{5707a4ed-270a-4ea4-967e-552b9c215bd2}', 'Home — Dolphin', 'org.kde.dolphin', 100, 0.80000000000000004, {'subtext': <'Activate running window on Desktop 1'>}), ('0_{ee6358a3-08dc-4f54-b2e3-911d822ea270}', 'AVYX Dock', 'plasma', 100, 0.80000000000000004, {'subtext': <'Activate running window on Desktop 1'>}), ('0_{a1c4cb9f-36e8-4e6a-b6ed-9be42542d120}', '/ : bash — Konsole', 'utilities-terminal', 30, 0.5, {'subtext': <'Activate running window on Desktop 1'>}), ('0_{5707a4ed-270a-4ea4-967e-552b9c215bd2}', 'Home — Dolphin', 'org.kde.dolphin', 30, 0.5, {'subtext': <'Activate running window on Desktop 1'>}), ('0_{ee6358a3-08dc-4f54-b2e3-911d822ea270}', 'AVYX Dock', 'plasma', 30, 0.5, {'subtext': <'Activate running window on Desktop 1'>})],)
+
+== errors this boot ==
+Nov 22 22:37:33 localhost.localdomain systemd-udevd[455]: /usr/lib/udev/rules.d/90-alsa-restore.rules:18 GOTO="alsa_restore_std" has no matching label, ignoring.
+Nov 22 22:37:33 localhost.localdomain systemd-udevd[455]: /usr/lib/udev/rules.d/90-alsa-restore.rules:22 GOTO="alsa_restore_std" has no matching label, ignoring.
+Nov 22 22:37:35 avyx adduser[1002]: The group `powerdev' does not exist.
+Nov 22 22:37:35 avyx adduser[1006]: The group `scanner' does not exist.
+Nov 22 22:37:35 avyx adduser[1016]: The group `debian-tor' does not exist.
+Nov 22 22:37:42 avyx obexd[1756]: Unable to acquire registry: Error calling StartServiceByName for org.gnome.evolution.dataserver.Sources5: Unit evolution-source-registry.service not found.
+Nov 22 22:37:42 avyx obexd[1756]: Unable to acquire registry: Error calling StartServiceByName for org.gnome.evolution.dataserver.Sources5: Unit evolution-source-registry.service not found.
+AVYX_MARK done
