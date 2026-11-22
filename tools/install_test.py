@@ -28,11 +28,12 @@ SYMBOLS = {" ": "spc", "-": "minus", ".": "dot", "_": ("shift", "minus")}
 
 
 class Vm:
-    def __init__(self, tag, out, iso, disk, ovmf_vars, family, timeout, smp=2, mem=4096, cpu="SandyBridge"):
+    def __init__(self, tag, out, iso, disk, ovmf_vars, family, timeout, smp=2, mem=4096, cpu="SandyBridge", extra=None):
         self.tag, self.out, self.iso, self.disk = tag, Path(out), iso, disk
         self.family, self.timeout = family, timeout
         self.smp, self.mem, self.cpu = smp, mem, cpu
         self.ovmf_vars = ovmf_vars
+        self.extra = extra or []
         self.marks = {}
         self.seen = 0
         self.nshot = 0
@@ -60,6 +61,7 @@ class Vm:
             "-drive", f"if=pflash,format=raw,unit=0,readonly=on,file={code}",
             "-drive", f"if=pflash,format=raw,unit=1,file={self.ovmf_vars}",
         ]
+        cmd += self.extra
         if self.iso:
             cmd += ["-cdrom", self.iso, "-boot", "order=d"]
         else:

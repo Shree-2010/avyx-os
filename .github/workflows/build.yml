@@ -5,6 +5,7 @@ on:
     branches: [main, m1-scaffold, m2-layout]
     paths-ignore:
       - "tools/install_test.py"
+      - "tools/ui_test.py"
       - ".github/workflows/install-test.yml"
     tags: ["m*"]
   workflow_dispatch:
@@ -63,6 +64,11 @@ jobs:
         continue-on-error: true
         run: python3 tools/install_test.py --iso out/AVYX-OS-*.iso --out out/install
 
+      - name: UI interaction test (search, menus, overview, dock; screenshots only)
+        id: ui
+        continue-on-error: true
+        run: python3 tools/ui_test.py --iso out/AVYX-OS-*.iso --out out/ui
+
       - name: Release notes from measured results
         if: always()
         run: |
@@ -80,6 +86,8 @@ jobs:
           ev="$(mktemp -d)"
           cp -r out/test "$ev/test" 2>/dev/null
           cp -r out/install "$ev/install" 2>/dev/null
+          cp -r out/ui "$ev/ui" 2>/dev/null
+          rm -f "$ev"/ui/*.qcow2
           rm -f "$ev"/install/*.qcow2
           cp out/RELEASE_NOTES.md out/dropped-packages.txt out/packages.txt out/*.sha256 "$ev/" 2>/dev/null
           cp -r build-logs "$ev/build-logs" 2>/dev/null
@@ -103,6 +111,8 @@ jobs:
             out/install/*.png
             out/install/*.json
             out/install/*.log
+            out/ui/*.png
+            out/ui/*.json
             out/RELEASE_NOTES.md
             out/dropped-packages.txt
             out/packages.txt

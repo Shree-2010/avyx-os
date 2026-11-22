@@ -193,35 +193,97 @@ def build_icons():
 AUR = INC / "usr/share/aurorae/themes/AVYX"
 
 TOP_H = 34   # 7 + 20 + 7, must match the rc file
-R = 11       # corner radius
+R = 11       # corner radius of the title bar
+PAD = 18     # shadow extent left/right/top
+PADB = 26    # shadow extent at the bottom (offset shadow)
+BORDER = 2
 
 
 def deco_svg():
-    def grad(uid, a, b, h=TOP_H):
-        return (f'<linearGradient id="{uid}" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="{h}">'
-                f'<stop offset="0" stop-color="{a}"/><stop offset="1" stop-color="{b}"/></linearGradient>')
+    W_C = PAD + R + 1            # corner element width
+    H_T = PAD + TOP_H            # top element height
+    H_B = BORDER + PADB          # bottom element height
+    W_S = PAD + BORDER           # left/right strip width
+    cx = PAD + R                 # corner arc centre (x and y)
 
-    def frame(prefix, fill_top, solid):
-        # canvas layout: top row y=0..34 ; edges below at y=40
-        return f"""
-  <path id="{prefix}-topleft" d="M0 {TOP_H} V{R} A{R} {R} 0 0 1 {R} 0 H{R + 1} V{TOP_H} Z" fill="{fill_top}"/>
-  <rect id="{prefix}-top" x="20" y="0" width="12" height="{TOP_H}" fill="{fill_top}"/>
-  <path id="{prefix}-topright" d="M40 0 H41 A{R} {R} 0 0 1 {41 + R} {R} V{TOP_H} H40 Z" fill="{fill_top}"/>
-  <rect id="{prefix}-left" x="0" y="40" width="2" height="20" fill="{solid}"/>
-  <rect id="{prefix}-right" x="10" y="40" width="2" height="20" fill="{solid}"/>
-  <rect id="{prefix}-bottom" x="20" y="40" width="20" height="2" fill="{solid}"/>
-  <rect id="{prefix}-bottomleft" x="44" y="40" width="2" height="2" fill="{solid}"/>
-  <rect id="{prefix}-bottomright" x="50" y="40" width="2" height="2" fill="{solid}"/>
-  <rect id="{prefix}-center" x="60" y="40" width="10" height="10" fill="{solid}"/>"""
+    def frame(pre, t0, t1, solid, a, ox, oy):
+        """All nine elements of one state, drawn at canvas offset (ox, oy)."""
+        g = pre
+        defs = f"""
+    <linearGradient id="{g}-t" gradientUnits="userSpaceOnUse" x1="0" y1="{oy + PAD}" x2="0" y2="{oy + H_T}">
+      <stop offset="0" stop-color="{t0}"/><stop offset="1" stop-color="{t1}"/></linearGradient>
+    <linearGradient id="{g}-sl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="{a}"/></linearGradient>
+    <linearGradient id="{g}-sr" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="{a}"/></linearGradient>
+    <linearGradient id="{g}-st" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="{a}"/></linearGradient>
+    <linearGradient id="{g}-sb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity="{a}"/><stop offset="1" stop-color="#000" stop-opacity="0"/></linearGradient>
+    <radialGradient id="{g}-rc" gradientUnits="userSpaceOnUse" r="{cx}">
+      <stop offset="{R / cx:.3f}" stop-color="#000" stop-opacity="{a}"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+    <radialGradient id="{g}-rbl" gradientUnits="userSpaceOnUse" cx="{ox + PAD}" cy="{oy + 60 + BORDER}" r="{PAD}" gradientTransform="translate({ox + PAD} {oy + 60 + BORDER}) scale(1 {PADB / PAD:.4f}) translate({-(ox + PAD)} {-(oy + 60 + BORDER)})">
+      <stop offset="0" stop-color="#000" stop-opacity="{a}"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+    <radialGradient id="{g}-rbr" gradientUnits="userSpaceOnUse" cx="{ox + 100 + BORDER}" cy="{oy + 60 + BORDER}" r="{PAD}" gradientTransform="translate({ox + 100 + BORDER} {oy + 60 + BORDER}) scale(1 {PADB / PAD:.4f}) translate({-(ox + 100 + BORDER)} {-(oy + 60 + BORDER)})">
+      <stop offset="0" stop-color="#000" stop-opacity="{a}"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>"""
+        # --- top row (y = oy .. oy+H_T)
+        tl_cx, tl_cy = ox + cx, oy + cx
+        tr_x0 = ox + 100
+        trcx = tr_x0 + (W_C - cx)   # arc centre of the right corner
+        els = f"""
+  <g id="{pre}-topleft">
+    <rect x="{ox}" y="{oy}" width="{W_C}" height="{H_T}" fill="none"/>
+    <rect x="{ox}" y="{oy + cx}" width="{PAD}" height="{H_T - cx}" fill="url(#{g}-sl)"/>
+    <rect x="{ox + cx}" y="{oy}" width="{W_C - cx}" height="{PAD}" fill="url(#{g}-st)"/>
+    <path d="M{ox} {oy} H{ox + cx} V{oy + cx} H{ox} Z" fill="url(#{g}-rc)" transform="translate(0 0)"/>
+    <path d="M{ox + PAD} {oy + H_T} V{oy + PAD + R} A{R} {R} 0 0 1 {ox + PAD + R} {oy + PAD} H{ox + W_C} V{oy + H_T} Z" fill="url(#{g}-t)"/>
+  </g>
+  <g id="{pre}-top">
+    <rect x="{ox + 40}" y="{oy}" width="12" height="{PAD}" fill="url(#{g}-st)"/>
+    <rect x="{ox + 40}" y="{oy + PAD}" width="12" height="{TOP_H}" fill="url(#{g}-t)"/>
+  </g>
+  <g id="{pre}-topright">
+    <rect x="{tr_x0}" y="{oy}" width="{W_C}" height="{H_T}" fill="none"/>
+    <rect x="{tr_x0 + W_C - PAD}" y="{oy + cx}" width="{PAD}" height="{H_T - cx}" fill="url(#{g}-sr)"/>
+    <rect x="{tr_x0}" y="{oy}" width="{W_C - cx}" height="{PAD}" fill="url(#{g}-st)"/>
+    <path d="M{trcx} {oy} H{tr_x0 + W_C} V{oy + cx} H{trcx} Z" fill="url(#{g}-rcr)"/>
+    <path d="M{tr_x0} {oy + H_T} V{oy + PAD} H{trcx} A{R} {R} 0 0 1 {tr_x0 + W_C - PAD} {oy + PAD + R} V{oy + H_T} Z" fill="url(#{g}-t)"/>
+  </g>
+  <g id="{pre}-left">
+    <rect x="{ox + 160}" y="{oy}" width="{PAD}" height="20" fill="url(#{g}-sl)"/>
+    <rect x="{ox + 160 + PAD}" y="{oy}" width="{BORDER}" height="20" fill="{solid}"/>
+  </g>
+  <g id="{pre}-right">
+    <rect x="{ox + 200}" y="{oy}" width="{BORDER}" height="20" fill="{solid}"/>
+    <rect x="{ox + 200 + BORDER}" y="{oy}" width="{PAD}" height="20" fill="url(#{g}-sr)"/>
+  </g>
+  <g id="{pre}-bottom">
+    <rect x="{ox + 240}" y="{oy}" width="20" height="{BORDER}" fill="{solid}"/>
+    <rect x="{ox + 240}" y="{oy + BORDER}" width="20" height="{PADB}" fill="url(#{g}-sb)"/>
+  </g>
+  <g id="{pre}-bottomleft">
+    <rect x="{ox}" y="{oy + 60}" width="{W_S}" height="{H_B}" fill="none"/>
+    <rect x="{ox}" y="{oy + 60}" width="{PAD}" height="{H_B}" fill="url(#{g}-rbl)"/>
+    <rect x="{ox + PAD}" y="{oy + 60 + BORDER}" width="{BORDER}" height="{PADB}" fill="url(#{g}-sb)"/>
+    <rect x="{ox + PAD}" y="{oy + 60}" width="{BORDER}" height="{BORDER}" fill="{solid}"/>
+  </g>
+  <g id="{pre}-bottomright">
+    <rect x="{ox + 100}" y="{oy + 60}" width="{W_S}" height="{H_B}" fill="none"/>
+    <rect x="{ox + 100 + BORDER}" y="{oy + 60}" width="{PAD}" height="{H_B}" fill="url(#{g}-rbr)"/>
+    <rect x="{ox + 100}" y="{oy + 60 + BORDER}" width="{BORDER}" height="{PADB}" fill="url(#{g}-sb)"/>
+    <rect x="{ox + 100}" y="{oy + 60}" width="{BORDER}" height="{BORDER}" fill="{solid}"/>
+  </g>
+  <rect id="{pre}-center" x="{ox + 300}" y="{oy}" width="10" height="10" fill="{solid}"/>"""
+        # radial gradients of the right corner need their own centre
+        defs += f"""
+    <radialGradient id="{g}-rcr" gradientUnits="userSpaceOnUse" cx="{trcx}" cy="{oy + cx}" r="{cx}">
+      <stop offset="{R / cx:.3f}" stop-color="#000" stop-opacity="{a}"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>"""
+        defs = defs.replace(f'<radialGradient id="{g}-rc" gradientUnits="userSpaceOnUse" r="{cx}">',
+                            f'<radialGradient id="{g}-rc" gradientUnits="userSpaceOnUse" cx="{tl_cx}" cy="{tl_cy}" r="{cx}">')
+        return defs, els
 
-    # topright: shift geometry so the arc ends at the element's right edge
-    parts = [f'<svg xmlns="http://www.w3.org/2000/svg" width="80" height="64" viewBox="0 0 80 64"><defs>',
-             grad("ga", "#2e3454", "#242a46"), grad("gi", "#272c48", "#22273f"), "</defs>"]
-    parts.append(frame("decoration", "url(#ga)", "#242a46"))
-    parts.append(frame("decoration-inactive", "url(#gi)", "#22273f"))
-    parts.append('<rect id="decoration-maximized-center" x="60" y="52" width="10" height="10" fill="#272c48"/>')
-    parts.append('<rect id="decoration-maximized-inactive-center" x="72" y="52" width="6" height="6" fill="#22273f"/>')
-    parts.append("</svg>")
+    d1, e1 = frame("decoration", "#2e3454", "#242a46", "#242a46", 0.30, 0, 0)
+    d2, e2 = frame("decoration-inactive", "#272c48", "#22273f", "#22273f", 0.14, 0, 130)
+    parts = ['<svg xmlns="http://www.w3.org/2000/svg" width="420" height="260" viewBox="0 0 420 260"><defs>', d1, d2, "</defs>", e1, e2,
+             '<rect id="decoration-maximized-center" x="330" y="0" width="10" height="10" fill="#272c48"/>',
+             '<rect id="decoration-maximized-inactive-center" x="350" y="0" width="10" height="10" fill="#22273f"/>',
+             "</svg>"]
     return "\n".join(parts)
 
 
@@ -263,7 +325,7 @@ InactiveTextColor=130,137,168,255
 UseTextShadow=false
 LeftButtons=XIA
 RightButtons=
-Shadow=false
+Shadow=true
 DecorationPositon=0
 
 [Layout]
@@ -290,10 +352,10 @@ ButtonHeight=14
 ButtonSpacing=8
 ButtonMarginTop=3
 ExplicitButtonSpacer=10
-PaddingTop=0
-PaddingBottom=0
-PaddingRight=0
-PaddingLeft=0
+PaddingTop=18
+PaddingBottom=26
+PaddingRight=18
+PaddingLeft=18
 """
 
 META = """[Desktop Entry]

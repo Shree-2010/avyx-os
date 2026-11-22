@@ -47,12 +47,12 @@ if pgrep -x plasmashell >/dev/null; then
   for f in widgets/panel-background translucent/widgets/panel-background opaque/widgets/panel-background; do
     echo "-- default/$f.svgz element ids"; zcat "/usr/share/plasma/desktoptheme/default/$f.svgz" 2>&1 | grep -o ' id="[^"]*"' | tr '\n' ' ' | head -c 3000; echo
   done
-  echo "-- default/translucent/widgets/panel-background.svg (head)"; zcat /usr/share/plasma/desktoptheme/default/translucent/widgets/panel-background.svgz 2>&1 | head -c 7000; echo
+  echo "-- default/translucent/widgets/panel-background.svg (head)"; zcat /usr/share/plasma/desktoptheme/default/translucent/widgets/panel-background.svgz 2>&1 | grep -v "inkscape:\|sodipodi:" | tr -s " \n\t" " " | head -c 60000; echo
   # CI-only showcase: open a couple of real windows so the screenshot shows window decorations
   # and the glass terminal. Done after the RAM figure above so it cannot skew the measurement.
   if [ "$(cat /sys/class/dmi/id/product_family 2>/dev/null)" = "AVYX-CI" ]; then
     u=$(ls /home | head -1); uid=$(id -u "$u")
-    env_u="XDG_RUNTIME_DIR=/run/user/$uid WAYLAND_DISPLAY=wayland-0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$uid/bus"
+    env_u="XDG_RUNTIME_DIR=/run/user/$uid WAYLAND_DISPLAY=wayland-0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$uid/bus XDG_MENU_PREFIX=plasma- XDG_CURRENT_DESKTOP=KDE KDE_FULL_SESSION=true"
     run() { n=$1; runuser -u "$u" -- env $env_u setsid "$@" >"/tmp/avyx-showcase-$n.log" 2>&1 & }
     run konsole; sleep 8; run dolphin; sleep 8; run plasmawindowed org.avyx.dock; sleep 27
     echo "AVYX_MARK showcase_ready uptime=$(up) windows: $(pgrep -x konsole >/dev/null && echo konsole) $(pgrep -x dolphin >/dev/null && echo dolphin)"
