@@ -54,9 +54,9 @@ if pgrep -x plasmashell >/dev/null; then
     u=$(ls /home | head -1); uid=$(id -u "$u")
     env_u="XDG_RUNTIME_DIR=/run/user/$uid WAYLAND_DISPLAY=wayland-0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$uid/bus"
     run() { n=$1; runuser -u "$u" -- env $env_u setsid "$@" >"/tmp/avyx-showcase-$n.log" 2>&1 & }
-    run konsole; sleep 8; run dolphin; sleep 35
+    run konsole; sleep 8; run dolphin; sleep 8; run plasmawindowed org.avyx.dock; sleep 27
     echo "AVYX_MARK showcase_ready uptime=$(up) windows: $(pgrep -x konsole >/dev/null && echo konsole) $(pgrep -x dolphin >/dev/null && echo dolphin)"
-    echo "-- showcase app logs"; tail -n 15 /tmp/avyx-showcase-konsole.log /tmp/avyx-showcase-dolphin.log 2>&1
+    echo "-- showcase app logs"; tail -n 15 /tmp/avyx-showcase-konsole.log /tmp/avyx-showcase-dolphin.log /tmp/avyx-showcase-plasmawindowed.log 2>&1
     echo "-- kwin windows"
     command -v gdbus >/dev/null && runuser -u "$u" -- env $env_u gdbus call --session --dest org.kde.KWin \
       --object-path /WindowsRunner --method org.kde.krunner1.Match "o" 2>&1 | head -c 1500

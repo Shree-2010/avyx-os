@@ -1,0 +1,14 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "KPlugin": {
+        "Authors": [{ "Name": "AVYX" }],
+        "Category": "Windows and Tasks",
+        "Description": "App dock with smooth icon magnification",
+        "Icon": "avyx-menu",
+        "Id": "org.avyx.dock",
+        "License": "MIT",
+        "Name": "AVYX Dock",
+        "Version": "0.1"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0"
+}
