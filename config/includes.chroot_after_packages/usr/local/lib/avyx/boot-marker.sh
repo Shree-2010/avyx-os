@@ -36,6 +36,24 @@ if pgrep -x plasmashell >/dev/null; then
   echo "AVYX_MARK analyze: $(systemd-analyze 2>/dev/null | head -1)"
   echo "AVYX_MARK renderer: $(grep -rl llvmpipe /proc/*/environ 2>/dev/null | head -1)"
   echo "== top memory =="; ps -eo rss,comm --sort=-rss | head -12
+  echo "== look diagnostics =="
+  echo "icons theme: $(kreadconfig6 --file kdeglobals --group Icons --key Theme 2>&1)"
+  echo "decoration: $(kreadconfig6 --file kwinrc --group org.kde.kdecoration2 --key theme 2>&1)"
+  ls /usr/share/aurorae/themes/AVYX 2>&1; find / -xdev -iname '*aurorae*' -not -path '/proc/*' 2>/dev/null | head -10
+  ls /usr/share/plasma/desktoptheme 2>&1
+  echo "-- breeze-dark panel files"; ls -R /usr/share/plasma/desktoptheme/breeze-dark 2>&1 | head -60
+  echo "-- breeze-dark widgets/panel-background.svg"; head -c 6000 /usr/share/plasma/desktoptheme/breeze-dark/widgets/panel-background.svg 2>&1
+  echo; echo "-- translucent panel-background"; head -c 6000 /usr/share/plasma/desktoptheme/breeze-dark/translucent/widgets/panel-background.svg 2>&1
+  echo; echo "-- kwinrc/plasmashellrc"; grep -rs "" /home/*/.config/kwinrc 2>&1 | head -30
+  # CI-only showcase: open a couple of real windows so the screenshot shows window decorations
+  # and the glass terminal. Done after the RAM figure above so it cannot skew the measurement.
+  if [ "$(cat /sys/class/dmi/id/product_family 2>/dev/null)" = "AVYX-CI" ]; then
+    u=$(ls /home | head -1); uid=$(id -u "$u")
+    run() { runuser -u "$u" -- env XDG_RUNTIME_DIR=/run/user/$uid WAYLAND_DISPLAY=wayland-0 \
+            DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$uid/bus setsid "$@" >/dev/null 2>&1 & }
+    run konsole; sleep 6; run dolphin; sleep 14
+    echo "AVYX_MARK showcase_ready uptime=$(up) windows: $(pgrep -x konsole >/dev/null && echo konsole) $(pgrep -x dolphin >/dev/null && echo dolphin)"
+  fi
 else
   echo "AVYX_MARK plasmashell_NOT_started uptime=$(up)"
   echo "== wayland/x11 session files =="; ls -la /usr/share/wayland-sessions /usr/share/xsessions 2>&1

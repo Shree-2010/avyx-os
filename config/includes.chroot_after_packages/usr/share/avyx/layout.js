@@ -9,6 +9,9 @@ bar.location = "top";
 bar.height = 30;
 bar.floating = false;
 bar.hiding = "none";
+var menu = bar.addWidget("org.kde.plasma.kickoff");
+menu.currentConfigGroup = ["General"];
+menu.writeConfig("icon", "avyx-menu");
 bar.addWidget("org.kde.plasma.appmenu");
 bar.addWidget("org.kde.plasma.panelspacer");
 bar.addWidget("org.kde.plasma.panelspacer");
@@ -17,7 +20,7 @@ bar.addWidget("org.kde.plasma.digitalclock");
 
 var dock = new Panel();
 dock.location = "bottom";
-dock.height = 60;
+dock.height = 64;
 dock.floating = true;
 dock.lengthMode = "fit";
 dock.alignment = "center";
@@ -35,6 +38,12 @@ tasks.writeConfig("iconSpacing", "2");
 tasks.writeConfig("maxStripes", "1");
 dock.addWidget("org.kde.plasma.marginsseparator");
 dock.addWidget("org.kde.plasma.trash");
+
+// Glass: translucent panels (the compositor blurs what is behind them). Guarded so a Plasma
+// version without this property can never abort the layout.
+[bar, dock].forEach(function (p) {
+    try { p.opacity = "translucent"; } catch (e) {}
+});
 
 for (var i = 0; i < oldPanels.length; i++) {
     oldPanels[i].remove();

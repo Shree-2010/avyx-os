@@ -6,6 +6,8 @@ LatencyPolicy=Medium
 blurEnabled=true
 
 [org.kde.kdecoration2]
+library=org.kde.kwin.aurorae
+theme=__aurorae__svg__AVYX
 ButtonsOnLeft=XIA
 ButtonsOnRight=
 

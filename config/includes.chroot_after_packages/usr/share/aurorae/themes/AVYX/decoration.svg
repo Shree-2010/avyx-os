@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="64" viewBox="0 0 80 64"><defs>
+<linearGradient id="ga" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="34"><stop offset="0" stop-color="#2e3454"/><stop offset="1" stop-color="#242a46"/></linearGradient>
+<linearGradient id="gi" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="34"><stop offset="0" stop-color="#272c48"/><stop offset="1" stop-color="#22273f"/></linearGradient>
+</defs>
+
+  <path id="decoration-topleft" d="M0 34 V11 A11 11 0 0 1 11 0 H12 V34 Z" fill="url(#ga)"/>
+  <rect id="decoration-top" x="20" y="0" width="12" height="34" fill="url(#ga)"/>
+  <path id="decoration-topright" d="M40 0 H41 A11 11 0 0 1 52 11 V34 H40 Z" fill="url(#ga)"/>
+  <rect id="decoration-left" x="0" y="40" width="2" height="20" fill="#242a46"/>
+  <rect id="decoration-right" x="10" y="40" width="2" height="20" fill="#242a46"/>
+  <rect id="decoration-bottom" x="20" y="40" width="20" height="2" fill="#242a46"/>
+  <rect id="decoration-bottomleft" x="44" y="40" width="2" height="2" fill="#242a46"/>
+  <rect id="decoration-bottomright" x="50" y="40" width="2" height="2" fill="#242a46"/>
+  <rect id="decoration-center" x="60" y="40" width="10" height="10" fill="#242a46"/>
+
+  <path id="decoration-inactive-topleft" d="M0 34 V11 A11 11 0 0 1 11 0 H12 V34 Z" fill="url(#gi)"/>
+  <rect id="decoration-inactive-top" x="20" y="0" width="12" height="34" fill="url(#gi)"/>
+  <path id="decoration-inactive-topright" d="M40 0 H41 A11 11 0 0 1 52 11 V34 H40 Z" fill="url(#gi)"/>
+  <rect id="decoration-inactive-left" x="0" y="40" width="2" height="20" fill="#22273f"/>
+  <rect id="decoration-inactive-right" x="10" y="40" width="2" height="20" fill="#22273f"/>
+  <rect id="decoration-inactive-bottom" x="20" y="40" width="20" height="2" fill="#22273f"/>
+  <rect id="decoration-inactive-bottomleft" x="44" y="40" width="2" height="2" fill="#22273f"/>
+  <rect id="decoration-inactive-bottomright" x="50" y="40" width="2" height="2" fill="#22273f"/>
+  <rect id="decoration-inactive-center" x="60" y="40" width="10" height="10" fill="#22273f"/>
+<rect id="decoration-maximized-center" x="60" y="52" width="10" height="10" fill="#272c48"/>
+<rect id="decoration-maximized-inactive-center" x="72" y="52" width="6" height="6" fill="#22273f"/>
+</svg>

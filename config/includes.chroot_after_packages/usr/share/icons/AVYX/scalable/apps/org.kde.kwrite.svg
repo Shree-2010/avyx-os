@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffd56e"/><stop offset="1" stop-color="#ff7f4a"/>
+    </linearGradient>
+    <linearGradient id="hl2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".42"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="cp2"><rect x="16" y="16" width="480" height="480" rx="112"/></clipPath>
+  </defs>
+  <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#bg2)"/>
+  <g clip-path="url(#cp2)"><ellipse cx="256" cy="-40" rx="400" ry="300" fill="url(#hl2)"/></g>
+  <rect x="17.5" y="17.5" width="477" height="477" rx="110.5" fill="none" stroke="#ffffff" stroke-opacity=".28" stroke-width="3"/>
+  
+  <rect x="136" y="92" width="240" height="328" rx="30" fill="#ffffff" fill-opacity=".97"/>
+  <rect x="176" y="156" width="160" height="22" rx="11" fill="#ff9a55"/>
+  <rect x="176" y="206" width="160" height="22" rx="11" fill="#ffc07a"/>
+  <rect x="176" y="256" width="110" height="22" rx="11" fill="#ffc07a"/>
+  <rect x="176" y="306" width="140" height="22" rx="11" fill="#ffc07a"/>
+</svg>

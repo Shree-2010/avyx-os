@@ -1,0 +1,19 @@
+[Icon Theme]
+Name=AVYX
+Comment=AVYX Glass icon theme (original artwork)
+Inherits=breeze-dark,breeze,hicolor
+Directories=scalable/apps,scalable/places
+
+[scalable/apps]
+Size=128
+MinSize=8
+MaxSize=1024
+Type=Scalable
+Context=Applications
+
+[scalable/places]
+Size=128
+MinSize=8
+MaxSize=1024
+Type=Scalable
+Context=Places

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a7b0d2"/><stop offset="1" stop-color="#565e84"/>
+    </linearGradient>
+    <linearGradient id="hl4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".42"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="cp4"><rect x="16" y="16" width="480" height="480" rx="112"/></clipPath>
+  </defs>
+  <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#bg4)"/>
+  <g clip-path="url(#cp4)"><ellipse cx="256" cy="-40" rx="400" ry="300" fill="url(#hl4)"/></g>
+  <rect x="17.5" y="17.5" width="477" height="477" rx="110.5" fill="none" stroke="#ffffff" stroke-opacity=".28" stroke-width="3"/>
+  <path d="M365.7,212.6 L402.6,224.2 L402.6,287.8 L365.7,299.4 L364.3,302.9 L382.1,337.2 L337.2,382.1 L302.9,364.3 L299.4,365.7 L287.8,402.6 L224.2,402.6 L212.6,365.7 L209.1,364.3 L174.8,382.1 L129.9,337.2 L147.7,302.9 L146.3,299.4 L109.4,287.8 L109.4,224.2 L146.3,212.6 L147.7,209.1 L129.9,174.8 L174.8,129.9 L209.1,147.7 L212.6,146.3 L224.2,109.4 L287.8,109.4 L299.4,146.3 L302.9,147.7 L337.2,129.9 L382.1,174.8 L364.3,209.1 Z M204,256 a52,52 0 1,0 104,0 a52,52 0 1,0 -104,0 Z" fill="#ffffff" fill-opacity=".95" fill-rule="evenodd"/>
+</svg>

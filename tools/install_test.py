@@ -264,7 +264,7 @@ def main():
         result["phase_b"]["desktop"] = ok
         if ok:
             b.wait_mark("desktop_idle", 150)
-            b.wait_mark("done", 60)
+            b.wait_mark("done", 240)
         else:
             b.wait_mark("done", 90)
         b.shot("installed-desktop")

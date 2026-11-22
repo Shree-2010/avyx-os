@@ -16,6 +16,15 @@ if [ -f /usr/share/avyx/layout.js ]; then
     /usr/share/plasma/look-and-feel/org.avyx.desktop/contents/layouts/org.kde.plasma.desktop-layout.js
 fi
 
+# Login screen: AVYX wallpaper behind the (Wayland) greeter instead of the stock Breeze one.
+if [ -d /usr/share/sddm/themes/breeze ] && [ -f /usr/share/wallpapers/AVYX-Aurora/contents/images/1920x1080.jpg ]; then
+  printf '[General]\ntype=image\nbackground=/usr/share/wallpapers/AVYX-Aurora/contents/images/1920x1080.jpg\n' \
+    > /usr/share/sddm/themes/breeze/theme.conf.user
+fi
+
+# Report which window-decoration engines the image really has (shown in the CI log).
+find / -xdev \( -iname '*aurorae*' \) -not -path '/proc/*' 2>/dev/null | head -20 || true
+
 # Installer: use AVYX branding and launcher instead of the Debian ones (if Calamares is present).
 if [ -d /etc/calamares ]; then
   if [ -f /etc/calamares/settings.conf ]; then

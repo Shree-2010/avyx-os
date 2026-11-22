@@ -1,4 +1,8 @@
 [General]
+font=Inter,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+menuFont=Inter,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+toolBarFont=Inter,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+smallestReadableFont=Inter,8,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
 ColorScheme=AVYXDark
 AccentColor=110,125,255
 
@@ -10,3 +14,9 @@ AnimationDurationFactor=0.6
 [Sounds]
 Theme=avyx
 Enable=true
+
+[Icons]
+Theme=AVYX
+
+[WM]
+activeFont=Inter,10,-1,5,600,0,0,0,0,0,0,0,0,0,0,1
