@@ -423,7 +423,7 @@ def build_konsole():
 PTHEME = INC / "usr/share/plasma/desktoptheme/avyx-glass"
 
 
-def frame_svg(R, m_tb, m_lr, fill="#dfe6ff", op=0.17, edge=0.42, edge_soft=0.14):
+def frame_svg(R, m_tb, m_lr, fill="#1d2238", op=0.52, edge=0.38, edge_soft=0.12):
     """FrameSvg 9-slice (names and hint conventions follow Plasma's own themes)."""
     C = 32  # stretchable middle size
     W = 2 * R + C
@@ -443,20 +443,26 @@ def frame_svg(R, m_tb, m_lr, fill="#dfe6ff", op=0.17, edge=0.42, edge_soft=0.14)
         return "\n  ".join(e)
 
     def glass(k):
+        # Filled shapes only (no strokes): strokes inflate Qt's element bounding boxes and
+        # produced 1px seams between slices.
         f = f'fill="{fill}" fill-opacity="{op}"'
-        hi = f'fill="none" stroke="#ffffff" stroke-opacity="{edge}" stroke-width="1"'
-        lo = f'fill="none" stroke="#ffffff" stroke-opacity="{edge_soft}" stroke-width="1"'
-        r = R - 0.5
+        hi = f'fill="#ffffff" fill-opacity="{edge}"'
+        lo = f'fill="#ffffff" fill-opacity="{edge_soft}"'
+        r = R - 1
         return {
-            "tl": f'<path d="M0 {R} A{R} {R} 0 0 1 {R} 0 V{R} Z" {f}/><path d="M0.5 {R} A{r} {r} 0 0 1 {R} 0.5" {hi}/>',
-            "t": f'<rect width="{C}" height="{R}" {f}/><rect width="{C}" height="1" fill="#fff" fill-opacity="{edge}"/>',
-            "tr": f'<path d="M0 0 A{R} {R} 0 0 1 {R} {R} H0 Z" {f}/><path d="M0 0.5 A{r} {r} 0 0 1 {R - 0.5} {R}" {hi}/>',
-            "l": f'<rect width="{R}" height="{C}" {f}/><rect width="1" height="{C}" fill="#fff" fill-opacity="{edge}"/>',
+            "tl": f'<path d="M0 {R} A{R} {R} 0 0 1 {R} 0 V{R} Z" {f}/>'
+                  f'<path d="M0 {R} A{R} {R} 0 0 1 {R} 0 V1 A{r} {r} 0 0 0 1 {R} Z" {hi}/>',
+            "t": f'<rect width="{C}" height="{R}" {f}/><rect width="{C}" height="1" {hi}/>',
+            "tr": f'<path d="M0 0 A{R} {R} 0 0 1 {R} {R} H0 Z" {f}/>'
+                  f'<path d="M0 0 A{R} {R} 0 0 1 {R} {R} H{r} A{r} {r} 0 0 0 0 1 Z" {hi}/>',
+            "l": f'<rect width="{R}" height="{C}" {f}/><rect width="1" height="{C}" {hi}/>',
             "c": f'<rect width="{C}" height="{C}" {f}/>',
-            "r": f'<rect width="{R}" height="{C}" {f}/><rect x="{R - 1}" width="1" height="{C}" fill="#fff" fill-opacity="{edge}"/>',
-            "bl": f'<path d="M0 0 H{R} V{R} A{R} {R} 0 0 1 0 0 Z" {f}/><path d="M0.5 0 A{r} {r} 0 0 0 {R} {R - 0.5}" {lo}/>',
-            "b": f'<rect width="{C}" height="{R}" {f}/><rect y="{R - 1}" width="{C}" height="1" fill="#fff" fill-opacity="{edge_soft}"/>',
-            "br": f'<path d="M{R} 0 A{R} {R} 0 0 1 0 {R} V0 Z" {f}/><path d="M{R} 0 A{r} {r} 0 0 1 0 {R - 0.5}" fill="none" stroke="#fff" stroke-opacity="{edge_soft}" stroke-width="1"/>',
+            "r": f'<rect width="{R}" height="{C}" {f}/><rect x="{R - 1}" width="1" height="{C}" {hi}/>',
+            "bl": f'<path d="M0 0 H{R} V{R} A{R} {R} 0 0 1 0 0 Z" {f}/>'
+                  f'<path d="M{R} {R} A{R} {R} 0 0 1 0 0 H1 A{r} {r} 0 0 0 {R} {r} Z" {lo}/>',
+            "b": f'<rect width="{C}" height="{R}" {f}/><rect y="{R - 1}" width="{C}" height="1" {lo}/>',
+            "br": f'<path d="M{R} 0 A{R} {R} 0 0 1 0 {R} V0 Z" {f}/>'
+                  f'<path d="M{R} 0 A{R} {R} 0 0 1 0 {R} V{r} A{r} {r} 0 0 0 {r} 0 Z" {lo}/>',
         }[k]
 
     def mask(k):
@@ -505,7 +511,7 @@ def build_plasma_theme():
 }
 """)
     panel = frame_svg(R=20, m_tb=6, m_lr=12)
-    dlg = frame_svg(R=16, m_tb=10, m_lr=10, op=0.30, edge=0.35)
+    dlg = frame_svg(R=16, m_tb=10, m_lr=10, fill="#161a2c", op=0.66, edge=0.32)
     for sub in ("widgets", "translucent/widgets"):
         write(PTHEME / sub / "panel-background.svg", panel)
     for sub in ("dialogs", "translucent/dialogs"):

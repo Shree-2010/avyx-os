@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="184" height="84" viewBox="0 0 184 84">
-  <g id="topleft" transform="translate(0,0)"><path d="M0 20 A20 20 0 0 1 20 0 V20 Z" fill="#dfe6ff" fill-opacity="0.17"/><path d="M0.5 20 A19.5 19.5 0 0 1 20 0.5" fill="none" stroke="#ffffff" stroke-opacity="0.42" stroke-width="1"/></g>
-  <g id="top" transform="translate(20,0)"><rect width="32" height="20" fill="#dfe6ff" fill-opacity="0.17"/><rect width="32" height="1" fill="#fff" fill-opacity="0.42"/></g>
-  <g id="topright" transform="translate(52,0)"><path d="M0 0 A20 20 0 0 1 20 20 H0 Z" fill="#dfe6ff" fill-opacity="0.17"/><path d="M0 0.5 A19.5 19.5 0 0 1 19.5 20" fill="none" stroke="#ffffff" stroke-opacity="0.42" stroke-width="1"/></g>
-  <g id="left" transform="translate(0,20)"><rect width="20" height="32" fill="#dfe6ff" fill-opacity="0.17"/><rect width="1" height="32" fill="#fff" fill-opacity="0.42"/></g>
-  <g id="center" transform="translate(20,20)"><rect width="32" height="32" fill="#dfe6ff" fill-opacity="0.17"/></g>
-  <g id="right" transform="translate(52,20)"><rect width="20" height="32" fill="#dfe6ff" fill-opacity="0.17"/><rect x="19" width="1" height="32" fill="#fff" fill-opacity="0.42"/></g>
-  <g id="bottomleft" transform="translate(0,52)"><path d="M0 0 H20 V20 A20 20 0 0 1 0 0 Z" fill="#dfe6ff" fill-opacity="0.17"/><path d="M0.5 0 A19.5 19.5 0 0 0 20 19.5" fill="none" stroke="#ffffff" stroke-opacity="0.14" stroke-width="1"/></g>
-  <g id="bottom" transform="translate(20,52)"><rect width="32" height="20" fill="#dfe6ff" fill-opacity="0.17"/><rect y="19" width="32" height="1" fill="#fff" fill-opacity="0.14"/></g>
-  <g id="bottomright" transform="translate(52,52)"><path d="M20 0 A20 20 0 0 1 0 20 V0 Z" fill="#dfe6ff" fill-opacity="0.17"/><path d="M20 0 A19.5 19.5 0 0 1 0 19.5" fill="none" stroke="#fff" stroke-opacity="0.14" stroke-width="1"/></g>
+  <g id="topleft" transform="translate(0,0)"><path d="M0 20 A20 20 0 0 1 20 0 V20 Z" fill="#1d2238" fill-opacity="0.52"/><path d="M0 20 A20 20 0 0 1 20 0 V1 A19 19 0 0 0 1 20 Z" fill="#ffffff" fill-opacity="0.38"/></g>
+  <g id="top" transform="translate(20,0)"><rect width="32" height="20" fill="#1d2238" fill-opacity="0.52"/><rect width="32" height="1" fill="#ffffff" fill-opacity="0.38"/></g>
+  <g id="topright" transform="translate(52,0)"><path d="M0 0 A20 20 0 0 1 20 20 H0 Z" fill="#1d2238" fill-opacity="0.52"/><path d="M0 0 A20 20 0 0 1 20 20 H19 A19 19 0 0 0 0 1 Z" fill="#ffffff" fill-opacity="0.38"/></g>
+  <g id="left" transform="translate(0,20)"><rect width="20" height="32" fill="#1d2238" fill-opacity="0.52"/><rect width="1" height="32" fill="#ffffff" fill-opacity="0.38"/></g>
+  <g id="center" transform="translate(20,20)"><rect width="32" height="32" fill="#1d2238" fill-opacity="0.52"/></g>
+  <g id="right" transform="translate(52,20)"><rect width="20" height="32" fill="#1d2238" fill-opacity="0.52"/><rect x="19" width="1" height="32" fill="#ffffff" fill-opacity="0.38"/></g>
+  <g id="bottomleft" transform="translate(0,52)"><path d="M0 0 H20 V20 A20 20 0 0 1 0 0 Z" fill="#1d2238" fill-opacity="0.52"/><path d="M20 20 A20 20 0 0 1 0 0 H1 A19 19 0 0 0 20 19 Z" fill="#ffffff" fill-opacity="0.12"/></g>
+  <g id="bottom" transform="translate(20,52)"><rect width="32" height="20" fill="#1d2238" fill-opacity="0.52"/><rect y="19" width="32" height="1" fill="#ffffff" fill-opacity="0.12"/></g>
+  <g id="bottomright" transform="translate(52,52)"><path d="M20 0 A20 20 0 0 1 0 20 V0 Z" fill="#1d2238" fill-opacity="0.52"/><path d="M20 0 A20 20 0 0 1 0 20 V19 A19 19 0 0 0 19 0 Z" fill="#ffffff" fill-opacity="0.12"/></g>
   <g id="mask-topleft" transform="translate(92,0)"><path d="M0 20 A20 20 0 0 1 20 0 V20 Z" fill="#000"/></g>
   <g id="mask-top" transform="translate(112,0)"><rect width="32" height="20" fill="#000"/></g>
   <g id="mask-topright" transform="translate(144,0)"><path d="M0 0 A20 20 0 0 1 20 20 H0 Z" fill="#000"/></g>

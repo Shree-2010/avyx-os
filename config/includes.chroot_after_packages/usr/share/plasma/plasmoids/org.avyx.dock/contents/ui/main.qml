@@ -19,11 +19,10 @@ PlasmoidItem {
         sortMode: TaskManager.TasksModel.SortManual
         separateLaunchers: false
         launcherList: Plasmoid.configuration.launchers
-        onLauncherListChanged: {
-            if (launcherList.join(",") !== Plasmoid.configuration.launchers.join(",")) {
-                Plasmoid.configuration.launchers = launcherList;
-            }
-        }
+    }
+
+    function persistLaunchers() {
+        Plasmoid.configuration.launchers = tasksModel.launcherList;
     }
 
     function activateRow(row, isWindow) {
@@ -98,6 +97,7 @@ PlasmoidItem {
                     } else {
                         tasksModel.requestAddLauncher(ctx.launcherUrl);
                     }
+                    Qt.callLater(root.persistLaunchers);
                 }
             }
             QQC2.MenuItem {

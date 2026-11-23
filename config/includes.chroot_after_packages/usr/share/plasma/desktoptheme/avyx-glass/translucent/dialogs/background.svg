@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="168" height="76" viewBox="0 0 168 76">
-  <g id="topleft" transform="translate(0,0)"><path d="M0 16 A16 16 0 0 1 16 0 V16 Z" fill="#dfe6ff" fill-opacity="0.3"/><path d="M0.5 16 A15.5 15.5 0 0 1 16 0.5" fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/></g>
-  <g id="top" transform="translate(16,0)"><rect width="32" height="16" fill="#dfe6ff" fill-opacity="0.3"/><rect width="32" height="1" fill="#fff" fill-opacity="0.35"/></g>
-  <g id="topright" transform="translate(48,0)"><path d="M0 0 A16 16 0 0 1 16 16 H0 Z" fill="#dfe6ff" fill-opacity="0.3"/><path d="M0 0.5 A15.5 15.5 0 0 1 15.5 16" fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/></g>
-  <g id="left" transform="translate(0,16)"><rect width="16" height="32" fill="#dfe6ff" fill-opacity="0.3"/><rect width="1" height="32" fill="#fff" fill-opacity="0.35"/></g>
-  <g id="center" transform="translate(16,16)"><rect width="32" height="32" fill="#dfe6ff" fill-opacity="0.3"/></g>
-  <g id="right" transform="translate(48,16)"><rect width="16" height="32" fill="#dfe6ff" fill-opacity="0.3"/><rect x="15" width="1" height="32" fill="#fff" fill-opacity="0.35"/></g>
-  <g id="bottomleft" transform="translate(0,48)"><path d="M0 0 H16 V16 A16 16 0 0 1 0 0 Z" fill="#dfe6ff" fill-opacity="0.3"/><path d="M0.5 0 A15.5 15.5 0 0 0 16 15.5" fill="none" stroke="#ffffff" stroke-opacity="0.14" stroke-width="1"/></g>
-  <g id="bottom" transform="translate(16,48)"><rect width="32" height="16" fill="#dfe6ff" fill-opacity="0.3"/><rect y="15" width="32" height="1" fill="#fff" fill-opacity="0.14"/></g>
-  <g id="bottomright" transform="translate(48,48)"><path d="M16 0 A16 16 0 0 1 0 16 V0 Z" fill="#dfe6ff" fill-opacity="0.3"/><path d="M16 0 A15.5 15.5 0 0 1 0 15.5" fill="none" stroke="#fff" stroke-opacity="0.14" stroke-width="1"/></g>
+  <g id="topleft" transform="translate(0,0)"><path d="M0 16 A16 16 0 0 1 16 0 V16 Z" fill="#161a2c" fill-opacity="0.66"/><path d="M0 16 A16 16 0 0 1 16 0 V1 A15 15 0 0 0 1 16 Z" fill="#ffffff" fill-opacity="0.32"/></g>
+  <g id="top" transform="translate(16,0)"><rect width="32" height="16" fill="#161a2c" fill-opacity="0.66"/><rect width="32" height="1" fill="#ffffff" fill-opacity="0.32"/></g>
+  <g id="topright" transform="translate(48,0)"><path d="M0 0 A16 16 0 0 1 16 16 H0 Z" fill="#161a2c" fill-opacity="0.66"/><path d="M0 0 A16 16 0 0 1 16 16 H15 A15 15 0 0 0 0 1 Z" fill="#ffffff" fill-opacity="0.32"/></g>
+  <g id="left" transform="translate(0,16)"><rect width="16" height="32" fill="#161a2c" fill-opacity="0.66"/><rect width="1" height="32" fill="#ffffff" fill-opacity="0.32"/></g>
+  <g id="center" transform="translate(16,16)"><rect width="32" height="32" fill="#161a2c" fill-opacity="0.66"/></g>
+  <g id="right" transform="translate(48,16)"><rect width="16" height="32" fill="#161a2c" fill-opacity="0.66"/><rect x="15" width="1" height="32" fill="#ffffff" fill-opacity="0.32"/></g>
+  <g id="bottomleft" transform="translate(0,48)"><path d="M0 0 H16 V16 A16 16 0 0 1 0 0 Z" fill="#161a2c" fill-opacity="0.66"/><path d="M16 16 A16 16 0 0 1 0 0 H1 A15 15 0 0 0 16 15 Z" fill="#ffffff" fill-opacity="0.12"/></g>
+  <g id="bottom" transform="translate(16,48)"><rect width="32" height="16" fill="#161a2c" fill-opacity="0.66"/><rect y="15" width="32" height="1" fill="#ffffff" fill-opacity="0.12"/></g>
+  <g id="bottomright" transform="translate(48,48)"><path d="M16 0 A16 16 0 0 1 0 16 V0 Z" fill="#161a2c" fill-opacity="0.66"/><path d="M16 0 A16 16 0 0 1 0 16 V15 A15 15 0 0 0 15 0 Z" fill="#ffffff" fill-opacity="0.12"/></g>
   <g id="mask-topleft" transform="translate(84,0)"><path d="M0 16 A16 16 0 0 1 16 0 V16 Z" fill="#000"/></g>
   <g id="mask-top" transform="translate(100,0)"><rect width="32" height="16" fill="#000"/></g>
   <g id="mask-topright" transform="translate(132,0)"><path d="M0 0 A16 16 0 0 1 16 16 H0 Z" fill="#000"/></g>
