@@ -1,0 +1,19 @@
+# AVYX OS build configuration (generated from yocto/conf/local.conf.in)
+DISTRO = "avyx"
+MACHINE = "avyx-x86-64"
+
+# Caches live outside the build tree so CI can save/restore them.
+DL_DIR ?= "${TOPDIR}/../cache/downloads"
+SSTATE_DIR ?= "${TOPDIR}/../cache/sstate"
+
+# Official Yocto mirrors: big speed-up for the toolchain and other unmodified recipes.
+SSTATE_MIRRORS ?= "file://.* https://sstate.yoctoproject.org/all/PATH;downloadfilename=PATH \
+    file://.* https://sstate.yoctoproject.org/5.0/PATH;downloadfilename=PATH"
+BB_HASHSERVE_UPSTREAM ?= "hashserv.yoctoproject.org:8686"
+
+PACKAGE_CLASSES = "package_ipk"
+BB_NUMBER_THREADS ?= "${@oe.utils.cpu_count()}"
+PARALLEL_MAKE ?= "-j ${@oe.utils.cpu_count()}"
+
+# Needed so the CI step can inject extra settings without editing this file
+include ${TOPDIR}/conf/ci-extra.conf

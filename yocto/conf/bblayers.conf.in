@@ -1,0 +1,16 @@
+POKY_BBLAYERS_CONF_VERSION = "2"
+BBPATH = "${TOPDIR}"
+BBFILES ?= ""
+BBLAYERS ?= " \
+  @SRC@/poky/meta \
+  @SRC@/poky/meta-poky \
+  @SRC@/poky/meta-yocto-bsp \
+  @SRC@/meta-openembedded/meta-oe \
+  @SRC@/meta-openembedded/meta-python \
+  @SRC@/meta-openembedded/meta-networking \
+  @SRC@/meta-openembedded/meta-multimedia \
+  @SRC@/meta-openembedded/meta-gnome \
+  @SRC@/meta-openembedded/meta-filesystems \
+  @SRC@/meta-wayland \
+  @REPO@/meta-avyx \
+"

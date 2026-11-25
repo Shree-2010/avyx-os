@@ -1,0 +1,53 @@
+#!/bin/sh
+# AVYX OS desktop session: labwc (Wayland compositor) + the AVYX shell.
+# Started from the login shell on tty1 (see /etc/profile.d/avyx-session.sh).
+
+export XDG_SESSION_TYPE=wayland
+export XDG_CURRENT_DESKTOP=AVYX
+export XDG_SESSION_DESKTOP=AVYX
+export DESKTOP_SESSION=avyx
+export GDK_BACKEND=wayland
+export MOZ_ENABLE_WAYLAND=1
+export QT_QPA_PLATFORM=wayland
+export SDL_VIDEODRIVER=wayland
+export _JAVA_AWT_WM_NONREPARENTING=1
+export XCURSOR_THEME="${XCURSOR_THEME:-Adwaita}"
+export XCURSOR_SIZE="${XCURSOR_SIZE:-24}"
+export XDG_DATA_DIRS="${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
+export XDG_CONFIG_DIRS="${XDG_CONFIG_DIRS:-/etc/xdg}"
+export PYTHONUNBUFFERED=1
+
+mkdir -p "$HOME/.cache" "$HOME/.config/avyx" 2>/dev/null
+[ -n "$XDG_RUNTIME_DIR" ] || export XDG_RUNTIME_DIR="/run/user/$(id -u)"
+mkdir -p /run/avyx 2>/dev/null
+
+# ---- graphics profile --------------------------------------------------------
+# Known hardware GPU drivers get OpenGL (Mesa). Everything else (virtual GPUs, unknown, broken)
+# gets the safe software path so the desktop always comes up.
+GFX=basic
+for c in /sys/class/drm/card[0-9]*; do
+    [ -e "$c/device/driver" ] || continue
+    drv=$(basename "$(readlink -f "$c/device/driver")")
+    case "$drv" in
+        i915|xe|amdgpu|radeon|nouveau) GFX=full ;;
+    esac
+done
+case "$(cat /proc/cmdline 2>/dev/null)" in
+    *avyx.gfx=basic*) GFX=basic ;;
+    *avyx.gfx=full*)  GFX=full ;;
+esac
+if [ "$GFX" = basic ]; then
+    export WLR_RENDERER=pixman
+    export WLR_NO_HARDWARE_CURSORS=1
+    export GSK_RENDERER=cairo
+fi
+export AVYX_GFX="$GFX"
+echo "$GFX" > /run/avyx/gfx-profile 2>/dev/null
+
+avyx-mark session_starting "gfx=$GFX" 2>/dev/null
+
+LOG="${XDG_RUNTIME_DIR}/labwc.log"
+if [ -z "$DBUS_SESSION_BUS_ADDRESS" ] && [ ! -S "$XDG_RUNTIME_DIR/bus" ]; then
+    exec dbus-run-session -- labwc -C /usr/share/avyx/labwc >"$LOG" 2>&1
+fi
+exec labwc -C /usr/share/avyx/labwc >"$LOG" 2>&1

@@ -1,0 +1,4 @@
+# name  url  commit   (pinned so the build is reproducible)
+poky               https://github.com/yoctoproject/poky.git                    4fb7016a07507683359ebd620f1951fd5ea44bfa
+meta-openembedded  https://github.com/openembedded/meta-openembedded.git        2db6aece32c7f8ebf6015b468e1b4e21de072e3b
+meta-wayland       https://github.com/jhnc-oss/meta-wayland.git                 25850e97205eaa1b54882197ceaa6814c0403b4a

@@ -1,0 +1,13 @@
+[Unit]
+Description=AVYX boot milestones for the CI virtual machine
+After=multi-user.target getty@tty1.service
+ConditionPathExists=/sys/class/dmi/id/product_serial
+
+[Service]
+Type=simple
+ExecStart=/usr/libexec/avyx/avyx-boot-marker
+StandardOutput=null
+StandardError=null
+
+[Install]
+WantedBy=multi-user.target

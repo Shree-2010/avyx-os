@@ -1,0 +1,5 @@
+#!/bin/sh
+# Print a measured milestone on the CI serial port (only in the CI virtual machine).
+[ -e /run/avyx-ci ] || exit 0
+echo "AVYX_MARK $*" > /dev/ttyS1 2>/dev/null
+exit 0

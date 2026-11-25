@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=AVYX
+Description=AVYX OS boot splash: logo on black with a thin animated progress bar
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/avyx
+ScriptFile=/usr/share/plymouth/themes/avyx/avyx.script

@@ -1,0 +1,25 @@
+#!/bin/sh
+# AVYX live boot: the root image (squashfs) is read-only, so stack a tmpfs overlay on it.
+# Boot parameter  avyx.overlay=0  keeps the root as-is (used by the installed system).
+
+avyx_overlay_enabled() {
+	[ "$bootparam_avyx_overlay" = "0" ] && return 1
+	return 0
+}
+
+avyx_overlay_run() {
+	[ -n "$ROOTFS_DIR" ] || return 0
+	mountpoint -q "$ROOTFS_DIR" || return 0
+
+	mkdir -p /ovl
+	mount -t tmpfs -o mode=0755,size=75% avyx-ovl /ovl || { msg "avyx-overlay: tmpfs failed"; return 0; }
+	mkdir -p /ovl/lower /ovl/upper /ovl/work
+	mount --move "$ROOTFS_DIR" /ovl/lower || { msg "avyx-overlay: move failed"; return 0; }
+	if mount -t overlay overlay -o lowerdir=/ovl/lower,upperdir=/ovl/upper,workdir=/ovl/work "$ROOTFS_DIR"; then
+		info "avyx-overlay: overlay mounted on $ROOTFS_DIR"
+		msg "AVYX_MARK initramfs_overlay_ok"
+	else
+		msg "AVYX_MARK initramfs_overlay_FAILED (booting read-only)"
+		mount --move /ovl/lower "$ROOTFS_DIR"
+	fi
+}

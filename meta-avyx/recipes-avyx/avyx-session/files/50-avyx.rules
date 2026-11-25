@@ -1,0 +1,17 @@
+// AVYX: people in the "users" group on the active local seat may manage networking,
+// removable disks, power and time without an authentication agent.
+polkit.addRule(function(action, subject) {
+    if (!subject.local || !subject.active || !subject.isInGroup("users")) { return; }
+    var id = action.id;
+    if (id.indexOf("org.freedesktop.NetworkManager.") === 0 ||
+        id.indexOf("org.freedesktop.udisks2.") === 0 ||
+        id.indexOf("org.freedesktop.login1.power-off") === 0 ||
+        id.indexOf("org.freedesktop.login1.reboot") === 0 ||
+        id.indexOf("org.freedesktop.login1.suspend") === 0 ||
+        id.indexOf("org.freedesktop.login1.hibernate") === 0 ||
+        id.indexOf("org.freedesktop.timedate1.") === 0 ||
+        id.indexOf("org.freedesktop.hostname1.") === 0 ||
+        id.indexOf("org.freedesktop.UPower.") === 0) {
+        return polkit.Result.YES;
+    }
+});

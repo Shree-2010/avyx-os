@@ -1,0 +1,87 @@
+# AVYX boot splash (Plymouth script): black background, centred AVYX logo with slogan,
+# thin progress bar underneath with a soft moving highlight.
+
+Window.SetBackgroundTopColor(0, 0, 0);
+Window.SetBackgroundBottomColor(0, 0, 0);
+
+sw = Window.GetWidth();
+sh = Window.GetHeight();
+
+# --- logo ---------------------------------------------------------------
+logo.img = Image("logo.png");
+lw = Math.Int(sw * 0.60);
+if (lw > 1412) { lw = 1412; }
+lh = Math.Int(logo.img.GetHeight() * lw / logo.img.GetWidth());
+logo.scaled = logo.img.Scale(lw, lh);
+logo.sprite = Sprite(logo.scaled);
+logo.x = Math.Int((sw - lw) / 2);
+logo.y = Math.Int(sh / 2 - lh / 2 - sh * 0.04);
+logo.sprite.SetPosition(logo.x, logo.y, 10);
+logo.sprite.SetOpacity(0);
+
+# --- progress bar -------------------------------------------------------
+bar.w = Math.Int(lw * 0.46);
+bar.h = Math.Max(2, Math.Int(sh / 300));
+bar.x = Math.Int((sw - bar.w) / 2);
+bar.y = Math.Int(logo.y + lh + sh * 0.02);
+
+track.img = Image("bar-track.png").Scale(bar.w, bar.h);
+track.sprite = Sprite(track.img);
+track.sprite.SetPosition(bar.x, bar.y, 20);
+track.sprite.SetOpacity(0);
+
+fill.src = Image("bar-fill.png");
+fill.sprite = Sprite();
+fill.sprite.SetPosition(bar.x, bar.y, 21);
+fill.sprite.SetOpacity(0);
+
+glow.w = Math.Int(bar.w * 0.28);
+glow.src = Image("bar-glow.png").Scale(glow.w, bar.h);
+glow.sprite = Sprite(glow.src);
+glow.sprite.SetPosition(bar.x, bar.y, 22);
+glow.sprite.SetOpacity(0);
+
+tick = 0;
+target = 0.0;
+current = 0.03;
+
+fun boot_progress(duration, progress) {
+    target = progress;
+}
+Plymouth.SetBootProgressFunction(boot_progress);
+
+fun refresh() {
+    tick = tick + 1;
+    a = tick / 45.0;
+    if (a > 1) { a = 1; }
+    logo.sprite.SetOpacity(a);
+    track.sprite.SetOpacity(a);
+    fill.sprite.SetOpacity(a);
+    glow.sprite.SetOpacity(a * 0.9);
+
+    # progress eases towards the reported value but never stalls completely
+    t = target;
+    if (t < 0.04 + tick / 1800.0) { t = 0.04 + tick / 1800.0; }
+    if (t > 0.97) { t = 0.97; }
+    current = current + (t - current) * 0.08;
+    fw = Math.Int(bar.w * current);
+    if (fw < 2) { fw = 2; }
+    fill.sprite.SetImage(fill.src.Scale(fw, bar.h));
+
+    # moving highlight, ping-pong inside the filled part
+    span = fw - glow.w;
+    if (span < 1) { span = 1; }
+    pos = 0.5 + 0.5 * Math.Sin(tick * 0.07);
+    glow.sprite.SetPosition(bar.x + Math.Int(span * pos), bar.y, 22);
+}
+Plymouth.SetRefreshFunction(refresh);
+
+# quit nicely
+fun quit_callback() {
+    logo.sprite.SetOpacity(1);
+}
+Plymouth.SetQuitFunction(quit_callback);
+
+# messages (e.g. during updates) are not shown on purpose; boot stays clean
+fun message_callback(text) { }
+Plymouth.SetMessageFunction(message_callback);

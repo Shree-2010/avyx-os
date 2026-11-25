@@ -1,0 +1,12 @@
+#!/bin/sh
+# Run by labwc once the compositor is up.
+avyx-mark labwc_started "wayland=$WAYLAND_DISPLAY"
+(
+    n=0
+    while [ $n -lt 6 ]; do
+        avyx-shell >>"$XDG_RUNTIME_DIR/avyx-shell.log" 2>&1
+        avyx-mark shell_exited "n=$n rc=$?"
+        n=$((n+1))
+        sleep 1
+    done
+) &

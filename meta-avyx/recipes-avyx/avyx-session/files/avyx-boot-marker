@@ -1,0 +1,52 @@
+#!/bin/sh
+# Only runs inside the CI virtual machine (DMI product serial starts with AVYX-CI).
+case "$(cat /sys/class/dmi/id/product_serial 2>/dev/null)" in
+    AVYX-CI*) ;;
+    *) exit 0 ;;
+esac
+mkdir -p /run/avyx
+touch /run/avyx-ci
+chmod 666 /dev/ttyS1 2>/dev/null
+M() { echo "AVYX_MARK $*" > /dev/ttyS1 2>/dev/null; }
+D() { # diag NAME  (reads stdin)
+    echo "AVYX_MARK diag_begin $1" > /dev/ttyS1
+    head -c 6000 | sed 's/^/AVYX_DIAG /' > /dev/ttyS1
+    echo "AVYX_MARK diag_end $1" > /dev/ttyS1
+}
+
+M userspace "uptime=$(cut -d' ' -f1 /proc/uptime)"
+M rootfs "type=$(findmnt -no FSTYPE / 2>/dev/null) src=$(findmnt -no SOURCE / 2>/dev/null)"
+M cmdline "$(cat /proc/cmdline)"
+M kernel "$(uname -r)"
+
+i=0
+while [ $i -lt 150 ]; do
+    systemctl is-active --quiet getty@tty1.service && break
+    i=$((i+1)); sleep 1
+done
+M getty_active "uptime=$(cut -d' ' -f1 /proc/uptime)"
+
+i=0
+while [ $i -lt 120 ]; do
+    [ -e /run/avyx/shell-ready ] && break
+    i=$((i+1)); sleep 1
+done
+if [ -e /run/avyx/shell-ready ]; then
+    M shell_ready "uptime=$(cut -d' ' -f1 /proc/uptime) $(cat /run/avyx/shell-ready)"
+else
+    M shell_ready_TIMEOUT "uptime=$(cut -d' ' -f1 /proc/uptime)"
+fi
+M gfx_profile "$(cat /run/avyx/gfx-profile 2>/dev/null)"
+
+sleep 25
+M desktop_idle "mem_used_mb=$(free -m | awk '/^Mem:/{print $3}') mem_total_mb=$(free -m | awk '/^Mem:/{print $2}') uptime=$(cut -d' ' -f1 /proc/uptime)"
+
+( loginctl list-sessions --no-legend; echo; ps -eo pid,user,rss,comm --sort=-rss | head -15 ) 2>&1 | D processes
+( ls -la /run/user/1000 2>&1; echo; tail -40 /run/user/1000/labwc.log 2>&1 ) | D labwc_log
+( tail -60 /run/user/1000/avyx-shell.log 2>&1 ) | D shell_log
+( ls /sys/class/drm; for c in /sys/class/drm/card[0-9]; do readlink -f $c/device/driver; done; dmesg | grep -iE 'drm|simpledrm|bochs|fb0|efifb' | tail -15 ) 2>&1 | D drm
+( systemd-analyze 2>&1; systemd-analyze blame 2>&1 | head -15; systemctl --failed --no-legend 2>&1 ) | D systemd
+( journalctl -b -p warning --no-pager 2>&1 | tail -40 ) | D journal_warnings
+( plymouth --ping 2>&1; systemctl status plymouth-start.service --no-pager 2>&1 | head -12; free -m ) | D plymouth
+M done
+sleep 600

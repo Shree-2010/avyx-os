@@ -1,0 +1,6 @@
+yocto/sources/
+yocto/build/
+yocto/cache/
+__pycache__/
+*.pyc
+out/

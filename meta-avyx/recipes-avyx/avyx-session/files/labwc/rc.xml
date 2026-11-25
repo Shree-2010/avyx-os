@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<labwc_config>
+  <core>
+    <decoration>server</decoration>
+    <gap>0</gap>
+    <adaptiveSync>no</adaptiveSync>
+  </core>
+
+  <theme>
+    <name>AVYX</name>
+    <cornerRadius>12</cornerRadius>
+    <font place="" name="Inter" size="10" />
+    <font place="ActiveWindow" name="Inter" slant="normal" weight="bold" size="10" />
+  </theme>
+
+  <focus>
+    <followMouse>no</followMouse>
+    <raiseOnFocus>yes</raiseOnFocus>
+  </focus>
+
+  <placement>
+    <policy>center</policy>
+  </placement>
+
+  <windowSwitcher show="yes" preview="no" outlines="no" allWorkspaces="no" />
+
+  <snapping>
+    <range>8</range>
+    <topMaximize>yes</topMaximize>
+  </snapping>
+
+  <resistance>
+    <screenEdgeStrength>20</screenEdgeStrength>
+  </resistance>
+
+  <keyboard>
+    <default />
+    <keybind key="A-space"><action name="Execute" command="avyx-ctl spotlight" /></keybind>
+    <keybind key="W-space"><action name="Execute" command="avyx-ctl spotlight" /></keybind>
+    <keybind key="W-a"><action name="Execute" command="avyx-ctl launcher" /></keybind>
+    <keybind key="W-w"><action name="Execute" command="avyx-ctl overview" /></keybind>
+    <keybind key="W-l"><action name="Execute" command="avyx-ctl lock" /></keybind>
+    <keybind key="W-e"><action name="Execute" command="avyx-files" /></keybind>
+    <keybind key="W-Return"><action name="Execute" command="foot" /></keybind>
+    <keybind key="W-t"><action name="Execute" command="foot" /></keybind>
+    <keybind key="W-comma"><action name="Execute" command="avyx-settings" /></keybind>
+    <keybind key="W-q"><action name="Close" /></keybind>
+    <keybind key="W-Up"><action name="ToggleMaximize" /></keybind>
+    <keybind key="W-Left"><action name="SnapToEdge" direction="left" /></keybind>
+    <keybind key="W-Right"><action name="SnapToEdge" direction="right" /></keybind>
+    <keybind key="W-S-s"><action name="Execute" command="avyx-ctl screenshot" /></keybind>
+    <keybind key="Print"><action name="Execute" command="avyx-ctl screenshot" /></keybind>
+    <keybind key="XF86AudioRaiseVolume"><action name="Execute" command="avyx-ctl volume-up" /></keybind>
+    <keybind key="XF86AudioLowerVolume"><action name="Execute" command="avyx-ctl volume-down" /></keybind>
+    <keybind key="XF86AudioMute"><action name="Execute" command="avyx-ctl volume-mute" /></keybind>
+    <keybind key="XF86MonBrightnessUp"><action name="Execute" command="avyx-ctl brightness-up" /></keybind>
+    <keybind key="XF86MonBrightnessDown"><action name="Execute" command="avyx-ctl brightness-down" /></keybind>
+  </keyboard>
+
+  <mouse>
+    <default />
+  </mouse>
+
+  <libinput>
+    <device category="touchpad">
+      <naturalScroll>yes</naturalScroll>
+      <tap>yes</tap>
+      <tapButtonMap>lrm</tapButtonMap>
+      <disableWhileTyping>yes</disableWhileTyping>
+      <pointerSpeed>0.2</pointerSpeed>
+    </device>
+  </libinput>
+</labwc_config>
