@@ -10,6 +10,8 @@ export GDK_BACKEND=wayland GSK_RENDERER=cairo
 export PYTHONPATH="$ROOT/src" AVYX_DATA="$ROOT/src/data/share/avyx" AVYX_TEST=1 PYTHONUNBUFFERED=1
 export XDG_DATA_DIRS="$ROOT/src/data/share:/usr/local/share:/usr/share"
 export PATH="$ROOT/src/bin:$ROOT/src/native:$PATH"
+export GI_TYPELIB_PATH="/usr/local/lib/x86_64-linux-gnu/girepository-1.0:${GI_TYPELIB_PATH:-}"
+export LD_LIBRARY_PATH="/usr/local/lib/x86_64-linux-gnu:${LD_LIBRARY_PATH:-}"
 CFG="$(mktemp -d)"; cp "$ROOT"/meta-avyx/recipes-avyx/avyx-session/files/labwc/rc.xml "$CFG/"
 mkdir -p "$XDG_RUNTIME_DIR" /tmp/avyxrun 2>/dev/null
 

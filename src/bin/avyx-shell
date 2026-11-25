@@ -1,4 +1,19 @@
 #!/usr/bin/env python3
+# gtk4-layer-shell must be loaded before libwayland-client; for Python that means LD_PRELOAD,
+# so re-exec once with the library preloaded.
+import glob
+import os
 import sys
-from avyx.shell.app import main
+
+if "AVYX_PRELOADED" not in os.environ:
+    for d in ("/usr/lib", "/usr/lib64", "/usr/lib/x86_64-linux-gnu", "/usr/local/lib", "/usr/local/lib/x86_64-linux-gnu"):
+        hits = sorted(glob.glob(os.path.join(d, "libgtk4-layer-shell.so*")))
+        if hits:
+            old = os.environ.get("LD_PRELOAD", "")
+            os.environ["LD_PRELOAD"] = (hits[0] + " " + old).strip()
+            os.environ["AVYX_PRELOADED"] = "1"
+            os.execv(sys.executable, [sys.executable] + sys.argv)
+
+from avyx.shell.app import main  # noqa: E402
+
 sys.exit(main(sys.argv))
