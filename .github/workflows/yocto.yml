@@ -6,7 +6,6 @@ on:
     paths:
       - "meta-avyx/**"
       - "yocto/**"
-      - "src/**"
       - "tools/qemu_boot.py"
       - ".github/workflows/yocto.yml"
   workflow_dispatch:

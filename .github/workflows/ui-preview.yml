@@ -1,0 +1,67 @@
+name: ui-preview
+
+# Fast feedback for the desktop UI: runs the AVYX shell and apps (GTK4 + layer-shell) on labwc in a
+# headless Wayland session on an Ubuntu runner and publishes screenshots to the ci-ui branch.
+# This does NOT replace the Yocto build; it only lets the UI be iterated in minutes.
+
+on:
+  push:
+    branches: [yocto]
+    paths:
+      - "src/**"
+      - "tools/ui_preview/**"
+      - "tools/gen_*.py"
+      - ".github/workflows/ui-preview.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ui-preview-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            labwc grim wlr-randr dbus dbus-x11 \
+            python3 python3-gi python3-gi-cairo gir1.2-gtk-4.0 gir1.2-gtk4layershell-1.0 \
+            gir1.2-pango-1.0 gir1.2-gdkpixbuf-2.0 librsvg2-common adwaita-icon-theme fonts-inter \
+            libwayland-dev wayland-protocols pkg-config gcc make libglib2.0-bin \
+            python3-pil imagemagick
+      - name: Build helpers
+        run: |
+          if [ -d src/native ]; then make -C src/native; fi
+      - name: Run the UI scenarios
+        id: ui
+        continue-on-error: true
+        run: |
+          mkdir -p out/ui
+          dbus-run-session -- bash tools/ui_preview/run.sh out/ui
+      - name: Publish screenshots to ci-ui
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set +e
+          ev="$(mktemp -d)"
+          cp -r out/ui/* "$ev/" 2>/dev/null
+          echo "run ${{ github.run_number }} commit ${{ github.sha }} at $(date -u +%FT%TZ)" > "$ev/RUN.txt"
+          cd "$ev" && git init -q -b ci-ui \
+            && git config user.name "avyx-ci" && git config user.email "ci@avyx.invalid" \
+            && git add -A && git commit -q -m "UI preview for run ${{ github.run_number }}" \
+            && git push -q --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" ci-ui
+          exit 0
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ui-preview
+          path: out/ui
+          retention-days: 7
