@@ -29,6 +29,10 @@ IMAGE_LINGUAS = "en-us en-gb"
 # Live user (autologin) and root: password-less for the live session only
 inherit extrausers
 EXTRA_USERS_PARAMS = " \
+    groupadd -f wheel; \
+    groupadd -f render; \
+    groupadd -f input; \
+    groupadd -f plugdev; \
     useradd -m -s /bin/bash -G wheel,video,audio,input,render,plugdev,users avyx; \
     usermod -p '' avyx; \
     usermod -p '*' root; \

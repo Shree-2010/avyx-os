@@ -2,6 +2,10 @@ SUMMARY = "AVYX OS: base system (boot, network, audio, storage, tools)"
 LICENSE = "MIT"
 inherit packagegroup
 
+# these groups name packages that get renamed at packaging time (libdrm -> libdrm2 ...),
+# so they cannot be allarch
+PACKAGE_ARCH = "${TUNE_PKGARCH}"
+
 RDEPENDS:${PN} = " \
     packagegroup-core-boot \
     kernel-modules \

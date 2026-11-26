@@ -2,6 +2,10 @@ SUMMARY = "AVYX OS: Wayland desktop (labwc compositor + AVYX GTK4 shell and apps
 LICENSE = "MIT"
 inherit packagegroup
 
+# these groups name packages that get renamed at packaging time (libdrm -> libdrm2 ...),
+# so they cannot be allarch
+PACKAGE_ARCH = "${TUNE_PKGARCH}"
+
 RDEPENDS:${PN} = " \
     mesa mesa-megadriver libdrm libinput seatd \
     xkeyboard-config \
