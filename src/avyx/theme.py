@@ -69,6 +69,8 @@ button.playbtn {{ all: unset; background: linear-gradient(#ffa23a, #ff6a10); bor
     box-shadow: 0 0 {px(14)}px rgba(255,120,20,0.75); color: #fff; }}
 .mon-title {{ font-size: {px(14)}px; font-weight: 500; }}
 .mon-name, .mon-val {{ font-size: {px(13)}px; font-weight: 500; }}
+progressbar.mon {{ min-height: {px(8)}px; }}
+progressbar.mon progress {{ margin: 0; min-width: 0; }}
 progressbar.mon trough {{ background: rgba(255,255,255,0.12); border-radius: 99px; min-height: {px(8)}px; border: none; }}
 progressbar.mon progress {{ border-radius: 99px; min-height: {px(8)}px; border: none; }}
 progressbar.cpu progress {{ background: linear-gradient(90deg, #ff9a2e, #ff7a1a); }}
@@ -119,8 +121,88 @@ scale.cc slider {{ background: #fff; border-radius: 99px; min-width: {px(18)}px;
     padding: {px(10)}px {px(22)}px; font-size: {px(14)}px; font-weight: 500; box-shadow: 0 {px(8)}px {px(28)}px rgba(0,0,0,0.5); }}
 
 /* ---------------------------------------------------------------- generic app chrome */
-window.avyx-app {{ background: rgba(22,17,34,0.97); color: {TEXT}; border-radius: {px(14)}px; }}
+window.avyx-app {{ background: rgba(24,19,38,0.97); color: {TEXT}; border-radius: {px(14)}px;
+    box-shadow: 0 {px(18)}px {px(52)}px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.10); }}
+window.avyx-app.dialog {{ background: rgba(30,24,46,0.99); }}
+window.avyx-app label {{ color: {TEXT}; }}
+.app-header {{ padding: 0 {px(14)}px; min-height: {px(50)}px; background: rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.07);
+    border-radius: {px(14)}px {px(14)}px 0 0; }}
+.app-title {{ font-size: {px(15)}px; font-weight: 700; }}
+windowcontrols {{ margin-right: {px(8)}px; }}
+windowcontrols button {{ all: unset; min-width: {px(13)}px; min-height: {px(13)}px; border-radius: 99px; margin: 0 {px(4)}px; }}
+windowcontrols button.close {{ background: #ff5f57; }}
+windowcontrols button.minimize {{ background: #febc2e; }}
+windowcontrols button.maximize {{ background: #28c840; }}
+windowcontrols button image {{ opacity: 0; -gtk-icon-size: {px(8)}px; color: rgba(0,0,0,0.65); }}
+windowcontrols:hover button image {{ opacity: 1; }}
+button.tool {{ all: unset; padding: {px(6)}px {px(8)}px; border-radius: {px(8)}px; color: rgba(246,241,255,0.85); }}
+button.tool:hover {{ background: rgba(255,255,255,0.10); }}
+button.tool.on {{ background: rgba(255,138,31,0.30); color: #ffb067; }}
+button.tool:disabled {{ opacity: 0.35; }}
+button.btn {{ all: unset; padding: {px(8)}px {px(16)}px; border-radius: {px(9)}px; background: rgba(255,255,255,0.10); font-weight: 600; font-size: {px(13)}px; }}
+button.btn:hover {{ background: rgba(255,255,255,0.17); }}
+button.btn.primary {{ background: linear-gradient(#ff9a2e, #ff6a10); color: #1b1020; }}
+button.btn.primary label {{ color: #1b1020; }}
+button.btn.danger {{ background: rgba(255,80,70,0.85); }}
+entry.field, .field {{ background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); border-radius: {px(9)}px; color: {TEXT};
+    padding: {px(7)}px {px(11)}px; min-height: {px(24)}px; font-size: {px(14)}px; box-shadow: none; }}
+entry.field:focus-within {{ border-color: rgba(255,138,31,0.9); }}
+.dlg-title {{ font-size: {px(16)}px; font-weight: 700; }}
 .dim-label {{ color: {DIM}; }}
+.status-bar {{ padding: {px(6)}px {px(16)}px; color: {DIM}; font-size: {px(12)}px; border-top: 1px solid rgba(255,255,255,0.06); }}
+scrollbar {{ background: transparent; }}
+scrollbar slider {{ background: rgba(255,255,255,0.25); border-radius: 99px; min-width: {px(6)}px; min-height: {px(28)}px; }}
+scrollbar slider:hover {{ background: rgba(255,255,255,0.4); }}
+scrollbar trough {{ background: transparent; border: none; }}
+switch {{ background: rgba(255,255,255,0.16); border-radius: 99px; min-width: {px(42)}px; min-height: {px(24)}px; border: none; }}
+switch:checked {{ background: linear-gradient(#ff9a2e, #ff6a10); }}
+switch slider {{ background: #fff; border-radius: 99px; min-width: {px(20)}px; min-height: {px(20)}px; margin: {px(2)}px; box-shadow: 0 1px 3px rgba(0,0,0,0.5); border: none; }}
+
+/* ---------------------------------------------------------------- files */
+.files-side {{ background: rgba(255,255,255,0.035); border-right: 1px solid rgba(255,255,255,0.06); padding: {px(12)}px {px(10)}px; }}
+.side-head {{ font-size: {px(11)}px; font-weight: 700; letter-spacing: {px(1)}px; color: {DIM}; margin: {px(10)}px {px(10)}px {px(4)}px; }}
+button.side {{ all: unset; padding: {px(8)}px {px(12)}px; border-radius: {px(9)}px; color: {TEXT}; }}
+button.side label {{ font-size: {px(14)}px; font-weight: 500; }}
+button.side:hover {{ background: rgba(255,255,255,0.08); }}
+button.side.sel {{ background: linear-gradient(rgba(255,150,40,0.55), rgba(255,110,20,0.38)); box-shadow: inset 0 1px 0 rgba(255,255,255,0.22); }}
+flowbox.items {{ padding: {px(14)}px; }}
+flowboxchild {{ border-radius: {px(12)}px; padding: {px(8)}px {px(4)}px; }}
+flowboxchild:hover {{ background: rgba(255,255,255,0.06); }}
+flowboxchild:selected {{ background: rgba(255,138,31,0.30); }}
+flowboxchild label {{ font-size: {px(13)}px; font-weight: 500; }}
+list.items {{ background: transparent; }}
+list.items row {{ padding: {px(6)}px {px(14)}px; border-radius: {px(8)}px; margin: 0 {px(8)}px; background: transparent; }}
+list.items row:hover {{ background: rgba(255,255,255,0.06); }}
+list.items row:selected {{ background: rgba(255,138,31,0.30); }}
+.empty-note {{ font-size: {px(15)}px; color: {DIM}; }}
+.sel-frame {{ }}
+
+/* ---------------------------------------------------------------- settings */
+.set-side {{ background: rgba(255,255,255,0.035); border-right: 1px solid rgba(255,255,255,0.06); padding: {px(12)}px {px(10)}px; }}
+.set-title {{ font-size: {px(24)}px; font-weight: 700; margin-bottom: {px(8)}px; }}
+.set-group {{ background: rgba(255,255,255,0.06); border-radius: {px(12)}px; }}
+.set-row {{ padding: {px(12)}px {px(16)}px; min-height: {px(26)}px; }}
+.set-row + .set-row {{ border-top: 1px solid rgba(255,255,255,0.07); }}
+.set-row .sub {{ font-size: {px(12)}px; color: {DIM}; }}
+.mono {{ font-family: "DejaVu Sans Mono", "Noto Sans Mono", monospace; }}
+
+/* ---------------------------------------------------------------- calculator */
+window.calc {{ background: rgba(20,16,32,0.98); }}
+.calc-display {{ font-size: {px(46)}px; font-weight: 300; padding: {px(8)}px {px(18)}px {px(14)}px; }}
+.calc-expr {{ font-size: {px(14)}px; color: {DIM}; padding: 0 {px(20)}px; }}
+button.key {{ all: unset; background: rgba(255,255,255,0.10); border-radius: {px(14)}px; font-size: {px(20)}px; font-weight: 500;
+    min-height: {px(58)}px; }}
+button.key label {{ color: {TEXT}; }}
+button.key:hover {{ background: rgba(255,255,255,0.17); }}
+button.key:active {{ background: rgba(255,255,255,0.26); }}
+button.key.fn {{ background: rgba(255,255,255,0.18); }}
+button.key.op {{ background: linear-gradient(#ff9a2e, #ff6a10); }}
+button.key.op label {{ color: #1b1020; font-weight: 700; }}
+
+/* ---------------------------------------------------------------- editor / photos */
+textview.editor {{ background: transparent; color: {TEXT}; font-family: "DejaVu Sans Mono", "Noto Sans Mono", monospace; font-size: {px(14)}px; }}
+textview.editor text {{ background: transparent; color: {TEXT}; }}
+.photo-bg {{ background: #0c0914; }}
 """
 
 

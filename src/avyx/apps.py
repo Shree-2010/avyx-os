@@ -118,7 +118,7 @@ def icon_widget(name, size):
     t = texture(name, size * 2 if size < 96 else size)
     pic = Gtk.Picture.new_for_paintable(t) if t else Gtk.Picture()
     pic.set_size_request(size, size)
-    pic.set_can_shrink(False)
+    pic.set_can_shrink(True)
     pic.set_content_fit(Gtk.ContentFit.CONTAIN)
     pic.set_halign(Gtk.Align.CENTER)
     pic.set_valign(Gtk.Align.CENTER)

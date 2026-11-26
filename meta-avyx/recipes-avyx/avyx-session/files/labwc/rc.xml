@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <labwc_config>
   <core>
-    <decoration>server</decoration>
+    <decoration>client</decoration>
     <gap>0</gap>
     <adaptiveSync>no</adaptiveSync>
   </core>
@@ -37,6 +37,7 @@
     <default />
     <keybind key="A-space"><action name="Execute" command="avyx-ctl spotlight" /></keybind>
     <keybind key="W-space"><action name="Execute" command="avyx-ctl spotlight" /></keybind>
+    <keybind key="W-k"><action name="Execute" command="avyx-ctl launcher" /></keybind>
     <keybind key="W-a"><action name="Execute" command="avyx-ctl launcher" /></keybind>
     <keybind key="W-w"><action name="Execute" command="avyx-ctl overview" /></keybind>
     <keybind key="W-l"><action name="Execute" command="avyx-ctl lock" /></keybind>

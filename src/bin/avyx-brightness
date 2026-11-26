@@ -1,0 +1,10 @@
+#!/bin/sh
+# avyx-brightness +5 | -5 : change the backlight by N percent (needs write access to /sys/class/backlight, see udev rule)
+d=$(ls -d /sys/class/backlight/* 2>/dev/null | head -n1)
+[ -n "$d" ] || exit 1
+max=$(cat "$d/max_brightness"); cur=$(cat "$d/brightness")
+step=$(( max * ${1#+} / 100 ))
+new=$(( cur + step ))
+[ "$new" -lt $(( max / 20 )) ] && new=$(( max / 20 ))
+[ "$new" -gt "$max" ] && new=$max
+echo "$new" > "$d/brightness"

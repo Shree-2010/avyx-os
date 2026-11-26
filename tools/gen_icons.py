@@ -537,6 +537,111 @@ ICONS = {
 }
 
 
+# ----------------------------------------------------------------------------- file-type icons
+def sheet(badge_top, badge_bot, glyph=None, label=None):
+    """A document sheet with a folded corner and a coloured badge."""
+    pts = [(250, 130), (630, 130), (790, 290), (790, 894), (250, 894)]
+    m = Image.new("L", (N, N), 0)
+    ImageDraw.Draw(m).polygon(pts, fill=255)
+    m = m.filter(ImageFilter.GaussianBlur(1.2))
+    img = shadow(m, dy=20, blur=22, alpha=0.45)
+    body = new()
+    body.paste(vgrad((255, 255, 255), (222, 226, 238)), (0, 0), m)
+    img = Image.alpha_composite(img, body)
+    d = ImageDraw.Draw(img)
+    d.polygon([(630, 130), (630, 290), (790, 290)], fill=(200, 206, 222, 255))
+    d.polygon([(630, 130), (630, 290), (790, 290)], outline=(180, 186, 204, 255))
+    # badge
+    bm = Image.new("L", (N, N), 0)
+    ImageDraw.Draw(bm).rounded_rectangle([250, 560, 790, 760], radius=0, fill=255)
+    badge = new()
+    badge.paste(vgrad(badge_top, badge_bot), (0, 0), bm)
+    img = Image.alpha_composite(img, badge)
+    if glyph:
+        g = new()
+        glyph(ImageDraw.Draw(g))
+        img = Image.alpha_composite(img, g)
+    return img
+
+
+def fg_text(d):
+    for k in range(4):
+        rrect(d, [330, 330 + k * 56, 700 - (k == 3) * 150, 352 + k * 56], 11, (150, 158, 182, 255))
+    for k in range(3):
+        rrect(d, [330, 630 + k * 0, 710, 650], 10, (255, 255, 255, 235))
+        break
+
+
+def fg_image(d):
+    d.polygon([(300, 540), (420, 380), (500, 470), (570, 400), (740, 540)], fill=(160, 168, 222, 255))
+    d.ellipse([620, 320, 690, 390], fill=(255, 190, 80, 255))
+    d.polygon([(370, 700), (450, 600), (520, 670), (580, 610), (670, 700)], fill=(255, 255, 255, 235))
+
+
+def fg_audio(d):
+    d.ellipse([400, 650, 470, 705], fill=WHITE)
+    d.ellipse([540, 630, 610, 685], fill=WHITE)
+    d.rectangle([452, 560, 470, 678], fill=WHITE)
+    d.rectangle([592, 540, 610, 658], fill=WHITE)
+    d.polygon([(452, 560), (610, 540), (610, 570), (452, 592)], fill=WHITE)
+
+
+def fg_video(d):
+    d.polygon([(470, 590), (470, 730), (590, 660)], fill=WHITE)
+
+
+def fg_zip(d):
+    for k in range(5):
+        x = 490 + (k % 2) * 40
+        d.rectangle([x, 300 + k * 50, x + 40, 340 + k * 50], fill=(150, 158, 182, 255))
+    d.rectangle([480, 570, 570, 650], fill=(60, 50, 20, 255))
+    d.rectangle([505, 595, 545, 625], fill=(255, 210, 100, 255))
+
+
+def fg_code(d):
+    line(d, [(420, 610), (360, 660), (420, 710)], 22, WHITE)
+    line(d, [(620, 610), (680, 660), (620, 710)], 22, WHITE)
+    line(d, [(540, 600), (500, 720)], 20, WHITE)
+
+
+def fg_blank(d):
+    pass
+
+
+def icon_file():
+    return sheet((150, 158, 182), (112, 120, 146), fg_blank)
+
+
+def icon_file_text():
+    return sheet((82, 150, 255), (40, 100, 232), fg_text)
+
+
+def icon_file_image():
+    return sheet((176, 110, 255), (120, 60, 230), fg_image)
+
+
+def icon_file_audio():
+    return sheet((255, 100, 130), (226, 40, 90), fg_audio)
+
+
+def icon_file_video():
+    return sheet((60, 170, 255), (20, 100, 240), fg_video)
+
+
+def icon_file_archive():
+    return sheet((255, 196, 70), (240, 140, 20), fg_zip)
+
+
+def icon_file_code():
+    return sheet((40, 200, 200), (10, 130, 170), fg_code)
+
+
+ICONS.update({
+    "file": icon_file, "file-text": icon_file_text, "file-image": icon_file_image, "file-audio": icon_file_audio,
+    "file-video": icon_file_video, "file-archive": icon_file_archive, "file-code": icon_file_code,
+})
+
+
 def main():
     out = sys.argv[1] if len(sys.argv) > 1 else "icons"
     os.makedirs(out, exist_ok=True)

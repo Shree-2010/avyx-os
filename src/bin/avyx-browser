@@ -1,0 +1,14 @@
+#!/bin/sh
+# Start the default web browser (Brave when installed; the AVYX Store installs it).
+for b in brave-browser brave brave-browser-stable; do
+    if command -v "$b" >/dev/null 2>&1; then
+        exec "$b" --ozone-platform=wayland --enable-features=UseOzonePlatform "$@"
+    fi
+done
+for b in chromium chromium-browser google-chrome; do
+    command -v "$b" >/dev/null 2>&1 && exec "$b" --ozone-platform=wayland "$@"
+done
+command -v firefox >/dev/null 2>&1 && exec firefox "$@"
+avyx-ctl "toast:No web browser is installed yet. Open the AVYX Store to get one." >/dev/null 2>&1
+echo "avyx-browser: no browser found" >&2
+exit 1

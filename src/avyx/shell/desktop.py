@@ -79,12 +79,13 @@ class Wordmark(Gtk.DrawingArea):
         cr.set_source_rgba(1, 1, 1, 0.96)
         PangoCairo.show_layout(cr, os_)
 
-        slog = self._layout(cr, "BUILD BEYOND LIMITS", px(15), Pango.Weight.MEDIUM, px(9))
+        slog = self._layout(cr, "BUILD BEYOND LIMITS", px(15), Pango.Weight.SEMIBOLD, px(9))
         sw, sh = slog.get_pixel_size()
         sy = y0 + bh + px(18)
-        cr.move_to((w - sw) / 2 + px(1), sy + px(1))
-        cr.set_source_rgba(0, 0, 0, 0.55)
-        PangoCairo.show_layout(cr, slog)
+        for dx, dy, a in ((px(2), px(2), 0.55), (0, px(1), 0.45), (px(-1), px(1), 0.35)):
+            cr.move_to((w - sw) / 2 + dx, sy + dy)
+            cr.set_source_rgba(0.08, 0.02, 0.05, a)
+            PangoCairo.show_layout(cr, slog)
         cr.move_to((w - sw) / 2, sy)
         cr.set_source_rgba(1, 1, 1, 0.88)
         PangoCairo.show_layout(cr, slog)

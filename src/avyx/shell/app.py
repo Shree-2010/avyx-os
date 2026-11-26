@@ -106,12 +106,33 @@ class Shell:
             self.launch(apps.BY_ID["screenshot"])
         elif name == "files":
             self.launch(apps.BY_ID["files"])
+        elif name in ("volume-up", "volume-down", "volume-mute"):
+            if name == "volume-mute":
+                config.spawn(["wpctl", "set-mute", "@DEFAULT_AUDIO_SINK@", "toggle"])
+            else:
+                config.spawn(["wpctl", "set-volume", "-l", "1.0", "@DEFAULT_AUDIO_SINK@", "5%+" if name == "volume-up" else "5%-"])
+        elif name in ("brightness-up", "brightness-down"):
+            config.spawn(["avyx-brightness", "+5" if name == "brightness-up" else "-5"])
+        elif name == "toast":
+            self.toast(arg)
+        elif name == "restart":
+            self.app.quit()
+        elif name == "reload":
+            self.reload()
         elif name == "testhover" and config.TEST:
             self.dock.test_hover(int(arg))
         elif name in ("cc", "overview", "window", "shortcuts"):
             self.toast("Not available yet")
         else:
             print("shell: unknown command", cmd, file=sys.stderr)
+
+    def reload(self):
+        """Re-read settings.json and apply what can change live (wallpaper needs a restart of the shell)."""
+        config.settings.__init__()
+        self.dock.magnify = bool(config.settings.get("magnify", True)) and self.dock.profile != "basic"
+        self.desktop.wcol.set_visible(bool(config.settings.get("widgets", True)))
+        if config.wallpaper_path() != getattr(glass.get(), "path", None):
+            self.app.quit()          # the session wrapper restarts the shell with the new wallpaper
 
     # ------------------------------------------------------------------ readiness
     def on_bar_mapped(self):

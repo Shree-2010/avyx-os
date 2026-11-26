@@ -21,6 +21,7 @@ class Backdrop:
     def __init__(self, sw, sh):
         self.sw, self.sh = sw, sh
         path = config.wallpaper_path()
+        self.path = path
         if path:
             wp = GdkPixbuf.Pixbuf.new_from_file(path)
         else:

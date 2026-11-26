@@ -246,7 +246,7 @@ class MediaCard:
             getattr(outer, "set_margin_" + m)(px(16))
         self.art = Gtk.Picture()
         self.art.set_size_request(px(74), px(74))
-        self.art.set_can_shrink(False)
+        self.art.set_can_shrink(True)
         self.art.set_content_fit(Gtk.ContentFit.COVER)
         self.art.add_css_class("art")
         self.art.set_overflow(Gtk.Overflow.HIDDEN)

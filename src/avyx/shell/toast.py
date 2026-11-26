@@ -10,7 +10,7 @@ from .util import LAYER, TOP, layer_window  # noqa: E402
 
 class Toast:
     def __init__(self, shell):
-        self.win = layer_window(shell.app, "avyx-toast", LAYER.OVERLAY, anchors=(TOP,), margins={TOP: config.px(14)}, exclusive=-1)
+        self.win = layer_window(shell.app, "avyx-toast", LAYER.OVERLAY, anchors=(TOP,), margins={TOP: config.px(46)}, exclusive=-1)
         self.label = Gtk.Label()
         self.label.add_css_class("toast")
         self.win.set_child(self.label)
