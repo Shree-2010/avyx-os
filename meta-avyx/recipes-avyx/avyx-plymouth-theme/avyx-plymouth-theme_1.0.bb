@@ -9,7 +9,6 @@ SRC_URI = " \
     file://bar-track.png \
     file://bar-fill.png \
     file://bar-glow.png \
-    file://plymouthd.conf \
 "
 S = "${WORKDIR}"
 inherit allarch
@@ -18,8 +17,6 @@ do_install() {
     install -d ${D}${datadir}/plymouth/themes/avyx
     install -m 0644 ${WORKDIR}/avyx.plymouth ${WORKDIR}/avyx.script ${D}${datadir}/plymouth/themes/avyx/
     install -m 0644 ${WORKDIR}/logo.png ${WORKDIR}/bar-track.png ${WORKDIR}/bar-fill.png ${WORKDIR}/bar-glow.png ${D}${datadir}/plymouth/themes/avyx/
-    install -d ${D}${sysconfdir}/plymouth
-    install -m 0644 ${WORKDIR}/plymouthd.conf ${D}${sysconfdir}/plymouth/plymouthd.conf
 }
-FILES:${PN} = "${datadir}/plymouth/themes/avyx ${sysconfdir}/plymouth"
+FILES:${PN} = "${datadir}/plymouth/themes/avyx"
 RDEPENDS:${PN} = "plymouth"
