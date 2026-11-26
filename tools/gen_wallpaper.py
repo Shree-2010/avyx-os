@@ -69,10 +69,11 @@ st = np.asarray(Image.fromarray((st * 255).astype(np.uint8)).filter(ImageFilter.
 sky += st[..., None] * 230
 
 # clouds
-cl_n = fbm(W, H, 0.55 * W, 0.075 * H, 6, 11)
-cl_n2 = fbm(W, H, 0.9 * W, 0.2 * H, 4, 12)
+cl_n = fbm(W, H, 0.30 * W, 0.06 * H, 7, 11)
+cl_n2 = fbm(W, H, 0.60 * W, 0.16 * H, 5, 12)
 band = smooth(fy, 0.04, 0.16) * (1 - smooth(fy, 0.34, 0.43))
-cm = smooth(cl_n * 0.75 + cl_n2 * 0.25 + band * 0.22, 0.60, 0.86) * band
+cm = smooth(cl_n * 0.70 + cl_n2 * 0.30 + band * 0.20, 0.50, 0.90) * band
+cm = np.asarray(Image.fromarray((cm * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(1.6 * W / 1536)), np.float32) / 255.0
 edge = np.gradient(cl_n, axis=0) * H * 0.35         # lit from below-sun
 lit = np.clip(-edge * 6 + 0.35, 0, 1)
 sunprox = np.exp(-(np.sqrt((fx - SUN[0]) ** 2 + ((fy - SUN[1]) * 1.4) ** 2) / 0.62) ** 2)
@@ -88,11 +89,13 @@ img = sky.copy()
 wm = (yy >= hy).astype(np.float32)
 depth = np.clip((yy - hy) / (H - hy), 0, 1)
 rip = fbm(W, H, 0.5 * W, 0.012 * H, 4, 21) - 0.5
-src_y = np.clip(hy - (yy - hy) * 0.92 + rip * H * 0.03 * (0.3 + depth), 0, H - 1).astype(np.int32)
+src_y = np.clip(hy - (yy - hy) * 0.55 + rip * H * 0.03 * (0.3 + depth), 0, H - 1).astype(np.int32)
 src_x = np.clip(xx + rip * W * 0.02 * (0.3 + depth), 0, W - 1).astype(np.int32)
-refl = sky[src_y, src_x]
+sky_sm = np.asarray(Image.fromarray(np.clip(sky, 0, 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(5 * W / 1536)), np.float32)
+refl = sky_sm[src_y, src_x]
 deep = np.array([18, 14, 46], np.float32)
-wcol = refl * (0.62 - 0.30 * depth[..., None]) + deep * (0.30 + 0.45 * depth[..., None])
+water_tint = np.array([0.80, 0.40, 0.58], np.float32)   # keeps the water warm-magenta, never olive
+wcol = refl * water_tint * (0.80 - 0.45 * depth[..., None]) + deep * (0.34 + 0.45 * depth[..., None])
 # glitter column under the sun
 gw = 0.020 * W + 0.16 * (yy - hy)
 gl = np.exp(-((xx - sx_) / gw) ** 2) * smooth(yy - hy, -2, 6) * (1 - 0.55 * depth)
@@ -174,6 +177,7 @@ for k, (base, amp, reach, col, al) in enumerate([
         (HY + 0.01, 0.20, 0.55, (120, 58, 96), 0.55), (HY + 0.012, 0.17, 0.46, (74, 38, 80), 0.75),
         (HY + 0.016, 0.14, 0.36, (36, 22, 58), 0.92)]):
     m = poly_mask(lambda dr, ss, b=base, a=amp, r=reach, s=40 + k: left_hill(dr, ss, b, a, r, s, 0.25 * W))
+    m = m * (yy <= hy + 2)   # land ends at the waterline
     composite(np.array(col, np.float32), m, al)
 
 # ---------------------------------------------------------------- the bridge (original design)
@@ -276,7 +280,7 @@ img += gl_b[..., None] * np.array([255, 120, 40], np.float32) * 0.22
 
 # bridge reflection (broken, dim) on the water
 refl_m = np.zeros((H, W), np.float32)
-ry = np.clip(hy - (yy - hy) * 1.0, 0, H - 1).astype(np.int32)
+ry = np.clip(hy - (yy - hy) * 0.8, 0, H - 1).astype(np.int32)
 rx = np.clip(xx + rip * W * 0.03, 0, W - 1).astype(np.int32)
 refl_m = bridge_a[ry, rx] * wm * (1 - depth) ** 1.5 * (0.25 + 0.5 * np.clip(streak * 1.8 - 0.4, 0, 1))
 img = img * (1 - refl_m[..., None] * 0.6) + np.array([200, 80, 40], np.float32) * refl_m[..., None] * 0.6
@@ -318,18 +322,14 @@ def bez(p0, p1, p2, p3, n=120):
     return pts
 
 
-road = bez((0.00, 0.69), (0.14, 0.76), (0.30, 0.86), (0.48, 0.96))
-for off, col, wd in ((0.000, (255, 140, 60), 5), (0.006, (255, 198, 120), 3), (-0.006, (255, 90, 40), 3), (0.012, (255, 170, 80), 2)):
+road = bez((0.00, 0.60), (0.10, 0.66), (0.18, 0.74), (0.30, 0.90), n=200)
+for off, col, wd in ((0.0, (255, 150, 70), 3), (0.004, (255, 205, 130), 2)):
     pts = [(x + off * W * 2, y) for x, y in road]
-    td.line(pts, fill=col, width=int(wd * W / 1536) * 2)
-road2 = bez((0.30, 0.70), (0.40, 0.76), (0.52, 0.84), (0.66, 0.99))
-for off, col, wd in ((0.0, (255, 120, 50), 3), (0.007, (255, 190, 110), 2)):
-    pts = [(x + off * W * 2, y) for x, y in road2]
     td.line(pts, fill=col, width=int(wd * W / 1536) * 2)
 tr = tr.resize((W, H), Image.LANCZOS)
 tr_a = np.asarray(tr, np.float32)
 tr_blur = np.asarray(tr.filter(ImageFilter.GaussianBlur(7 * W / 1536)), np.float32)
-trails = (tr_a * 0.9 + tr_blur * 1.4) * mt[..., None]
+trails = (tr_a * 0.45 + tr_blur * 1.2) * mt[..., None]
 img += trails
 
 # scattered city lights on the right terrain

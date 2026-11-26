@@ -1,86 +1,159 @@
-"""AVYX shell (bootstrap version): wallpaper, top bar, readiness marker."""
-import glob
+"""AVYX shell: wires the desktop, top bar, dock, launcher and the D-Bus control interface together."""
 import os
+import shlex
 import sys
-import time
 
 import gi
 
 gi.require_version("Gtk", "4.0")
 gi.require_version("Gdk", "4.0")
 gi.require_version("Gtk4LayerShell", "1.0")
-from gi.repository import Gdk, GLib, Gtk  # noqa: E402
-from gi.repository import Gtk4LayerShell as LS  # noqa: E402
+from gi.repository import Gio, GLib, Gtk  # noqa: E402
 
-DATA = os.environ.get("AVYX_DATA", "/usr/share/avyx")
+from .. import apps, config, glass, theme  # noqa: E402
 
-
-def wallpaper_path():
-    files = sorted(glob.glob(os.path.join(DATA, "wallpapers", "*.jpg")))
-    return files[0] if files else None
+CTL_XML = """<node><interface name="org.avyx.Shell">
+<method name="Invoke"><arg type="s" name="command" direction="in"/></method>
+</interface></node>"""
 
 
-class Shell(Gtk.Application):
-    def __init__(self):
-        super().__init__(application_id="org.avyx.Shell")
+class Shell:
+    """Owns all shell components. `invoke()` is the single entry point for every user action."""
+
+    def __init__(self, app):
+        self.app = app
+        config.Screen.init()
+        theme.apply()
+        glass.get()
+        from .desktop import Desktop
+        from .dock import Dock
+        from .launcher import Launcher
+        from .toast import Toast
+        from .topbar import TopBar
         self.ready_written = False
+        self.desktop = Desktop(self)
+        self.topbar = TopBar(self)
+        self.dock = Dock(self)
+        self.launcher = Launcher(self)
+        self.toast_win = Toast(self)
+        self.extra = {}
 
-    def do_activate(self):
-        css = Gtk.CssProvider()
-        css.load_from_string(
-            "window.bar { background: rgba(20,16,36,0.72); color: #f4efff; font-family: Inter; font-weight: 600; }"
-            "window.bar label { padding: 0 12px; }"
-        )
-        Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), css, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
+    # ------------------------------------------------------------------ helpers
+    def toast(self, text):
+        self.toast_win.show(text)
 
-        bg = Gtk.Window(application=self)
-        LS.init_for_window(bg)
-        LS.set_layer(bg, LS.Layer.BACKGROUND)
-        for e in (LS.Edge.TOP, LS.Edge.BOTTOM, LS.Edge.LEFT, LS.Edge.RIGHT):
-            LS.set_anchor(bg, e, True)
-        LS.set_exclusive_zone(bg, -1)
-        wp = wallpaper_path()
-        pic = Gtk.Picture.new_for_filename(wp) if wp else Gtk.Picture()
-        pic.set_content_fit(Gtk.ContentFit.COVER)
-        bg.set_child(pic)
-        bg.present()
+    def running_ids(self):
+        return set()
 
-        bar = Gtk.Window(application=self)
-        bar.add_css_class("bar")
-        LS.init_for_window(bar)
-        LS.set_layer(bar, LS.Layer.TOP)
-        for e in (LS.Edge.TOP, LS.Edge.LEFT, LS.Edge.RIGHT):
-            LS.set_anchor(bar, e, True)
-        LS.auto_exclusive_zone_enable(bar)
-        box = Gtk.CenterBox()
-        box.set_start_widget(Gtk.Label(label="AVYX OS"))
-        self.clock = Gtk.Label()
-        box.set_end_widget(self.clock)
-        bar.set_child(box)
-        bar.set_default_size(-1, 30)
-        bar.connect("map", self.on_bar_mapped)
-        bar.present()
-        self.tick()
-        GLib.timeout_add_seconds(1, self.tick)
+    def launch(self, app, extra=None):
+        if app.icon is None:                        # a .desktop application from the system
+            if not apps.launch_extra(app):
+                self.toast("Could not start %s" % app.name)
+            return
+        if not app.available():
+            self.toast("%s isn't installed in this build yet" % app.name)
+            return
+        app.launch(extra)
 
-    def tick(self):
-        self.clock.set_label(time.strftime("%a %b %d  %I:%M %p"))
-        return True
+    def open_path(self, path):
+        if path.startswith("~"):
+            path = os.path.expanduser(path)
+        files = apps.BY_ID["files"]
+        if files.available():
+            files.launch([path])
+        else:
+            self.toast("Files isn't installed in this build yet")
 
-    def on_bar_mapped(self, *_):
-        GLib.timeout_add(1500, self.write_ready)
+    # ------------------------------------------------------------------ command router
+    def invoke(self, cmd):
+        if not cmd:
+            return
+        name, _, arg = cmd.partition(":")
+        if name == "launcher":
+            self.launcher.toggle()
+        elif name == "spotlight":
+            self.launcher.show()
+        elif name == "open":
+            a = apps.BY_ID.get(arg)
+            if a:
+                self.launch(a)
+        elif name == "quit":
+            a = apps.BY_ID.get(arg)
+            if a and a.running():
+                a.proc.terminate()
+        elif name == "path":
+            self.open_path(arg)
+        elif name == "cmd":
+            config.spawn(shlex.split(arg))
+        elif name == "settings":
+            self.launch(apps.BY_ID["settings"], [arg] if arg else None)
+        elif name == "lock":
+            config.spawn(["avyx-lock"]) or self.toast("Lock screen isn't available yet")
+        elif name == "logout":
+            config.spawn(["labwc", "--exit"])
+        elif name == "poweroff":
+            config.spawn(["systemctl", "poweroff"])
+        elif name == "reboot":
+            config.spawn(["systemctl", "reboot"])
+        elif name == "installer":
+            config.spawn(["avyx-installer"]) or self.toast("The installer isn't available in this build")
+        elif name == "about":
+            self.launcher.show()
+            self.launcher.select("about")
+        elif name == "widgets":
+            self.desktop.toggle_widgets()
+        elif name == "screenshot":
+            self.launch(apps.BY_ID["screenshot"])
+        elif name == "files":
+            self.launch(apps.BY_ID["files"])
+        elif name == "testhover" and config.TEST:
+            self.dock.test_hover(int(arg))
+        elif name in ("cc", "overview", "window", "shortcuts"):
+            self.toast("Not available yet")
+        else:
+            print("shell: unknown command", cmd, file=sys.stderr)
 
-    def write_ready(self):
-        if not self.ready_written:
-            self.ready_written = True
-            try:
-                with open("/run/avyx/shell-ready", "w") as f:
-                    f.write("bootstrap-shell")
-            except OSError as e:
-                print("cannot write ready marker:", e, file=sys.stderr)
-            os.system("avyx-mark shell_mapped")
+    # ------------------------------------------------------------------ readiness
+    def on_bar_mapped(self):
+        GLib.timeout_add(1500, self._write_ready)
+
+    def _write_ready(self):
+        if self.ready_written:
+            return False
+        self.ready_written = True
+        try:
+            with open("/run/avyx/shell-ready", "w") as f:
+                f.write("shell")
+        except OSError as e:
+            print("cannot write ready marker:", e, file=sys.stderr)
+        config.spawn(["avyx-mark", "shell_mapped"])
         return False
 
 
+class ShellApp(Gtk.Application):
+    def __init__(self):
+        super().__init__(application_id="org.avyx.Shell")
+        self.shell = None
+
+    def do_dbus_register(self, connection, object_path):
+        ok = Gtk.Application.do_dbus_register(self, connection, object_path)
+        try:
+            info = Gio.DBusNodeInfo.new_for_xml(CTL_XML)
+            connection.register_object("/org/avyx/ShellCtl", info.interfaces[0], self._method_call, None, None)
+        except Exception as e:
+            print("shell: could not export control interface:", e, file=sys.stderr)
+        return ok
+
+    def _method_call(self, conn, sender, path, iface, method, params, invocation):
+        if method == "Invoke":
+            cmd = params.unpack()[0]
+            GLib.idle_add(lambda: (self.shell and self.shell.invoke(cmd), False)[1])
+            invocation.return_value(None)
+
+    def do_activate(self):
+        if self.shell is None:
+            self.shell = Shell(self)
+
+
 def main(argv):
-    return Shell().run(argv)
+    return ShellApp().run(argv)

@@ -1,3 +1,3 @@
 #!/bin/sh
-# Send a command to the running AVYX shell (used by keyboard shortcuts), e.g. avyx-ctl spotlight
-exec busctl --user call org.avyx.Shell /org/avyx/Shell org.avyx.Shell Invoke s "$1"
+# Send a command to the running AVYX shell (keyboard shortcuts, scripts): avyx-ctl launcher | spotlight | open:files ...
+exec busctl --user call org.avyx.Shell /org/avyx/ShellCtl org.avyx.Shell Invoke s "$1"
