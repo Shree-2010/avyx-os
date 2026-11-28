@@ -201,10 +201,11 @@ class DisplayPage:
                     if "current" in m.group(3):
                         cur["current"] = mode
         for o in outputs:
-            dd = Gtk.DropDown.new_from_strings(o["modes"] or ["unknown"])
+            dd = Gtk.DropDown.new_from_strings(o["modes"] or ["Automatic"])
             if o["current"] in o["modes"]:
                 dd.set_selected(o["modes"].index(o["current"]))
             apply_b = btn("Apply", lambda o=o, d=dd: self.apply(o, d), True)
+            apply_b.set_sensitive(bool(o["modes"]))
             box = Gtk.Box(spacing=px(8))
             box.append(dd)
             box.append(apply_b)

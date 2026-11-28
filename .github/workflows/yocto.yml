@@ -164,6 +164,11 @@ jobs:
           grep -E "^(ERROR|WARNING)" bitbake.log | sort | uniq -c | sort -rn | head -80 > "$ev/bitbake-problems.txt" 2>/dev/null
           ls -la out > "$ev/out-listing.txt" 2>/dev/null
           cp out/*.sha256 "$ev/" 2>/dev/null
+          ls -laL yocto/build/tmp/deploy/images/avyx-x86-64 > "$ev/deploy-listing.txt" 2>&1
+          rf="$(ls -d yocto/build/tmp/work/*/avyx-image/*/rootfs 2>/dev/null | head -1)"
+          if [ -n "$rf" ]; then
+            ( cd "$rf" && { ls -la boot; echo; find boot usr/lib/grub usr/share/syslinux usr/lib/syslinux -maxdepth 3 2>/dev/null; echo; du -sh . usr lib var etc 2>/dev/null; } ) > "$ev/rootfs-info.txt" 2>&1
+          fi
           find yocto/build/tmp/deploy/images -maxdepth 2 -name '*.manifest' -exec cp {} "$ev/" \; 2>/dev/null
           find yocto/build/tmp/work -name 'run.do_*.*' -newer bitbake.log 2>/dev/null | head -0
           # logs of failed tasks

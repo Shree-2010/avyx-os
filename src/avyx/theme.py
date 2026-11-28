@@ -121,9 +121,9 @@ scale.cc slider {{ background: #fff; border-radius: 99px; min-width: {px(18)}px;
     padding: {px(10)}px {px(22)}px; font-size: {px(14)}px; font-weight: 500; box-shadow: 0 {px(8)}px {px(28)}px rgba(0,0,0,0.5); }}
 
 /* ---------------------------------------------------------------- generic app chrome */
-window.avyx-app {{ background: rgba(24,19,38,0.97); color: {TEXT}; border-radius: {px(14)}px;
+window.avyx-app {{ background: rgb(24,19,38); color: {TEXT}; border-radius: {px(14)}px;
     box-shadow: 0 {px(18)}px {px(52)}px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.10); }}
-window.avyx-app.dialog {{ background: rgba(30,24,46,0.99); }}
+window.avyx-app.dialog {{ background: rgb(30,24,46); }}
 window.avyx-app label {{ color: {TEXT}; }}
 .app-header {{ padding: 0 {px(14)}px; min-height: {px(50)}px; background: rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.07);
     border-radius: {px(14)}px {px(14)}px 0 0; }}
@@ -187,7 +187,7 @@ list.items row:selected {{ background: rgba(255,138,31,0.30); }}
 .mono {{ font-family: "DejaVu Sans Mono", "Noto Sans Mono", monospace; }}
 
 /* ---------------------------------------------------------------- calculator */
-window.calc {{ background: rgba(20,16,32,0.98); }}
+window.calc {{ background: rgb(20,16,32); }}
 .calc-display {{ font-size: {px(46)}px; font-weight: 300; padding: {px(8)}px {px(18)}px {px(14)}px; }}
 .calc-expr {{ font-size: {px(14)}px; color: {DIM}; padding: 0 {px(20)}px; }}
 button.key {{ all: unset; background: rgba(255,255,255,0.10); border-radius: {px(14)}px; font-size: {px(20)}px; font-weight: 500;

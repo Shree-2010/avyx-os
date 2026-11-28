@@ -13,7 +13,6 @@ IMAGE_INSTALL = " \
 IMAGE_FSTYPES = "iso"
 LIVE_ROOTFS_TYPE = "squashfs-zst"
 INITRD_IMAGE_LIVE = "avyx-initramfs"
-INITRAMFS_FSTYPES = "cpio.zst"
 LABELS_LIVE = "boot"
 ROOT_LIVE = "root=/dev/ram0"
 APPEND = "ro quiet splash loglevel=3 vt.global_cursor_default=0 console=tty0 console=ttyS0,115200"
