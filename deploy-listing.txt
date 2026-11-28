@@ -1,0 +1,23 @@
+total 2813592
+drwxr-xr-x 2 runner runner      4096 Nov 28 11:36 .
+drwxr-xr-x 3 runner runner      4096 Nov 28 11:33 ..
+-rw-r--r-- 2 runner runner 719323136 Nov 28 11:36 avyx-image-avyx-x86-64-20261128112851.iso
+-rw-r--r-- 2 runner runner     83069 Nov 28 11:35 avyx-image-avyx-x86-64-20261128112851.manifest
+-rw-r--r-- 2 runner runner 674504704 Nov 28 11:36 avyx-image-avyx-x86-64-20261128112851.squashfs-zst
+-rw-r--r-- 2 runner runner    269387 Nov 28 11:35 avyx-image-avyx-x86-64-20261128112851.testdata.json
+-rw-r--r-- 2 runner runner 719323136 Nov 28 11:36 avyx-image-avyx-x86-64.iso
+-rw-r--r-- 2 runner runner     83069 Nov 28 11:35 avyx-image-avyx-x86-64.manifest
+-rw-r--r-- 2 runner runner 674504704 Nov 28 11:36 avyx-image-avyx-x86-64.squashfs-zst
+-rw-r--r-- 2 runner runner    269387 Nov 28 11:35 avyx-image-avyx-x86-64.testdata.json
+-rw-r--r-- 2 runner runner   9454661 Nov 28 11:35 avyx-initramfs-avyx-x86-64-20261128112851.cpio.gz
+-rw-r--r-- 2 runner runner      1668 Nov 28 11:34 avyx-initramfs-avyx-x86-64-20261128112851.manifest
+-rw-r--r-- 2 runner runner    271253 Nov 28 11:34 avyx-initramfs-avyx-x86-64-20261128112851.testdata.json
+-rw-r--r-- 2 runner runner   9454661 Nov 28 11:35 avyx-initramfs-avyx-x86-64.cpio.gz
+-rw-r--r-- 2 runner runner      1668 Nov 28 11:34 avyx-initramfs-avyx-x86-64.manifest
+-rw-r--r-- 2 runner runner    271253 Nov 28 11:34 avyx-initramfs-avyx-x86-64.testdata.json
+-rw-r--r-- 2 runner runner  11195392 Nov 25 20:05 bzImage
+-rw-r--r-- 2 runner runner  11195392 Nov 25 20:05 bzImage--6.6.151+git0+dd201eb6ec_5ae544e131-r0-avyx-x86-64-20261125182224.bin
+-rw-r--r-- 2 runner runner  11195392 Nov 25 20:05 bzImage-avyx-x86-64.bin
+-rw-r--r-- 2 runner runner    655360 Nov 25 20:06 grub-efi-bootx64.efi
+-rw-r--r-- 2 runner runner  20054384 Nov 25 20:06 modules--6.6.151+git0+dd201eb6ec_5ae544e131-r0-avyx-x86-64-20261125182224.tgz
+-rw-r--r-- 2 runner runner  20054384 Nov 25 20:06 modules-avyx-x86-64.tgz

@@ -1,0 +1,185 @@
+AVYX_MARK userspace uptime=2.24
+AVYX_MARK rootfs type=squashfs src=/dev/loop0
+AVYX_MARK cmdline BOOT_IMAGE=/bzImage initrd=/initrd LABEL=boot root=/dev/ram0 ro quiet splash loglevel=3 vt.global_cursor_default=0 console=tty0 console=ttyS0,115200 
+AVYX_MARK kernel 6.6.151-yocto-standard
+AVYX_MARK getty_active uptime=2.26
+AVYX_MARK session_starting gfx=basic
+AVYX_MARK labwc_started wayland=wayland-0
+AVYX_MARK shell_exited n=0 rc=133
+AVYX_MARK shell_exited n=1 rc=133
+AVYX_MARK shell_exited n=2 rc=133
+AVYX_MARK shell_exited n=3 rc=133
+AVYX_MARK shell_exited n=4 rc=133
+AVYX_MARK shell_exited n=5 rc=133
+AVYX_MARK shell_ready_TIMEOUT uptime=122.47
+AVYX_MARK gfx_profile basic
+AVYX_MARK desktop_idle mem_used_mb=129 mem_total_mb=3931 uptime=147.49
+AVYX_MARK diag_begin processes
+AVYX_DIAG c1 1000 avyx seat0 tty1 active no -
+AVYX_DIAG 
+AVYX_DIAG     PID USER       RSS COMMAND
+AVYX_DIAG     950 avyx     17340 labwc
+AVYX_DIAG       1 root     11892 systemd
+AVYX_DIAG     889 root     11264 NetworkManager
+AVYX_DIAG     943 avyx     10656 systemd
+AVYX_DIAG     570 root      9188 systemd-udevd
+AVYX_DIAG     616 systemd+  8928 systemd-network
+AVYX_DIAG     527 root      8816 systemd-journal
+AVYX_DIAG     878 root      8088 systemd-logind
+AVYX_DIAG     961 polkitd   8080 polkitd
+AVYX_DIAG     651 systemd+  7968 systemd-resolve
+AVYX_DIAG     674 systemd+  7596 systemd-timesyn
+AVYX_DIAG     820 root      7196 systemd-userwor
+AVYX_DIAG     818 root      7120 systemd-userwor
+AVYX_DIAG     819 root      6708 systemd-userwor
+AVYX_MARK diag_end processes
+AVYX_MARK diag_begin labwc_log
+AVYX_DIAG total 8
+AVYX_DIAG drwx------ 4 avyx avyx  180 Nov 28 11:40 .
+AVYX_DIAG drwxr-xr-x 3 root root   60 Nov 28 11:40 ..
+AVYX_DIAG -rw-r--r-- 1 avyx avyx 1296 Nov 28 11:40 avyx-shell.log
+AVYX_DIAG srw-rw-rw- 1 avyx avyx    0 Nov 28 11:40 bus
+AVYX_DIAG drwx------ 3 avyx avyx   60 Nov 28 11:40 dbus-1
+AVYX_DIAG -rw-r--r-- 1 avyx avyx 1075 Nov 28 11:40 labwc.log
+AVYX_DIAG drwxr-xr-x 5 avyx avyx  140 Nov 28 11:40 systemd
+AVYX_DIAG srwxr-xr-x 1 avyx avyx    0 Nov 28 11:40 wayland-0
+AVYX_DIAG -rw-r----- 1 avyx avyx    0 Nov 28 11:40 wayland-0.lock
+AVYX_DIAG 
+AVYX_DIAG Fontconfig error: No writable cache directories
+AVYX_DIAG Fontconfig error: No writable cache directories
+AVYX_DIAG Fontconfig error: No writable cache directories
+AVYX_DIAG Fontconfig error: No writable cache directories
+AVYX_DIAG Environment variable $DISPLAY not set, ignoring.
+AVYX_DIAG /usr/share/avyx/labwc/autostart: line 12:   981 Trace/breakpoint trap   (core dumped) avyx-shell >> "$XDG_RUNTIME_DIR/avyx-shell.log" 2>&1
+AVYX_DIAG /usr/share/avyx/labwc/autostart: line 12:   988 Trace/breakpoint trap   (core dumped) avyx-shell >> "$XDG_RUNTIME_DIR/avyx-shell.log" 2>&1
+AVYX_DIAG /usr/share/avyx/labwc/autostart: line 12:   995 Trace/breakpoint trap   (core dumped) avyx-shell >> "$XDG_RUNTIME_DIR/avyx-shell.log" 2>&1
+AVYX_DIAG /usr/share/avyx/labwc/autostart: line 12:  1002 Trace/breakpoint trap   (core dumped) avyx-shell >> "$XDG_RUNTIME_DIR/avyx-shell.log" 2>&1
+AVYX_DIAG /usr/share/avyx/labwc/autostart: line 12:  1010 Trace/breakpoint trap   (core dumped) avyx-shell >> "$XDG_RUNTIME_DIR/avyx-shell.log" 2>&1
+AVYX_DIAG /usr/share/avyx/labwc/autostart: line 12:  1017 Trace/breakpoint trap   (core dumped) avyx-shell >> "$XDG_RUNTIME_DIR/avyx-shell.log" 2>&1
+AVYX_MARK diag_end labwc_log
+AVYX_MARK diag_begin shell_log
+AVYX_DIAG 
+AVYX_DIAG (process:981): GLib-GIO-WARNING **: 11:40:07.021: Failed to create /home/avyx/.config/glib-2.0/settings: Read-only file system
+AVYX_DIAG Fontconfig error: No writable cache directories
+AVYX_DIAG Fontconfig error: No writable cache directories
+AVYX_DIAG 
+AVYX_DIAG ** (process:981): ERROR **: 11:40:07.021: failed to dlopen libwayland
+AVYX_DIAG 
+AVYX_DIAG (process:988): GLib-GIO-WARNING **: 11:40:08.110: Failed to create /home/avyx/.config/glib-2.0/settings: Read-only file system
+AVYX_DIAG 
+AVYX_DIAG ** (process:988): ERROR **: 11:40:08.110: failed to dlopen libwayland
+AVYX_DIAG 
+AVYX_DIAG (process:995): GLib-GIO-WARNING **: 11:40:09.198: Failed to create /home/avyx/.config/glib-2.0/settings: Read-only file system
+AVYX_DIAG 
+AVYX_DIAG ** (process:995): ERROR **: 11:40:09.198: failed to dlopen libwayland
+AVYX_DIAG 
+AVYX_DIAG (process:1002): GLib-GIO-WARNING **: 11:40:10.285: Failed to create /home/avyx/.config/glib-2.0/settings: Read-only file system
+AVYX_DIAG 
+AVYX_DIAG ** (process:1002): ERROR **: 11:40:10.285: failed to dlopen libwayland
+AVYX_DIAG 
+AVYX_DIAG (process:1010): GLib-GIO-WARNING **: 11:40:11.372: Failed to create /home/avyx/.config/glib-2.0/settings: Read-only file system
+AVYX_DIAG 
+AVYX_DIAG ** (process:1010): ERROR **: 11:40:11.373: failed to dlopen libwayland
+AVYX_DIAG 
+AVYX_DIAG (process:1017): GLib-GIO-WARNING **: 11:40:12.461: Failed to create /home/avyx/.config/glib-2.0/settings: Read-only file system
+AVYX_DIAG 
+AVYX_DIAG ** (process:1017): ERROR **: 11:40:12.461: failed to dlopen libwayland
+AVYX_MARK diag_end shell_log
+AVYX_MARK diag_begin drm
+AVYX_DIAG card0
+AVYX_DIAG card0-Virtual-1
+AVYX_DIAG version
+AVYX_DIAG /sys/bus/pci/drivers/bochs-drm
+AVYX_DIAG [    0.000000] ACPI: APIC 0x000000007FFE2293 000080 (v03 BOCHS  BXPC     00000001 BXPC 00000001)
+AVYX_DIAG [    0.000000] ACPI: HPET 0x000000007FFE2313 000038 (v01 BOCHS  BXPC     00000001 BXPC 00000001)
+AVYX_DIAG [    0.000000] ACPI: MCFG 0x000000007FFE234B 00003C (v01 BOCHS  BXPC     00000001 BXPC 00000001)
+AVYX_DIAG [    0.000000] ACPI: WAET 0x000000007FFE2387 000028 (v01 BOCHS  BXPC     00000001 BXPC 00000001)
+AVYX_DIAG [    0.462218] ACPI: bus type drm_connector registered
+AVYX_DIAG [    0.462228] bochs-drm 0000:00:01.0: vgaarb: deactivate vga console
+AVYX_DIAG [    0.472035] [drm] Found bochs VGA, ID 0xb0c5.
+AVYX_DIAG [    0.472036] [drm] Framebuffer size 16384 kB @ 0xfd000000, mmio @ 0xfebb0000.
+AVYX_DIAG [    0.477188] [drm] Found EDID data blob.
+AVYX_DIAG [    0.477246] [drm] Initialized bochs-drm 1.0.0 20130925 for 0000:00:01.0 on minor 0
+AVYX_DIAG [    0.478299] fbcon: bochs-drmdrmfb (fb0) is primary device
+AVYX_DIAG [    0.494263] bochs-drm 0000:00:01.0: [drm] fb0: bochs-drmdrmfb frame buffer device
+AVYX_DIAG [    1.349178] systemd[1]: Starting Load Kernel Module drm...
+AVYX_DIAG [    1.380722] systemd[1]: modprobe@drm.service: Deactivated successfully.
+AVYX_DIAG [    1.380790] systemd[1]: Finished Load Kernel Module drm.
+AVYX_MARK diag_end drm
+AVYX_MARK diag_begin systemd
+AVYX_DIAG Startup finished in 1.245s (kernel) + 1.169s (userspace) = 2.415s 
+AVYX_DIAG multi-user.target reached after 973ms in userspace.
+AVYX_DIAG 492ms systemd-networkd.service
+AVYX_DIAG 365ms dev-loop0.device
+AVYX_DIAG 284ms systemd-resolved.service
+AVYX_DIAG 270ms systemd-timesyncd.service
+AVYX_DIAG 163ms plymouth-start.service
+AVYX_DIAG 129ms systemd-userdbd.service
+AVYX_DIAG 117ms systemd-udev-trigger.service
+AVYX_DIAG 114ms systemd-update-utmp.service
+AVYX_DIAG 114ms dbus.service
+AVYX_DIAG 105ms NetworkManager.service
+AVYX_DIAG  84ms systemd-logind.service
+AVYX_DIAG  83ms user@1000.service
+AVYX_DIAG  68ms systemd-vconsole-setup.service
+AVYX_DIAG  61ms systemd-sysctl.service
+AVYX_DIAG  48ms systemd-udevd.service
+AVYX_DIAG * systemd-remount-fs.service loaded failed failed Remount Root and Kernel File Systems
+AVYX_MARK diag_end systemd
+AVYX_MARK diag_begin journal_warnings
+AVYX_DIAG Nov 28 11:40:05 avyx-x86-64 kernel: tsc: Unable to calibrate against PIT
+AVYX_DIAG Nov 28 11:40:05 avyx-x86-64 kernel: /dev/sr0: Can't open blockdev
+AVYX_DIAG Nov 28 11:40:05 avyx-x86-64 kernel: /dev/sr0: Can't open blockdev
+AVYX_DIAG Nov 28 11:40:05 avyx-x86-64 kernel: /dev/sr0: Can't open blockdev
+AVYX_DIAG Nov 28 11:40:05 avyx-x86-64 kernel: /dev/sr0: Can't open blockdev
+AVYX_DIAG Nov 28 11:40:05 avyx-x86-64 systemd-remount-fs[537]: /usr/bin/mount for / exited with exit status 32.
+AVYX_DIAG Nov 28 11:40:05 avyx-x86-64 systemd[1]: systemd-remount-fs.service: Failed with result 'exit-code'.
+AVYX_DIAG Nov 28 11:40:05 avyx-x86-64 systemd[1]: Failed to start Remount Root and Kernel File Systems.
+AVYX_DIAG Nov 28 11:40:05 avyx-x86-64 systemd-vconsole-setup[841]: KD_FONT_OP_GET failed while trying to get the font metadata: Invalid argument
+AVYX_DIAG Nov 28 11:40:05 avyx-x86-64 systemd-vconsole-setup[841]: Fonts will not be copied to remaining consoles
+AVYX_DIAG Nov 28 11:40:05 avyx-x86-64 (syslogd)[867]: busybox-syslog.service: Referenced but unset environment variable evaluates to an empty string: OPTIONS
+AVYX_DIAG Nov 28 11:40:05 avyx-x86-64 kernel[865]: tsc: Unable to calibrate against PIT
+AVYX_DIAG Nov 28 11:40:05 avyx-x86-64 kernel[865]: /dev/sr0: Can't open blockdev
+AVYX_DIAG Nov 28 11:40:05 avyx-x86-64 kernel[865]: /dev/sr0: Can't open blockdev
+AVYX_DIAG Nov 28 11:40:05 avyx-x86-64 kernel[865]: /dev/sr0: Can't open blockdev
+AVYX_DIAG Nov 28 11:40:05 avyx-x86-64 kernel[865]: /dev/sr0: Can't open blockdev
+AVYX_DIAG Nov 28 11:40:05 avyx-x86-64 pipewire[872]: spa.dbus: Failed to connect to session bus: Using X11 for dbus-daemon autolaunch was disabled at compile time, set your DBUS_SESSION_BUS_ADDRESS instead
+AVYX_DIAG Nov 28 11:40:05 avyx-x86-64 pipewire[872]: mod.portal: Failed to connect to session bus: Input/output error
+AVYX_DIAG Nov 28 11:40:05 avyx-x86-64 kernel: pipewire[872]: memfd_create() called without MFD_EXEC or MFD_NOEXEC_SEAL set
+AVYX_DIAG Nov 28 11:40:05 avyx-x86-64 kernel[865]: pipewire[872]: memfd_create() called without MFD_EXEC or MFD_NOEXEC_SEAL set
+AVYX_DIAG Nov 28 11:40:06 avyx-x86-64 systemd[1]: run-media-AVYX_LIVE\x2dsr0.mount: Failed with result 'exit-code'.
+AVYX_DIAG Nov 28 11:40:06 avyx-x86-64 systemd[1]: Failed to mount /run/media/AVYX_LIVE-sr0.
+AVYX_DIAG Nov 28 11:40:09 avyx-x86-64 kernel: IPv4: martian source 255.255.255.255 from 10.0.2.2, on dev enp0s2
+AVYX_DIAG Nov 28 11:40:09 avyx-x86-64 kernel: ll header: 00000000: ff ff ff ff ff ff 52 55 0a 00 02 02 08 00
+AVYX_DIAG Nov 28 11:40:09 avyx-x86-64 kernel: IPv4: martian source 255.255.255.255 from 10.0.2.2, on dev enp0s2
+AVYX_DIAG Nov 28 11:40:09 avyx-x86-64 kernel: ll header: 00000000: ff ff ff ff ff ff 52 55 0a 00 02 02 08 00
+AVYX_DIAG Nov 28 11:40:09 avyx-x86-64 kernel: IPv4: martian source 255.255.255.255 from 10.0.2.2, on dev enp0s2
+AVYX_DIAG Nov 28 11:40:09 avyx-x86-64 kernel: ll header: 00000000: ff ff ff ff ff ff 52 55 0a 00 02 02 08 00
+AVYX_DIAG Nov 28 11:40:09 avyx-x86-64 kernel[865]: IPv4: martian source 255.255.255.255 from 10.0.2.2, on dev enp0s2
+AVYX_DIAG Nov 28 11:40:09 avyx-x86-64 kernel[865]: ll header: 00000000: ff ff ff ff ff ff 52 55 0a 00 02 02 08 00
+AVYX_DIAG Nov 28 11:40:09 avyx-x86-64 kernel[865]: IPv4: martian source 255.255.255.255 from 10.0.2.2, on dev enp0s2
+AVYX_DIAG Nov 28 11:40:09 avyx-x86-64 kernel[865]: ll header: 00000000: ff ff ff ff ff ff 52 55 0a 00 02 02 08 00
+AVYX_DIAG Nov 28 11:40:09 avyx-x86-64 kernel: IPv4: martian source 255.255.255.255 from 10.0.2.2, on dev enp0s2
+AVYX_DIAG Nov 28 11:40:09 avyx-x86-64 kernel: ll header: 00000000: ff ff ff ff ff ff 52 55 0a 00 02 02 08 00
+AVYX_DIAG Nov 28 11:40:09 avyx-x86-64 kernel[865]: IPv4: martian source 255.255.255.255 from 10.0.2.2, on dev enp0s2
+AVYX_DIAG Nov 28 11:40:09 avyx-x86-64 kernel[865]: ll header: 00000000: ff ff ff ff ff ff 52 55 0a 00 02 02 08 00
+AVYX_DIAG Nov 28 11:40:09 avyx-x86-64 kernel[865]: IPv4: martian source 255.255.255.255 from 10.0.2.2, on dev enp0s2
+AVYX_DIAG Nov 28 11:40:09 avyx-x86-64 kernel[865]: ll header: 00000000: ff ff ff ff ff ff 52 55 0a 00 02 02 08 00
+AVYX_DIAG Nov 28 11:40:09 avyx-x86-64 NetworkManager[889]: <warn>  [1795866009.4594] dns-sd-resolved[c897553ac7771cdb]: send-updates SetLinkDomains@3 failed: GDBus.Error:org.freedesktop.resolve1.LinkBusy: Link enp0s2 is managed.
+AVYX_MARK diag_end journal_warnings
+AVYX_MARK diag_begin plymouth
+AVYX_DIAG * plymouth-start.service - Show Plymouth Boot Screen
+AVYX_DIAG      Loaded: loaded (/usr/lib/systemd/system/plymouth-start.service; static)
+AVYX_DIAG      Active: active (exited) since Sat 2026-11-28 11:40:05 UTC; 2min 26s ago
+AVYX_DIAG     Process: 604 ExecStart=/usr/sbin/plymouthd --mode=boot --kernel-command-line=splash plymouth.ignore-serial-consoles --pid-file=/run/plymouth/pid --attach-to-session (code=exited, status=0/SUCCESS)
+AVYX_DIAG     Process: 729 ExecStartPost=/usr/bin/plymouth show-splash (code=exited, status=0/SUCCESS)
+AVYX_DIAG    Main PID: 717 (code=exited, status=0/SUCCESS)
+AVYX_DIAG         CPU: 86ms
+AVYX_DIAG 
+AVYX_DIAG Nov 28 11:40:05 avyx-x86-64 systemd[1]: Starting Show Plymouth Boot Screen...
+AVYX_DIAG Nov 28 11:40:05 avyx-x86-64 systemd[1]: Started Show Plymouth Boot Screen.
+AVYX_DIAG                total        used        free      shared  buff/cache   available
+AVYX_DIAG Mem:            3931         130        3688           8         175        3800
+AVYX_DIAG Swap:              0           0           0
+AVYX_MARK diag_end plymouth
+AVYX_MARK done

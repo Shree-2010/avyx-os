@@ -1,0 +1,600 @@
+NOTE: recipe unzip-native-1_6.0-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2212 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/libxml/libxml2_2.12.10.bb:do_recipe_qa_setscene)
+NOTE: recipe python3-flit-core-native-3.9.0-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2213 of 2410 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/libxcrypt/libxcrypt_4.4.36.bb:do_recipe_qa_setscene)
+NOTE: recipe gcc-runtime-13.5.0-r0: task do_packagedata_setscene: Started
+NOTE: recipe libxml2-native-2.12.10-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe gcc-runtime-13.5.0-r0: task do_packagedata_setscene: Succeeded
+NOTE: recipe gcc-runtime-13.5.0-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: recipe libxcrypt-4.4.36-r0: task do_recipe_qa_setscene: Started
+NOTE: Running setscene task 2218 of 2410 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/gcc/libgcc_13.5.bb:do_packagedata_setscene)
+NOTE: Running setscene task 2220 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-extended/unzip/unzip_6.0.bb:do_recipe_qa_setscene)
+NOTE: recipe libxml2-native-2.12.10-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2221 of 2410 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/gcc/libgcc_13.5.bb:do_populate_sysroot_setscene)
+NOTE: recipe libxcrypt-4.4.36-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2222 of 2410 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/gcc/gcc-runtime_13.5.bb:do_recipe_qa_setscene)
+NOTE: recipe libgcc-13.5.0-r0: task do_packagedata_setscene: Started
+NOTE: recipe unzip-native-1_6.0-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe libgcc-13.5.0-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe libgcc-13.5.0-r0: task do_packagedata_setscene: Succeeded
+NOTE: Running setscene task 2224 of 2410 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/glibc/glibc_2.39.bb:do_packagedata_setscene)
+NOTE: recipe gcc-runtime-13.5.0-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe unzip-native-1_6.0-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: recipe libgcc-13.5.0-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: recipe gcc-runtime-13.5.0-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: recipe glibc-2.39+git-r1: task do_packagedata_setscene: Started
+NOTE: Running setscene task 2225 of 2410 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/glibc/glibc_2.39.bb:do_populate_sysroot_setscene)
+NOTE: Running setscene task 2227 of 2410 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/gcc/libgcc_13.5.bb:do_recipe_qa_setscene)
+NOTE: recipe glibc-2.39+git-r1: task do_packagedata_setscene: Succeeded
+NOTE: Running setscene task 2229 of 2410 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-kernel/linux-libc-headers/linux-libc-headers_6.6.bb:do_packagedata_setscene)
+NOTE: recipe libgcc-13.5.0-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe linux-libc-headers-6.6-r0: task do_packagedata_setscene: Started
+NOTE: recipe glibc-2.39+git-r1: task do_populate_sysroot_setscene: Started
+NOTE: recipe libgcc-13.5.0-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: recipe linux-libc-headers-6.6-r0: task do_packagedata_setscene: Succeeded
+NOTE: Running setscene task 2231 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/rpm/rpm_4.19.1.1.bb:do_populate_sysroot_setscene)
+NOTE: Running setscene task 2232 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/dwarfsrcfiles/dwarfsrcfiles.bb:do_populate_sysroot_setscene)
+NOTE: Running task 232 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-graphics/wayland/wayland-protocols_1.33.bb:do_fetch)
+NOTE: recipe glibc-2.39+git-r1: task do_populate_sysroot_setscene: Succeeded
+NOTE: recipe dwarfsrcfiles-native-1.0-r0: task do_populate_sysroot_setscene: Started
+NOTE: Running setscene task 2234 of 2410 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/systemd/systemd-systemctl-native.bb:do_populate_sysroot_setscene)
+NOTE: recipe rpm-native-1_4.19.1.1-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe dwarfsrcfiles-native-1.0-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2237 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/dwarfsrcfiles/dwarfsrcfiles.bb:do_recipe_qa_setscene)
+NOTE: recipe systemd-systemctl-native-1.0-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe wayland-protocols-1.33-r0: task do_fetch: Started
+NOTE: recipe wayland-protocols-1.33-r0: task do_fetch: Succeeded
+NOTE: Running setscene task 2243 of 2410 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/glibc/glibc_2.39.bb:do_recipe_qa_setscene)
+NOTE: recipe rpm-native-1_4.19.1.1-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2244 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/file/file_5.45.bb:do_populate_sysroot_setscene)
+NOTE: recipe systemd-systemctl-native-1.0-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2248 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/python/python3_3.12.14.bb:do_populate_sysroot_setscene)
+NOTE: recipe dwarfsrcfiles-native-1.0-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe glibc-2.39+git-r1: task do_recipe_qa_setscene: Started
+NOTE: recipe dwarfsrcfiles-native-1.0-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: recipe file-native-5.45-r0: task do_populate_sysroot_setscene: Started
+NOTE: Running setscene task 2252 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-support/libgcrypt/libgcrypt_1.10.4.bb:do_populate_sysroot_setscene)
+NOTE: recipe glibc-2.39+git-r1: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2253 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/elfutils/elfutils_0.191.bb:do_populate_sysroot_setscene)
+NOTE: recipe file-native-5.45-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2254 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/lua/lua_5.4.6.bb:do_populate_sysroot_setscene)
+NOTE: recipe python3-native-3.12.14-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe libgcrypt-native-1.10.4-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe elfutils-native-0.191-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe lua-native-5.4.6-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe libgcrypt-native-1.10.4-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2256 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-extended/lzip/lzlib_1.14.bb:do_populate_sysroot_setscene)
+NOTE: recipe lua-native-5.4.6-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2259 of 2410 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-kernel/linux-libc-headers/linux-libc-headers_6.6.bb:do_populate_sysroot_setscene)
+NOTE: recipe elfutils-native-0.191-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2260 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/rpm/rpm_4.19.1.1.bb:do_recipe_qa_setscene)
+NOTE: recipe lzlib-native-1.14-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe python3-native-3.12.14-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2263 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/util-linux/util-linux-libuuid_2.39.3.bb:do_populate_sysroot_setscene)
+NOTE: recipe linux-libc-headers-6.6-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe lzlib-native-1.14-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2264 of 2410 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/systemd/systemd-systemctl-native.bb:do_recipe_qa_setscene)
+NOTE: recipe rpm-native-1_4.19.1.1-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe rpm-native-1_4.19.1.1-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: recipe systemd-systemctl-native-1.0-r0: task do_recipe_qa_setscene: Started
+NOTE: Running setscene task 2265 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-extended/libnsl/libnsl2_git.bb:do_populate_sysroot_setscene)
+NOTE: recipe util-linux-libuuid-native-2.39.3-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe linux-libc-headers-6.6-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2266 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/lua/lua_5.4.6.bb:do_recipe_qa_setscene)
+NOTE: recipe systemd-systemctl-native-1.0-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2267 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-support/libcap/libcap_2.69.bb:do_populate_sysroot_setscene)
+NOTE: recipe util-linux-libuuid-native-2.39.3-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2271 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/elfutils/elfutils_0.191.bb:do_recipe_qa_setscene)
+NOTE: recipe libnsl2-native-2.0.1-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe lua-native-5.4.6-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe libcap-native-2.69-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe libnsl2-native-2.0.1-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2273 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/util-linux/util-linux-libuuid_2.39.3.bb:do_recipe_qa_setscene)
+NOTE: recipe lua-native-5.4.6-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2276 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-support/libffi/libffi_3.4.6.bb:do_populate_sysroot_setscene)
+NOTE: recipe elfutils-native-0.191-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe libcap-native-2.69-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2277 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-support/libgcrypt/libgcrypt_1.10.4.bb:do_recipe_qa_setscene)
+NOTE: recipe elfutils-native-0.191-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2278 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/readline/readline_8.2.bb:do_populate_sysroot_setscene)
+NOTE: recipe libffi-native-3.4.6-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe util-linux-libuuid-native-2.39.3-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe libgcrypt-native-1.10.4-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe libffi-native-3.4.6-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: recipe util-linux-libuuid-native-2.39.3-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2281 of 2410 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-kernel/linux-libc-headers/linux-libc-headers_6.6.bb:do_recipe_qa_setscene)
+NOTE: recipe readline-native-8.2-r0: task do_populate_sysroot_setscene: Started
+NOTE: Running setscene task 2282 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-support/libgpg-error/libgpg-error_1.48.bb:do_populate_sysroot_setscene)
+NOTE: recipe libgcrypt-native-1.10.4-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2285 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/python/python3_3.12.14.bb:do_recipe_qa_setscene)
+NOTE: recipe readline-native-8.2-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2288 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/libedit/libedit_20230828-3.1.bb:do_populate_sysroot_setscene)
+NOTE: recipe linux-libc-headers-6.6-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe linux-libc-headers-6.6-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: recipe libgpg-error-native-1.48-r0: task do_populate_sysroot_setscene: Started
+NOTE: Running setscene task 2290 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-support/libcap/libcap_2.69.bb:do_recipe_qa_setscene)
+NOTE: recipe libedit-native-20230828-3.1-r1: task do_populate_sysroot_setscene: Started
+NOTE: recipe libgpg-error-native-1.48-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2292 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-support/libffi/libffi_3.4.6.bb:do_recipe_qa_setscene)
+NOTE: recipe python3-native-3.12.14-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe libedit-native-20230828-3.1-r1: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2294 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/expat/expat_2.8.3.bb:do_populate_sysroot_setscene)
+NOTE: recipe libcap-native-2.69-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe python3-native-3.12.14-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2296 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/file/file_5.45.bb:do_recipe_qa_setscene)
+NOTE: recipe libcap-native-2.69-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2300 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-extended/lzip/lzlib_1.14.bb:do_recipe_qa_setscene)
+NOTE: recipe libffi-native-3.4.6-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe expat-native-2.8.3-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe libffi-native-3.4.6-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: recipe file-native-5.45-r0: task do_recipe_qa_setscene: Started
+NOTE: Running setscene task 2304 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/readline/readline_8.2.bb:do_recipe_qa_setscene)
+NOTE: recipe lzlib-native-1.14-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe file-native-5.45-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2312 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-extended/libtirpc/libtirpc_1.3.4.bb:do_populate_sysroot_setscene)
+NOTE: recipe expat-native-2.8.3-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2313 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-support/libgpg-error/libgpg-error_1.48.bb:do_recipe_qa_setscene)
+NOTE: recipe lzlib-native-1.14-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2315 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-support/attr/acl_2.3.2.bb:do_populate_sysroot_setscene)
+NOTE: recipe readline-native-8.2-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe libtirpc-native-1.3.4-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe readline-native-8.2-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: recipe libgpg-error-native-1.48-r0: task do_recipe_qa_setscene: Started
+NOTE: Running setscene task 2316 of 2410 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/gcc/gcc-source_13.5.bb:do_recipe_qa_setscene)
+NOTE: recipe acl-native-2.3.2-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe libtirpc-native-1.3.4-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2317 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-extended/libnsl/libnsl2_git.bb:do_recipe_qa_setscene)
+NOTE: recipe libgpg-error-native-1.48-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: recipe gcc-source-13.5.0-13.5.0-r0: task do_recipe_qa_setscene: Started
+NOTE: Running setscene task 2318 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/patch/patch_2.7.6.bb:do_populate_sysroot_setscene)
+NOTE: recipe acl-native-2.3.2-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2319 of 2410 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/cmake/cmake-native_3.28.3.bb:do_populate_sysroot_setscene)
+NOTE: recipe gcc-source-13.5.0-13.5.0-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2325 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-extended/libtirpc/libtirpc_1.3.4.bb:do_recipe_qa_setscene)
+NOTE: recipe cmake-native-3.28.3-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe libnsl2-native-2.0.1-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe patch-native-2.7.6-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe libnsl2-native-2.0.1-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2327 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/flex/flex_2.6.4.bb:do_populate_sysroot_setscene)
+NOTE: recipe libtirpc-native-1.3.4-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe patch-native-2.7.6-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2328 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-support/popt/popt_1.19.bb:do_populate_sysroot_setscene)
+NOTE: recipe libtirpc-native-1.3.4-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2332 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/libedit/libedit_20230828-3.1.bb:do_recipe_qa_setscene)
+NOTE: recipe flex-native-2.6.4-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe popt-native-1.19-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe libedit-native-20230828-3.1-r1: task do_recipe_qa_setscene: Started
+NOTE: recipe flex-native-2.6.4-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2333 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/expat/expat_2.8.3.bb:do_recipe_qa_setscene)
+NOTE: recipe cmake-native-3.28.3-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2334 of 2410 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/binutils/binutils-cross_2.42.bb:do_recipe_qa_setscene)
+NOTE: recipe popt-native-1.19-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2339 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-connectivity/openssl/openssl_3.5.8.bb:do_populate_sysroot_setscene)
+NOTE: recipe libedit-native-20230828-3.1-r1: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2341 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/patch/patch_2.7.6.bb:do_recipe_qa_setscene)
+NOTE: recipe binutils-cross-x86_64-2.42-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe expat-native-2.8.3-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe openssl-native-3.5.8-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe binutils-cross-x86_64-2.42-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2343 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-extended/bzip2/bzip2_1.0.8.bb:do_populate_sysroot_setscene)
+NOTE: recipe expat-native-2.8.3-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: recipe patch-native-2.7.6-r0: task do_recipe_qa_setscene: Started
+NOTE: Running setscene task 2345 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/ncurses/ncurses_6.4.bb:do_populate_sysroot_setscene)
+NOTE: recipe patch-native-2.7.6-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2346 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-support/attr/attr_2.5.1.bb:do_populate_sysroot_setscene)
+NOTE: recipe openssl-native-3.5.8-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2347 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-support/attr/acl_2.3.2.bb:do_recipe_qa_setscene)
+NOTE: recipe ncurses-native-6.4-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe bzip2-native-1.0.8-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe attr-native-2.5.1-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe bzip2-native-1.0.8-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2349 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/perl/perl_5.38.4.bb:do_populate_sysroot_setscene)
+NOTE: recipe acl-native-2.3.2-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe ncurses-native-6.4-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2350 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-extended/zstd/zstd_1.5.5.bb:do_populate_sysroot_setscene)
+NOTE: recipe acl-native-2.3.2-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2355 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-extended/xz/xz_5.4.7.bb:do_populate_sysroot_setscene)
+NOTE: recipe attr-native-2.5.1-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2357 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-connectivity/openssl/openssl_3.5.8.bb:do_recipe_qa_setscene)
+NOTE: recipe perl-native-5.38.4-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe zstd-native-1.5.5-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe xz-native-5.4.7-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe openssl-native-3.5.8-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe openssl-native-3.5.8-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2358 of 2410 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/cmake/cmake-native_3.28.3.bb:do_recipe_qa_setscene)
+NOTE: recipe zstd-native-1.5.5-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2359 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-support/popt/popt_1.19.bb:do_recipe_qa_setscene)
+NOTE: recipe cmake-native-3.28.3-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe xz-native-5.4.7-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2360 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-extended/bzip2/bzip2_1.0.8.bb:do_recipe_qa_setscene)
+NOTE: recipe cmake-native-3.28.3-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2362 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/flex/flex_2.6.4.bb:do_recipe_qa_setscene)
+NOTE: recipe popt-native-1.19-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe bzip2-native-1.0.8-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe flex-native-2.6.4-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe perl-native-5.38.4-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: recipe popt-native-1.19-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2364 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/zlib/zlib_1.3.1.bb:do_populate_sysroot_setscene)
+NOTE: Running setscene task 2366 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/make/make_4.4.1.bb:do_populate_sysroot_setscene)
+NOTE: recipe bzip2-native-1.0.8-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2369 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-support/gdbm/gdbm_1.23.bb:do_populate_sysroot_setscene)
+NOTE: recipe flex-native-2.6.4-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2370 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/ncurses/ncurses_6.4.bb:do_recipe_qa_setscene)
+NOTE: recipe zlib-native-1.3.1-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe make-native-4.4.1-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe gdbm-native-1.23-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe zlib-native-1.3.1-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2371 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/perl/perl_5.38.4.bb:do_recipe_qa_setscene)
+NOTE: recipe make-native-4.4.1-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2372 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-extended/xz/xz_5.4.7.bb:do_recipe_qa_setscene)
+NOTE: recipe ncurses-native-6.4-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe gdbm-native-1.23-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2373 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-extended/zstd/zstd_1.5.5.bb:do_recipe_qa_setscene)
+NOTE: recipe ncurses-native-6.4-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2374 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-support/attr/attr_2.5.1.bb:do_recipe_qa_setscene)
+NOTE: recipe perl-native-5.38.4-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe xz-native-5.4.7-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe zstd-native-1.5.5-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe perl-native-5.38.4-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2381 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-support/gdbm/gdbm_1.23.bb:do_recipe_qa_setscene)
+NOTE: recipe attr-native-2.5.1-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe xz-native-5.4.7-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2382 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/make/make_4.4.1.bb:do_recipe_qa_setscene)
+NOTE: recipe zstd-native-1.5.5-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2384 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/zlib/zlib_1.3.1.bb:do_recipe_qa_setscene)
+NOTE: recipe attr-native-2.5.1-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2385 of 2410 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/libtool/libtool-native_2.4.7.bb:do_populate_sysroot_setscene)
+NOTE: recipe gdbm-native-1.23-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe make-native-4.4.1-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe libtool-native-2.4.7-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe zlib-native-1.3.1-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe gdbm-native-1.23-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: recipe make-native-4.4.1-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: recipe libtool-native-2.4.7-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: recipe zlib-native-1.3.1-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2393 of 2410 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/libtool/libtool-native_2.4.7.bb:do_recipe_qa_setscene)
+NOTE: Running setscene task 2394 of 2410 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/m4/m4-native_1.4.19.bb:do_populate_sysroot_setscene)
+NOTE: Running task 263 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/binutils/binutils-cross_2.42.bb:do_fetch)
+NOTE: Running task 284 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/gcc/gcc-source_13.5.bb:do_fetch)
+NOTE: recipe libtool-native-2.4.7-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe m4-native-1.4.19-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe gcc-source-13.5.0-13.5.0-r0: task do_fetch: Started
+NOTE: recipe binutils-cross-x86_64-2.42-r0: task do_fetch: Started
+NOTE: recipe libtool-native-2.4.7-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: recipe m4-native-1.4.19-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2398 of 2410 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/gettext/gettext-minimal-native_0.22.5.bb:do_populate_sysroot_setscene)
+NOTE: Running setscene task 2399 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/gnu-config/gnu-config_git.bb:do_populate_sysroot_setscene)
+NOTE: recipe gcc-source-13.5.0-13.5.0-r0: task do_fetch: Succeeded
+NOTE: Running setscene task 2400 of 2410 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-extended/texinfo-dummy-native/texinfo-dummy-native.bb:do_populate_sysroot_setscene)
+NOTE: recipe binutils-cross-x86_64-2.42-r0: task do_fetch: Succeeded
+NOTE: Running setscene task 2401 of 2410 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/m4/m4-native_1.4.19.bb:do_recipe_qa_setscene)
+NOTE: recipe gettext-minimal-native-0.22.5-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe texinfo-dummy-native-1.0-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe gnu-config-native-20240101+git-r0: task do_populate_sysroot_setscene: Started
+NOTE: recipe m4-native-1.4.19-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe gettext-minimal-native-0.22.5-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2403 of 2410 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/gettext/gettext-minimal-native_0.22.5.bb:do_recipe_qa_setscene)
+NOTE: recipe gnu-config-native-20240101+git-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2405 of 2410 (virtual:native:/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/gnu-config/gnu-config_git.bb:do_recipe_qa_setscene)
+NOTE: recipe texinfo-dummy-native-1.0-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2407 of 2410 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-extended/texinfo-dummy-native/texinfo-dummy-native.bb:do_recipe_qa_setscene)
+NOTE: recipe m4-native-1.4.19-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running setscene task 2408 of 2410 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/quilt/quilt-native_0.67.bb:do_populate_sysroot_setscene)
+NOTE: recipe gettext-minimal-native-0.22.5-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe texinfo-dummy-native-1.0-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe gnu-config-native-20240101+git-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe gettext-minimal-native-0.22.5-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: recipe quilt-native-0.67-r0: task do_populate_sysroot_setscene: Started
+NOTE: Running task 295 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/binutils/binutils-cross_2.42.bb:do_unpack)
+NOTE: recipe texinfo-dummy-native-1.0-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: recipe gnu-config-native-20240101+git-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: recipe quilt-native-0.67-r0: task do_populate_sysroot_setscene: Succeeded
+NOTE: Running setscene task 2410 of 2410 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/quilt/quilt-native_0.67.bb:do_recipe_qa_setscene)
+NOTE: recipe binutils-cross-x86_64-2.42-r0: task do_unpack: Started
+NOTE: recipe quilt-native-0.67-r0: task do_recipe_qa_setscene: Started
+NOTE: recipe quilt-native-0.67-r0: task do_recipe_qa_setscene: Succeeded
+NOTE: Running task 546 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/gcc/gcc-source_13.5.bb:do_unpack)
+NOTE: recipe gcc-source-13.5.0-13.5.0-r0: task do_unpack: Started
+NOTE: Running task 1170 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-graphics/wayland/wayland-protocols_1.33.bb:do_unpack)
+NOTE: recipe wayland-protocols-1.33-r0: task do_unpack: Started
+NOTE: recipe wayland-protocols-1.33-r0: task do_unpack: Succeeded
+NOTE: Running task 1459 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-graphics/wayland/wayland-protocols_1.33.bb:do_patch)
+NOTE: recipe wayland-protocols-1.33-r0: task do_patch: Started
+NOTE: recipe wayland-protocols-1.33-r0: task do_patch: Succeeded
+NOTE: Running task 1972 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-gnome/hicolor-icon-theme/hicolor-icon-theme_0.17.bb:do_fetch)
+NOTE: recipe hicolor-icon-theme-0.17-r0: task do_fetch: Started
+NOTE: recipe hicolor-icon-theme-0.17-r0: task do_fetch: Succeeded
+NOTE: Running task 2113 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-gnome/hicolor-icon-theme/hicolor-icon-theme_0.17.bb:do_unpack)
+NOTE: Running task 2115 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-support/ca-certificates/ca-certificates_20260816.bb:do_fetch)
+NOTE: recipe hicolor-icon-theme-0.17-r0: task do_unpack: Started
+NOTE: recipe ca-certificates-20260816-r0: task do_fetch: Started
+NOTE: recipe ca-certificates-20260816-r0: task do_fetch: Succeeded
+NOTE: recipe hicolor-icon-theme-0.17-r0: task do_unpack: Succeeded
+NOTE: Running task 2163 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-gnome/hicolor-icon-theme/hicolor-icon-theme_0.17.bb:do_patch)
+NOTE: Running task 2192 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-gnome/gnome/adwaita-icon-theme_45.0.bb:do_fetch)
+NOTE: recipe hicolor-icon-theme-0.17-r0: task do_patch: Started
+NOTE: recipe adwaita-icon-theme-45.0-r0: task do_fetch: Started
+NOTE: recipe hicolor-icon-theme-0.17-r0: task do_patch: Succeeded
+NOTE: recipe adwaita-icon-theme-45.0-r0: task do_fetch: Succeeded
+NOTE: Running noexec task 2242 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/os-release/os-release.bb:do_fetch)
+NOTE: Running task 2243 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/update-rc.d/update-rc.d_0.8.bb:do_fetch)
+NOTE: Running task 2244 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/volatile-binds/volatile-binds.bb:do_fetch)
+NOTE: recipe update-rc.d-0.8+git-r0: task do_fetch: Started
+NOTE: recipe volatile-binds-1.0-r0: task do_fetch: Started
+NOTE: recipe volatile-binds-1.0-r0: task do_fetch: Succeeded
+NOTE: Running task 2270 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-support/ca-certificates/ca-certificates_20260816.bb:do_unpack)
+NOTE: recipe ca-certificates-20260816-r0: task do_unpack: Started
+NOTE: recipe ca-certificates-20260816-r0: task do_unpack: Succeeded
+NOTE: Running task 2271 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-support/ca-certificates/ca-certificates_20260816.bb:do_patch)
+NOTE: recipe ca-certificates-20260816-r0: task do_patch: Started
+NOTE: recipe update-rc.d-0.8+git-r0: task do_fetch: Succeeded
+NOTE: recipe ca-certificates-20260816-r0: task do_patch: Succeeded
+NOTE: Running task 2332 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-avyx/avyx-desktop/avyx-desktop_1.0.bb:do_fetch)
+NOTE: Running task 2338 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-multimedia/alsa/alsa-ucm-conf_1.2.11.bb:do_fetch)
+NOTE: recipe alsa-ucm-conf-1.2.11-r0: task do_fetch: Started
+NOTE: recipe avyx-desktop-1.0-r0: task do_fetch: Started
+NOTE: recipe avyx-desktop-1.0-r0: task do_fetch: Succeeded
+NOTE: recipe alsa-ucm-conf-1.2.11-r0: task do_fetch: Succeeded
+NOTE: Running task 2351 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-graphics/ttf-fonts/liberation-fonts_2.1.5.bb:do_fetch)
+NOTE: Running task 2352 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/run-postinsts/run-postinsts_1.0.bb:do_fetch)
+NOTE: recipe liberation-fonts-1_2.1.5-r0: task do_fetch: Started
+NOTE: recipe run-postinsts-1.0-r0: task do_fetch: Started
+NOTE: recipe run-postinsts-1.0-r0: task do_fetch: Succeeded
+NOTE: Running task 2363 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-gnome/gnome/adwaita-icon-theme_45.0.bb:do_unpack)
+NOTE: recipe liberation-fonts-1_2.1.5-r0: task do_fetch: Succeeded
+NOTE: Running noexec task 2381 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/os-release/os-release.bb:do_unpack)
+NOTE: Running task 2382 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/update-rc.d/update-rc.d_0.8.bb:do_unpack)
+NOTE: recipe adwaita-icon-theme-45.0-r0: task do_unpack: Started
+NOTE: recipe update-rc.d-0.8+git-r0: task do_unpack: Started
+NOTE: recipe update-rc.d-0.8+git-r0: task do_unpack: Succeeded
+NOTE: Running task 2383 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/volatile-binds/volatile-binds.bb:do_unpack)
+NOTE: recipe volatile-binds-1.0-r0: task do_unpack: Started
+NOTE: recipe volatile-binds-1.0-r0: task do_unpack: Succeeded
+NOTE: Running noexec task 2387 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/os-release/os-release.bb:do_patch)
+NOTE: Running task 2388 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/update-rc.d/update-rc.d_0.8.bb:do_patch)
+NOTE: recipe update-rc.d-0.8+git-r0: task do_patch: Started
+NOTE: recipe adwaita-icon-theme-45.0-r0: task do_unpack: Succeeded
+NOTE: recipe update-rc.d-0.8+git-r0: task do_patch: Succeeded
+NOTE: Running task 2389 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-gnome/gnome/adwaita-icon-theme_45.0.bb:do_patch)
+NOTE: Running task 2390 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/volatile-binds/volatile-binds.bb:do_patch)
+NOTE: recipe volatile-binds-1.0-r0: task do_patch: Started
+NOTE: recipe adwaita-icon-theme-45.0-r0: task do_patch: Started
+NOTE: recipe adwaita-icon-theme-45.0-r0: task do_patch: Succeeded
+NOTE: recipe volatile-binds-1.0-r0: task do_patch: Succeeded
+NOTE: Running task 2475 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-kernel/wireless-regdb/wireless-regdb_2026.09.03.bb:do_fetch)
+NOTE: Running task 2483 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-extended/timezone/tzdata.bb:do_fetch)
+NOTE: recipe wireless-regdb-2026.09.03-r0: task do_fetch: Started
+NOTE: recipe tzdata-2026c-r0: task do_fetch: Started
+NOTE: recipe wireless-regdb-2026.09.03-r0: task do_fetch: Succeeded
+NOTE: recipe tzdata-2026c-r0: task do_fetch: Succeeded
+NOTE: Running task 2493 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-kernel/linux-firmware/linux-firmware_20240909.bb:do_fetch)
+NOTE: Running task 2502 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-multimedia/alsa/alsa-topology-conf_1.2.5.1.bb:do_fetch)
+NOTE: recipe alsa-topology-conf-1.2.5.1-r0: task do_fetch: Started
+NOTE: recipe alsa-topology-conf-1.2.5.1-r0: task do_fetch: Succeeded
+NOTE: Running task 2505 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/netbase/netbase_6.4.bb:do_fetch)
+NOTE: recipe linux-firmware-1_20240909-r0: task do_fetch: Started
+NOTE: recipe netbase-1_6.4-r0: task do_fetch: Started
+NOTE: recipe linux-firmware-1_20240909-r0: task do_fetch: Succeeded
+NOTE: recipe netbase-1_6.4-r0: task do_fetch: Succeeded
+NOTE: Running task 2527 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/run-postinsts/run-postinsts_1.0.bb:do_unpack)
+NOTE: Running task 2532 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-avyx/avyx-desktop/avyx-desktop_1.0.bb:do_unpack)
+NOTE: recipe run-postinsts-1.0-r0: task do_unpack: Started
+NOTE: recipe avyx-desktop-1.0-r0: task do_unpack: Started
+NOTE: recipe run-postinsts-1.0-r0: task do_unpack: Succeeded
+NOTE: Running task 2533 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/run-postinsts/run-postinsts_1.0.bb:do_patch)
+NOTE: recipe avyx-desktop-1.0-r0: task do_unpack: Succeeded
+NOTE: Running task 2539 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-multimedia/alsa/alsa-ucm-conf_1.2.11.bb:do_unpack)
+NOTE: recipe run-postinsts-1.0-r0: task do_patch: Started
+NOTE: recipe alsa-ucm-conf-1.2.11-r0: task do_unpack: Started
+NOTE: recipe run-postinsts-1.0-r0: task do_patch: Succeeded
+NOTE: recipe alsa-ucm-conf-1.2.11-r0: task do_unpack: Succeeded
+NOTE: Running task 2550 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-avyx/avyx-desktop/avyx-desktop_1.0.bb:do_patch)
+NOTE: Running task 2556 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-multimedia/alsa/alsa-ucm-conf_1.2.11.bb:do_patch)
+NOTE: recipe avyx-desktop-1.0-r0: task do_patch: Started
+NOTE: recipe alsa-ucm-conf-1.2.11-r0: task do_patch: Started
+NOTE: recipe avyx-desktop-1.0-r0: task do_patch: Succeeded
+NOTE: recipe alsa-ucm-conf-1.2.11-r0: task do_patch: Succeeded
+NOTE: Running task 2566 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-graphics/ttf-fonts/liberation-fonts_2.1.5.bb:do_unpack)
+NOTE: Running task 2569 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/initrdscripts/initramfs-framework_1.0.bb:do_fetch)
+NOTE: recipe liberation-fonts-1_2.1.5-r0: task do_unpack: Started
+NOTE: recipe initramfs-framework-1.0-r0: task do_fetch: Started
+NOTE: recipe initramfs-framework-1.0-r0: task do_fetch: Succeeded
+NOTE: Running task 2598 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-kernel/wireless-regdb/wireless-regdb_2026.09.03.bb:do_unpack)
+NOTE: recipe binutils-cross-x86_64-2.42-r0: task do_unpack: Succeeded
+NOTE: recipe liberation-fonts-1_2.1.5-r0: task do_unpack: Succeeded
+NOTE: Running task 2599 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/binutils/binutils-cross_2.42.bb:do_patch)
+NOTE: Running task 2600 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-graphics/ttf-fonts/liberation-fonts_2.1.5.bb:do_patch)
+NOTE: recipe wireless-regdb-2026.09.03-r0: task do_unpack: Started
+NOTE: recipe liberation-fonts-1_2.1.5-r0: task do_patch: Started
+NOTE: recipe binutils-cross-x86_64-2.42-r0: task do_patch: Started
+NOTE: recipe wireless-regdb-2026.09.03-r0: task do_unpack: Succeeded
+NOTE: recipe liberation-fonts-1_2.1.5-r0: task do_patch: Succeeded
+NOTE: Running task 2608 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-extended/timezone/tzdata.bb:do_unpack)
+NOTE: Running task 2618 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-kernel/linux-firmware/linux-firmware_20240909.bb:do_unpack)
+NOTE: recipe tzdata-2026c-r0: task do_unpack: Started
+NOTE: recipe tzdata-2026c-r0: task do_unpack: Succeeded
+NOTE: Running task 2623 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-kernel/wireless-regdb/wireless-regdb_2026.09.03.bb:do_patch)
+NOTE: recipe linux-firmware-1_20240909-r0: task do_unpack: Started
+NOTE: recipe wireless-regdb-2026.09.03-r0: task do_patch: Started
+NOTE: recipe wireless-regdb-2026.09.03-r0: task do_patch: Succeeded
+NOTE: Running task 2631 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-extended/timezone/tzdata.bb:do_patch)
+NOTE: recipe tzdata-2026c-r0: task do_patch: Started
+NOTE: recipe tzdata-2026c-r0: task do_patch: Succeeded
+NOTE: Running task 2649 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-multimedia/alsa/alsa-topology-conf_1.2.5.1.bb:do_unpack)
+NOTE: recipe alsa-topology-conf-1.2.5.1-r0: task do_unpack: Started
+NOTE: recipe alsa-topology-conf-1.2.5.1-r0: task do_unpack: Succeeded
+NOTE: Running task 2652 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/netbase/netbase_6.4.bb:do_unpack)
+NOTE: recipe netbase-1_6.4-r0: task do_unpack: Started
+NOTE: recipe netbase-1_6.4-r0: task do_unpack: Succeeded
+NOTE: Running task 2667 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-multimedia/alsa/alsa-topology-conf_1.2.5.1.bb:do_patch)
+NOTE: recipe alsa-topology-conf-1.2.5.1-r0: task do_patch: Started
+NOTE: recipe alsa-topology-conf-1.2.5.1-r0: task do_patch: Succeeded
+NOTE: Running task 2670 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/netbase/netbase_6.4.bb:do_patch)
+NOTE: recipe netbase-1_6.4-r0: task do_patch: Started
+NOTE: recipe netbase-1_6.4-r0: task do_patch: Succeeded
+NOTE: Running task 2735 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/initrdscripts/initramfs-framework_1.0.bb:do_unpack)
+NOTE: recipe initramfs-framework-1.0-r0: task do_unpack: Started
+NOTE: recipe initramfs-framework-1.0-r0: task do_unpack: Succeeded
+NOTE: Running task 2736 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/initrdscripts/initramfs-framework_1.0.bb:do_patch)
+NOTE: recipe initramfs-framework-1.0-r0: task do_patch: Started
+NOTE: recipe initramfs-framework-1.0-r0: task do_patch: Succeeded
+NOTE: Running task 2802 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/initrdscripts/initramfs-module-setup-live_1.0.bb:do_fetch)
+NOTE: recipe initramfs-module-setup-live-1.0-r0: task do_fetch: Started
+NOTE: recipe initramfs-module-setup-live-1.0-r0: task do_fetch: Succeeded
+NOTE: Running task 2810 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-avyx/avyx-desktop/avyx-desktop_1.0.bb:do_deploy_source_date_epoch)
+NOTE: recipe avyx-desktop-1.0-r0: task do_deploy_source_date_epoch: Started
+NOTE: recipe avyx-desktop-1.0-r0: task do_deploy_source_date_epoch: Succeeded
+NOTE: Running task 2861 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-avyx/avyx-desktop/avyx-desktop_1.0.bb:do_prepare_recipe_sysroot)
+NOTE: recipe avyx-desktop-1.0-r0: task do_prepare_recipe_sysroot: Started
+NOTE: recipe avyx-desktop-1.0-r0: task do_prepare_recipe_sysroot: Succeeded
+NOTE: Running task 2872 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-avyx/avyx-desktop/avyx-desktop_1.0.bb:do_configure)
+NOTE: recipe avyx-desktop-1.0-r0: task do_configure: Started
+NOTE: recipe avyx-desktop-1.0-r0: task do_configure: Succeeded
+NOTE: Running task 2876 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-avyx/avyx-desktop/avyx-desktop_1.0.bb:do_compile)
+NOTE: recipe avyx-desktop-1.0-r0: task do_compile: Started
+NOTE: recipe avyx-desktop-1.0-r0: task do_compile: Succeeded
+NOTE: Running task 2880 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-avyx/avyx-desktop/avyx-desktop_1.0.bb:do_install)
+NOTE: recipe avyx-desktop-1.0-r0: task do_install: Started
+NOTE: recipe avyx-desktop-1.0-r0: task do_install: Succeeded
+NOTE: Running task 2884 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-avyx/avyx-desktop/avyx-desktop_1.0.bb:do_package)
+NOTE: recipe avyx-desktop-1.0-r0: task do_package: Started
+NOTE: recipe binutils-cross-x86_64-2.42-r0: task do_patch: Succeeded
+NOTE: Running task 2917 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/initrdscripts/initramfs-module-setup-live_1.0.bb:do_unpack)
+NOTE: recipe initramfs-module-setup-live-1.0-r0: task do_unpack: Started
+NOTE: recipe initramfs-module-setup-live-1.0-r0: task do_unpack: Succeeded
+NOTE: Running task 2919 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/initrdscripts/initramfs-module-setup-live_1.0.bb:do_patch)
+NOTE: recipe initramfs-module-setup-live-1.0-r0: task do_patch: Started
+NOTE: recipe initramfs-module-setup-live-1.0-r0: task do_patch: Succeeded
+NOTE: Running task 3155 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/os-release/os-release.bb:do_populate_lic)
+NOTE: recipe os-release-1.0-r0: task do_populate_lic: Started
+NOTE: recipe avyx-desktop-1.0-r0: task do_package: Succeeded
+NOTE: Running task 3156 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-avyx/avyx-desktop/avyx-desktop_1.0.bb:do_packagedata)
+NOTE: recipe avyx-desktop-1.0-r0: task do_packagedata: Started
+NOTE: recipe os-release-1.0-r0: task do_populate_lic: Succeeded
+NOTE: recipe avyx-desktop-1.0-r0: task do_packagedata: Succeeded
+NOTE: Running task 3157 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/update-rc.d/update-rc.d_0.8.bb:do_populate_lic)
+NOTE: Running task 3158 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/volatile-binds/volatile-binds.bb:do_populate_lic)
+NOTE: recipe update-rc.d-0.8+git-r0: task do_populate_lic: Started
+NOTE: recipe volatile-binds-1.0-r0: task do_populate_lic: Started
+NOTE: recipe update-rc.d-0.8+git-r0: task do_populate_lic: Succeeded
+NOTE: recipe volatile-binds-1.0-r0: task do_populate_lic: Succeeded
+NOTE: Running task 3167 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-support/ca-certificates/ca-certificates_20260816.bb:do_populate_lic)
+NOTE: Running task 3231 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/binutils/binutils-cross_2.42.bb:do_populate_lic)
+NOTE: recipe ca-certificates-20260816-r0: task do_populate_lic: Started
+NOTE: recipe binutils-cross-x86_64-2.42-r0: task do_populate_lic: Started
+NOTE: recipe gcc-source-13.5.0-13.5.0-r0: task do_unpack: Succeeded
+NOTE: recipe ca-certificates-20260816-r0: task do_populate_lic: Succeeded
+NOTE: recipe binutils-cross-x86_64-2.42-r0: task do_populate_lic: Succeeded
+NOTE: Running task 4500 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/gcc/gcc-cross_13.5.bb:do_populate_lic)
+NOTE: Running task 4511 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-devtools/run-postinsts/run-postinsts_1.0.bb:do_populate_lic)
+NOTE: recipe run-postinsts-1.0-r0: task do_populate_lic: Started
+NOTE: recipe gcc-cross-x86_64-13.5.0-r0: task do_populate_lic: Started
+NOTE: Running task 4757 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-gnome/hicolor-icon-theme/hicolor-icon-theme_0.17.bb:do_populate_lic)
+NOTE: recipe hicolor-icon-theme-0.17-r0: task do_populate_lic: Started
+NOTE: recipe run-postinsts-1.0-r0: task do_populate_lic: Succeeded
+NOTE: recipe gcc-cross-x86_64-13.5.0-r0: task do_populate_lic: Succeeded
+NOTE: recipe hicolor-icon-theme-0.17-r0: task do_populate_lic: Succeeded
+NOTE: Running task 4818 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-graphics/wayland/wayland-protocols_1.33.bb:do_populate_lic)
+NOTE: Running task 4826 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-gnome/gnome/adwaita-icon-theme_45.0.bb:do_populate_lic)
+NOTE: Running task 4840 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-avyx/avyx-desktop/avyx-desktop_1.0.bb:do_populate_lic)
+NOTE: recipe avyx-desktop-1.0-r0: task do_populate_lic: Started
+NOTE: recipe wayland-protocols-1.33-r0: task do_populate_lic: Started
+NOTE: recipe adwaita-icon-theme-45.0-r0: task do_populate_lic: Started
+NOTE: recipe adwaita-icon-theme-45.0-r0: task do_populate_lic: Succeeded
+NOTE: recipe wayland-protocols-1.33-r0: task do_populate_lic: Succeeded
+NOTE: recipe avyx-desktop-1.0-r0: task do_populate_lic: Succeeded
+NOTE: Running task 4848 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-kernel/wireless-regdb/wireless-regdb_2026.09.03.bb:do_populate_lic)
+NOTE: Running task 4857 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-multimedia/alsa/alsa-ucm-conf_1.2.11.bb:do_populate_lic)
+NOTE: Running task 4862 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-extended/timezone/tzdata.bb:do_populate_lic)
+NOTE: recipe wireless-regdb-2026.09.03-r0: task do_populate_lic: Started
+NOTE: recipe alsa-ucm-conf-1.2.11-r0: task do_populate_lic: Started
+NOTE: recipe tzdata-2026c-r0: task do_populate_lic: Started
+NOTE: recipe wireless-regdb-2026.09.03-r0: task do_populate_lic: Succeeded
+NOTE: recipe alsa-ucm-conf-1.2.11-r0: task do_populate_lic: Succeeded
+NOTE: recipe tzdata-2026c-r0: task do_populate_lic: Succeeded
+NOTE: Running noexec task 4907 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-core/images/avyx-image.bb:do_fetch)
+NOTE: Running task 4960 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-multimedia/alsa/alsa-topology-conf_1.2.5.1.bb:do_populate_lic)
+NOTE: Running task 4966 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-graphics/ttf-fonts/liberation-fonts_2.1.5.bb:do_populate_lic)
+NOTE: Running task 4975 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/netbase/netbase_6.4.bb:do_populate_lic)
+NOTE: recipe liberation-fonts-1_2.1.5-r0: task do_populate_lic: Started
+NOTE: recipe alsa-topology-conf-1.2.5.1-r0: task do_populate_lic: Started
+NOTE: recipe netbase-1_6.4-r0: task do_populate_lic: Started
+NOTE: recipe liberation-fonts-1_2.1.5-r0: task do_populate_lic: Succeeded
+NOTE: recipe alsa-topology-conf-1.2.5.1-r0: task do_populate_lic: Succeeded
+NOTE: recipe netbase-1_6.4-r0: task do_populate_lic: Succeeded
+NOTE: recipe linux-firmware-1_20240909-r0: task do_unpack: Succeeded
+NOTE: Running task 4976 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-kernel/linux-firmware/linux-firmware_20240909.bb:do_patch)
+NOTE: Running task 5099 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-avyx/avyx-session/avyx-session_1.0.bb:do_package_write_ipk)
+NOTE: Running task 5100 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-avyx/avyx-session/avyx-session_1.0.bb:do_package_qa)
+NOTE: Running task 5117 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-avyx/avyx-desktop/avyx-desktop_1.0.bb:do_package_write_ipk)
+NOTE: recipe linux-firmware-1_20240909-r0: task do_patch: Started
+NOTE: recipe linux-firmware-1_20240909-r0: task do_patch: Succeeded
+NOTE: recipe avyx-session-1.0-r0: task do_package_write_ipk: Started
+NOTE: recipe avyx-session-1.0-r0: task do_package_qa: Started
+NOTE: Running task 5124 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-kernel/linux-firmware/linux-firmware_20240909.bb:do_populate_lic)
+NOTE: recipe avyx-desktop-1.0-r0: task do_package_write_ipk: Started
+NOTE: recipe linux-firmware-1_20240909-r0: task do_populate_lic: Started
+NOTE: recipe linux-firmware-1_20240909-r0: task do_populate_lic: Succeeded
+NOTE: recipe avyx-session-1.0-r0: task do_package_qa: Succeeded
+NOTE: Running task 5126 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-avyx/avyx-desktop/avyx-desktop_1.0.bb:do_package_qa)
+NOTE: Running task 5234 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-core/images/avyx-image.bb:do_prepare_recipe_sysroot)
+NOTE: recipe avyx-desktop-1.0-r0: task do_package_qa: Started
+NOTE: recipe avyx-image-1.0-r0: task do_prepare_recipe_sysroot: Started
+NOTE: recipe avyx-image-1.0-r0: task do_prepare_recipe_sysroot: Succeeded
+NOTE: Running task 5236 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/initrdscripts/initramfs-module-setup-live_1.0.bb:do_populate_lic)
+NOTE: recipe initramfs-module-setup-live-1.0-r0: task do_populate_lic: Started
+NOTE: recipe initramfs-module-setup-live-1.0-r0: task do_populate_lic: Succeeded
+NOTE: recipe avyx-desktop-1.0-r0: task do_package_qa: Succeeded
+NOTE: Running task 5237 of 5354 (/home/runner/work/avyx-os/avyx-os/yocto/sources/poky/meta/recipes-core/initrdscripts/initramfs-framework_1.0.bb:do_populate_lic)
+NOTE: Running noexec task 5239 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-core/images/avyx-initramfs.bb:do_fetch)
+NOTE: Running task 5246 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-core/images/avyx-initramfs.bb:do_prepare_recipe_sysroot)
+NOTE: recipe initramfs-framework-1.0-r0: task do_populate_lic: Started
+NOTE: recipe avyx-initramfs-1.0-r0: task do_prepare_recipe_sysroot: Started
+NOTE: recipe avyx-initramfs-1.0-r0: task do_prepare_recipe_sysroot: Succeeded
+NOTE: recipe initramfs-framework-1.0-r0: task do_populate_lic: Succeeded
+NOTE: Running task 5340 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-core/images/avyx-initramfs.bb:do_rootfs)
+NOTE: recipe avyx-initramfs-1.0-r0: task do_rootfs: Started
+NOTE: recipe avyx-session-1.0-r0: task do_package_write_ipk: Succeeded
+NOTE: recipe avyx-desktop-1.0-r0: task do_package_write_ipk: Succeeded
+NOTE: Running task 5341 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-core/images/avyx-image.bb:do_rootfs)
+NOTE: recipe avyx-image-1.0-r0: task do_rootfs: Started
+NOTE: recipe avyx-initramfs-1.0-r0: task do_rootfs: Succeeded
+NOTE: Running task 5342 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-core/images/avyx-initramfs.bb:do_flush_pseudodb)
+NOTE: recipe avyx-initramfs-1.0-r0: task do_flush_pseudodb: Started
+NOTE: recipe avyx-initramfs-1.0-r0: task do_flush_pseudodb: Succeeded
+NOTE: Running task 5343 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-core/images/avyx-initramfs.bb:do_image_qa)
+NOTE: recipe avyx-initramfs-1.0-r0: task do_image_qa: Started
+NOTE: recipe avyx-initramfs-1.0-r0: task do_image_qa: Succeeded
+NOTE: Running task 5344 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-core/images/avyx-initramfs.bb:do_image)
+NOTE: recipe avyx-initramfs-1.0-r0: task do_image: Started
+NOTE: recipe avyx-initramfs-1.0-r0: task do_image: Succeeded
+NOTE: Running task 5345 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-core/images/avyx-initramfs.bb:do_image_cpio)
+NOTE: recipe avyx-initramfs-1.0-r0: task do_image_cpio: Started
+NOTE: recipe avyx-initramfs-1.0-r0: task do_image_cpio: Succeeded
+NOTE: Running task 5346 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-core/images/avyx-initramfs.bb:do_image_complete)
+NOTE: recipe avyx-initramfs-1.0-r0: task do_image_complete: Started
+NOTE: recipe avyx-initramfs-1.0-r0: task do_image_complete: Succeeded
+NOTE: recipe avyx-image-1.0-r0: task do_rootfs: Succeeded
+NOTE: Running task 5347 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-core/images/avyx-image.bb:do_flush_pseudodb)
+NOTE: recipe avyx-image-1.0-r0: task do_flush_pseudodb: Started
+NOTE: recipe avyx-image-1.0-r0: task do_flush_pseudodb: Succeeded
+NOTE: Running task 5348 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-core/images/avyx-image.bb:do_image_qa)
+NOTE: recipe avyx-image-1.0-r0: task do_image_qa: Started
+NOTE: recipe avyx-image-1.0-r0: task do_image_qa: Succeeded
+NOTE: Running task 5349 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-core/images/avyx-image.bb:do_image)
+NOTE: recipe avyx-image-1.0-r0: task do_image: Started
+NOTE: recipe avyx-image-1.0-r0: task do_image: Succeeded
+NOTE: Running task 5350 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-core/images/avyx-image.bb:do_image_squashfs_zst)
+NOTE: recipe avyx-image-1.0-r0: task do_image_squashfs_zst: Started
+NOTE: recipe avyx-image-1.0-r0: task do_image_squashfs_zst: Succeeded
+NOTE: Running task 5351 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-core/images/avyx-image.bb:do_bootimg)
+NOTE: recipe avyx-image-1.0-r0: task do_bootimg: Started
+NOTE: recipe avyx-image-1.0-r0: task do_bootimg: Succeeded
+NOTE: Running task 5352 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-core/images/avyx-image.bb:do_image_complete)
+NOTE: recipe avyx-image-1.0-r0: task do_image_complete: Started
+NOTE: recipe avyx-image-1.0-r0: task do_image_complete: Succeeded
+NOTE: Running task 5353 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-core/images/avyx-image.bb:do_populate_lic_deploy)
+NOTE: recipe avyx-image-1.0-r0: task do_populate_lic_deploy: Started
+NOTE: recipe avyx-image-1.0-r0: task do_populate_lic_deploy: Succeeded
+NOTE: Running noexec task 5354 of 5354 (/home/runner/work/avyx-os/avyx-os/meta-avyx/recipes-core/images/avyx-image.bb:do_build)
+NOTE: Tasks Summary: Attempted 5354 tasks of which 5245 didn't need to be rerun and all succeeded.

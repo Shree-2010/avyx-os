@@ -1,0 +1,78 @@
+{
+  "mode": "uefi",
+  "accel": "kvm",
+  "cpu_model": "SandyBridge",
+  "vcpus": 2,
+  "ram_mb": 4096,
+  "graphics": "QEMU std VGA, no 3D (software rendering in the guest)",
+  "gfx_profile": "AVYX_MARK gfx_profile basic",
+  "reason_stopped": "marker done",
+  "reached_userspace": true,
+  "reached_desktop": false,
+  "marks": {
+    "userspace": {
+      "wall_s": 9.1,
+      "line": "AVYX_MARK userspace uptime=2.45"
+    },
+    "rootfs": {
+      "wall_s": 9.1,
+      "line": "AVYX_MARK rootfs type=squashfs src=/dev/loop0"
+    },
+    "cmdline": {
+      "wall_s": 9.1,
+      "line": "AVYX_MARK cmdline BOOT_IMAGE=/bzImage LABEL=boot root=/dev/ram0 ro quiet splash loglevel=3 vt.global_cursor_default=0 console=tty0 console=ttyS0,115200"
+    },
+    "kernel": {
+      "wall_s": 9.1,
+      "line": "AVYX_MARK kernel 6.6.151-yocto-standard"
+    },
+    "getty_active": {
+      "wall_s": 9.1,
+      "line": "AVYX_MARK getty_active uptime=2.47"
+    },
+    "session_starting": {
+      "wall_s": 9.1,
+      "line": "AVYX_MARK session_starting gfx=basic"
+    },
+    "labwc_started": {
+      "wall_s": 9.6,
+      "line": "AVYX_MARK labwc_started wayland=wayland-0"
+    },
+    "shell_exited": {
+      "wall_s": 9.6,
+      "line": "AVYX_MARK shell_exited n=0 rc=133"
+    },
+    "shell_ready_TIMEOUT": {
+      "wall_s": 129.3,
+      "line": "AVYX_MARK shell_ready_TIMEOUT uptime=122.67"
+    },
+    "gfx_profile": {
+      "wall_s": 129.3,
+      "line": "AVYX_MARK gfx_profile basic"
+    },
+    "desktop_idle": {
+      "wall_s": 154.3,
+      "line": "AVYX_MARK desktop_idle mem_used_mb=122 mem_total_mb=3925 uptime=147.69"
+    },
+    "diag_begin": {
+      "wall_s": 154.3,
+      "line": "AVYX_MARK diag_begin processes"
+    },
+    "diag_end": {
+      "wall_s": 154.3,
+      "line": "AVYX_MARK diag_end processes"
+    },
+    "done": {
+      "wall_s": 154.8,
+      "line": "AVYX_MARK done"
+    }
+  },
+  "idle_ram_used_mb": 122,
+  "screenshots": [
+    "uefi-0001s.png",
+    "uefi-0004s.png",
+    "uefi-0007s.png",
+    "uefi-0010s.png"
+  ],
+  "wall_seconds_total": 177.4
+}

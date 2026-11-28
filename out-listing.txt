@@ -1,0 +1,6 @@
+total 701940
+drwxr-xr-x  3 runner runner      4096 Nov 28 11:37 .
+drwxr-xr-x 10 runner runner      4096 Nov 28 11:36 ..
+-rw-r--r--  1 runner runner 719323136 Nov 28 11:36 AVYX-OS-0.1.0-dev+7-x86_64.iso
+-rw-r--r--  1 runner runner        97 Nov 28 11:36 AVYX-OS-0.1.0-dev+7-x86_64.iso.sha256
+drwxr-xr-x  4 runner runner      4096 Nov 28 11:42 test
